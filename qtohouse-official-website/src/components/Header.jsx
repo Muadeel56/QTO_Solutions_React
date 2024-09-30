@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.svg";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -20,7 +21,7 @@ function Header() {
             </div>
             <div className="flex space-x-2 items-center">
               <PhoneIcon />
-              <p>(321)-544-0023</p>
+              <p>(571)-748-4366</p>
             </div>
           </div>
         </div>
@@ -34,19 +35,27 @@ function Header() {
             <div className="flex space-x-6 items-center">
               <div className="flex items-center space-x-1">
                 <HomeIcon className="text-gray-500" />
-                <p>Home</p>
+                <Link to="/" className="text-gray-800 hover:text-gray-500 transition-all">
+                  Home
+                </Link>
               </div>
               <div className="flex items-center space-x-1">
                 <InfoIcon className="text-gray-500" />
-                <p>About Us</p>
+                <Link to="/about" className="text-gray-800 hover:text-gray-500 transition-all">
+                  About Us
+                </Link>
               </div>
               <div className="flex items-center space-x-1">
                 <WorkIcon className="text-gray-500" />
-                <p>Solutions</p>
+                <Link to="/solutions" className="text-gray-800 hover:text-gray-500 transition-all">
+                  Solutions
+                </Link>
               </div>
               <div className="flex items-center space-x-1">
                 <ContactsIcon className="text-gray-500" />
-                <p>Contact Us</p>
+                <Link to="/contact" className="text-gray-800 hover:text-gray-500 transition-all">
+                  Contact Us
+                </Link>
               </div>
             </div>
             <div>
