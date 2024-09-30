@@ -41,14 +41,20 @@ function Header() {
               </div>
               <div className="flex items-center space-x-1">
                 <InfoIcon className="text-gray-500" />
+                <Link to="/projects" className="text-gray-800 hover:text-gray-500 transition-all">
+                  Projects
+                </Link>
+              </div>
+              <div className="flex items-center space-x-1">
+                <InfoIcon className="text-gray-500" />
                 <Link to="/about" className="text-gray-800 hover:text-gray-500 transition-all">
                   About Us
                 </Link>
               </div>
               <div className="flex items-center space-x-1">
                 <WorkIcon className="text-gray-500" />
-                <Link to="/solutions" className="text-gray-800 hover:text-gray-500 transition-all">
-                  Solutions
+                <Link to="/careers" className="text-gray-800 hover:text-gray-500 transition-all">
+                  Careers
                 </Link>
               </div>
               <div className="flex items-center space-x-1">

@@ -6,6 +6,8 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import SolutionsPage from "./pages/SolutionsPage";
 import ContactPage from "./pages/ContactPage";
+import ProjectPage from "./pages/ProjectsPage";
+import CareersPage from "./pages/CareersPage";
 
 function App() {
   return (
@@ -18,9 +20,11 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/projects" element={<ProjectPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/solutions" element={<SolutionsPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/careers" element={<CareersPage />} />
           </Routes>
         </main>
 
