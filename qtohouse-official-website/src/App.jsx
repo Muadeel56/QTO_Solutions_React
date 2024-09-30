@@ -9,6 +9,7 @@ import ContactPage from "./pages/ContactPage";
 import ProjectPage from "./pages/ProjectsPage";
 import CareersPage from "./pages/CareersPage";
 import SamplePage from "./pages/SamplesPage";
+import ProjectDetailPage from "./pages/ProjectDetailPage";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/solutions" element={<SolutionsPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/careers" element={<CareersPage />} />
+            <Route path="/projects/:projectId" element={<ProjectDetailPage />} />
           </Routes>
         </main>
 

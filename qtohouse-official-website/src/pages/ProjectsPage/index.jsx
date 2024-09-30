@@ -3,6 +3,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { Button, TextField } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 // Dummy data from the backend (as an example)
 const dummyProjects = {
@@ -13,7 +14,8 @@ const dummyProjects = {
       name: "Lahore Shopping Mall Construction",
       location: "Lahore, Pakistan",
       bid_amount: 1500000,
-      status: "Active"
+      status: "Active",
+      division: "Retail"
     },
     {
       id: 2,
@@ -21,7 +23,8 @@ const dummyProjects = {
       name: "Islamabad Highrise Building",
       location: "Islamabad, Pakistan",
       bid_amount: 3000000,
-      status: "Active"
+      status: "Active",
+      division: "Residential"
     },
     {
       id: 3,
@@ -29,7 +32,8 @@ const dummyProjects = {
       name: "Karachi Residential Apartments",
       location: "Karachi, Pakistan",
       bid_amount: 1200000,
-      status: "Past"
+      status: "Past",
+      division: "Residential"
     },
     {
       id: 4,
@@ -37,7 +41,8 @@ const dummyProjects = {
       name: "Peshawar Hospital Expansion",
       location: "Peshawar, Pakistan",
       bid_amount: 2200000,
-      status: "My Projects"
+      status: "My Projects",
+      division: "Healthcare"
     },
     {
       id: 5,
@@ -45,7 +50,26 @@ const dummyProjects = {
       name: "Faisalabad Industrial Complex",
       location: "Faisalabad, Pakistan",
       bid_amount: 5000000,
-      status: "Active"
+      status: "Active",
+      division: "Industrial"
+    },
+    {
+      id: 6,
+      bid_date: "2024-04-11",
+      name: "Quetta Commercial Plaza",
+      location: "Quetta, Pakistan",
+      bid_amount: 1800000,
+      status: "Past",
+      division: "Commercial"
+    },
+    {
+      id: 7,
+      bid_date: "2024-08-25",
+      name: "Multan Green Housing Project",
+      location: "Multan, Pakistan",
+      bid_amount: 4000000,
+      status: "Active",
+      division: "Residential"
     }
   ]
 };
@@ -56,7 +80,6 @@ function ProjectPage() {
   const [filters, setFilters] = useState({
     keyword: '',
     location: '',
-    dateRange: '',
     bidAmount: '',
     status: '',
     division: ''
@@ -64,11 +87,13 @@ function ProjectPage() {
   const [openFilters, setOpenFilters] = useState({
     keyword: false,
     location: false,
-    dateRange: false,
     bidAmount: false,
     status: false,
     division: false
   });
+  const [selectedTab, setSelectedTab] = useState('Active'); // State to track the selected tab
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Simulate fetching data from backend
@@ -116,8 +141,22 @@ function ProjectPage() {
       );
     }
 
+    // Apply division filter
+    if (filters.division) {
+      updatedProjects = updatedProjects.filter((project) =>
+        project.division.toLowerCase().includes(filters.division.toLowerCase())
+      );
+    }
+
+    // Apply selected tab filter (status filter)
+    if (selectedTab) {
+      updatedProjects = updatedProjects.filter(
+        (project) => project.status.toLowerCase() === selectedTab.toLowerCase()
+      );
+    }
+
     setFilteredProjects(updatedProjects);
-  }, [filters, projects]);
+  }, [filters, projects, selectedTab]);
 
   const toggleFilter = (filterName) => {
     setOpenFilters((prevFilters) => ({
@@ -238,6 +277,31 @@ function ProjectPage() {
               />
             )}
           </div>
+
+          {/* Filter By Division */}
+          <div className="mb-4">
+            <div
+              className="flex items-center justify-between cursor-pointer"
+              onClick={() => toggleFilter('division')}
+            >
+              <h1 className="text-lg font-medium text-gray-700">Division</h1>
+              <ArrowDropDownIcon className="text-gray-600" />
+            </div>
+            {openFilters.division && (
+              <TextField
+                fullWidth
+                variant="outlined"
+                size="small"
+                placeholder="Enter division..."
+                value={filters.division}
+                onChange={(e) => handleFilterChange('division', e.target.value)}
+                InputProps={{
+                  endAdornment: <SearchIcon className="text-yellow-500" />
+                }}
+                className="mt-4"
+              />
+            )}
+          </div>
         </div>
 
         {/* Project Tabs and Listings */}
@@ -245,31 +309,43 @@ function ProjectPage() {
           {/* Project Tabs */}
           <div className="flex space-x-4 mb-8">
             <Button
-              variant="contained"
+              variant={selectedTab === 'Active' ? 'contained' : 'outlined'}
+              onClick={() => setSelectedTab('Active')}
               sx={{
-                backgroundColor: '#FFD700',
-                color: '#000',
-                '&:hover': { backgroundColor: '#FFC000' }
+                backgroundColor: selectedTab === 'Active' ? '#FFD700' : undefined,
+                color: selectedTab === 'Active' ? '#000' : '#333',
+                borderColor: '#FFD700',
+                '&:hover': {
+                  backgroundColor: selectedTab === 'Active' ? '#FFC000' : undefined
+                }
               }}
             >
               Active Projects
             </Button>
             <Button
-              variant="outlined"
+              variant={selectedTab === 'Past' ? 'contained' : 'outlined'}
+              onClick={() => setSelectedTab('Past')}
               sx={{
-                color: '#333',
+                backgroundColor: selectedTab === 'Past' ? '#FFD700' : undefined,
+                color: selectedTab === 'Past' ? '#000' : '#333',
                 borderColor: '#FFD700',
-                '&:hover': { borderColor: '#FFC000', color: '#000' }
+                '&:hover': {
+                  backgroundColor: selectedTab === 'Past' ? '#FFC000' : undefined
+                }
               }}
             >
               Past Projects
             </Button>
             <Button
-              variant="outlined"
+              variant={selectedTab === 'My Projects' ? 'contained' : 'outlined'}
+              onClick={() => setSelectedTab('My Projects')}
               sx={{
-                color: '#333',
+                backgroundColor: selectedTab === 'My Projects' ? '#FFD700' : undefined,
+                color: selectedTab === 'My Projects' ? '#000' : '#333',
                 borderColor: '#FFD700',
-                '&:hover': { borderColor: '#FFC000', color: '#000' }
+                '&:hover': {
+                  backgroundColor: selectedTab === 'My Projects' ? '#FFC000' : undefined
+                }
               }}
             >
               My Projects
@@ -303,6 +379,8 @@ function ProjectPage() {
                       '&:hover': { backgroundColor: '#FFC000' }
                     }}
                     size="small"
+                    onClick={() => navigate(`/projects/${project.id}`)} // Navigate to project detail page
+              
                   >
                     See More Details
                   </Button>
