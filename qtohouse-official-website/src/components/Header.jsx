@@ -47,6 +47,12 @@ function Header() {
               </div>
               <div className="flex items-center space-x-1">
                 <InfoIcon className="text-gray-500" />
+                <Link to="/sample" className="text-gray-800 hover:text-gray-500 transition-all">
+                  Samples
+                </Link>
+              </div>
+              <div className="flex items-center space-x-1">
+                <InfoIcon className="text-gray-500" />
                 <Link to="/about" className="text-gray-800 hover:text-gray-500 transition-all">
                   About Us
                 </Link>
