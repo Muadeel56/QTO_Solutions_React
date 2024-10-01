@@ -10,6 +10,14 @@ import ProjectPage from "./pages/ProjectsPage";
 import CareersPage from "./pages/CareersPage";
 import SamplePage from "./pages/SamplesPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
+import ProjectDetails from "./components/ProjectDetails";
+import Specs from "./components/Specs";
+import QTOs from "./components/QTOs";
+import Addendums from "./components/Addendums";
+import QtoVideo from "./components/QtoVideo";
+import PlanHolders from "./components/PlanHolders";
+import ImageComponent from "./components/ImagesComponent";
+import QuotePage from "./pages/QuotePage";
 
 function App() {
   return (
@@ -28,7 +36,18 @@ function App() {
             <Route path="/solutions" element={<SolutionsPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/careers" element={<CareersPage />} />
-            <Route path="/projects/:projectId" element={<ProjectDetailPage />} />
+            <Route path="/quote" element={<QuotePage />} />
+            <Route
+              path="/projects/:projectId"
+              element={<ProjectDetailPage />}
+            />
+            <Route path="/project-details" element={<ProjectDetails />} />
+            <Route path="/specs" element={<Specs />} />
+            <Route path="/qtos" element={<QTOs />} />
+            <Route path="/addendums" element={<Addendums />} />
+            <Route path="/qto-video" element={<QtoVideo />} />
+            <Route path="/plan-holders" element={<PlanHolders />} />
+            <Route path="/images" element={<ImageComponent />} />
           </Routes>
         </main>
 
