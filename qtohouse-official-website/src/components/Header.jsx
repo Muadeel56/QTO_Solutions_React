@@ -31,9 +31,9 @@ function Header() {
     <header className="w-full shadow-md font-inter">
       {/* Top Contact Bar */}
       <div className="h-[50px] bg-gray-900 text-white px-6 md:px-16 flex items-center justify-between">
-        <div className="flex space-x-6">
+        <div className="flex flex-col sm:flex-row sm:space-x-6">
           {/* Email Link */}
-          <div className="flex space-x-2 items-center text-sm">
+          <div className="flex space-x-2 items-center text-sm mb-2 sm:mb-0">
             <EmailIcon className="text-yellow-500" />
             <a
               href="mailto:info@qtohouse.com"
@@ -49,7 +49,7 @@ function Header() {
             <PhoneIcon className="text-yellow-500" />
             <a
               href="tel:+15717484366"
-              className=" text-white cursor-pointer inline-block"
+              className="text-white cursor-pointer inline-block"
               title="Call us"
             >
               (571)-748-4366
@@ -57,7 +57,7 @@ function Header() {
           </div>
         </div>
 
-        <div className="flex space-x-4 items-center">
+        <div className="hidden sm:flex space-x-4 items-center">
           <button
             onClick={handleLoginClick}
             className="flex items-center space-x-2 bg-yellow-500 text-black px-4 py-1 rounded-md hover:bg-yellow-600 transition-all font-medium shadow-md md:shadow-none"
@@ -70,6 +70,13 @@ function Header() {
             <p className="text-sm">John Doe</p>
           </div>
         </div>
+
+        {/* Hamburger Icon for Mobile */}
+        <div className="sm:hidden">
+          <button onClick={handleToggleMenu} className="text-white">
+            {menuOpen ? <CloseIcon fontSize="large" /> : <MenuIcon fontSize="large" />}
+          </button>
+        </div>
       </div>
 
       {/* Logo and Navigation */}
@@ -79,17 +86,6 @@ function Header() {
           <Link to="/" className="flex items-center">
             <img src={logo} alt="logo" className="h-[60px]" />
           </Link>
-
-          {/* Hamburger Icon for Mobile */}
-          <div className="md:hidden">
-            <button onClick={handleToggleMenu} className="text-gray-700">
-              {menuOpen ? (
-                <CloseIcon fontSize="large" />
-              ) : (
-                <MenuIcon fontSize="large" />
-              )}
-            </button>
-          </div>
 
           {/* Navigation Links */}
           <nav
@@ -158,15 +154,28 @@ function Header() {
             </div>
           </nav>
 
-          {/* Backdrop for Mobile Navigation */}
+          {/* Login Button for Mobile View */}
           {menuOpen && (
-            <div
-              className="fixed inset-0 bg-black opacity-50 z-10 md:hidden"
-              onClick={() => setMenuOpen(false)}
-            />
+            <div className="flex flex-col items-center mt-6 sm:hidden">
+              <button
+                onClick={handleLoginClick}
+                className="flex items-center space-x-2 bg-yellow-500 text-black px-4 py-2 rounded-md hover:bg-yellow-600 transition-all font-medium shadow-md"
+              >
+                <PersonIcon />
+                <p>Login</p>
+              </button>
+            </div>
           )}
         </div>
       </div>
+
+      {/* Backdrop for Mobile Navigation */}
+      {menuOpen && (
+        <div
+          className="fixed inset-0 bg-black opacity-50 z-10 md:hidden"
+          onClick={() => setMenuOpen(false)}
+        />
+      )}
     </header>
   );
 }

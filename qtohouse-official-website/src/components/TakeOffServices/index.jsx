@@ -32,25 +32,27 @@ function TakeOffServices() {
       </h1>
 
       {/* Image Strip Container */}
-      <div className="relative w-full md:w-[90%] lg:w-[80%] xl:w-[70%] h-[400px] md:h-[350px] border-4 border-gray-300 rounded-3xl overflow-hidden flex bg-white shadow-xl">
-        {services.map((service) => (
-          <div
-            key={service.id}
-            className="group relative w-[10%] sm:w-[12%] md:w-[10%] lg:w-[10%] h-full transition-all duration-500 ease-in-out hover:w-[20%] hover:z-10 cursor-pointer "
-          >
-            <img
-              src={service.imgSrc}
-              alt={service.name}
-              className="w-full h-full object-cover transition-transform duration-500 ease-in-out transform group-hover:scale- "
-            />
-            {/* Overlay text */}
-            <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
-              <h2 className="text-white text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-center tracking-wide px-2">
-                {service.name.toUpperCase()}
-              </h2>
+      <div className="w-full md:w-[90%] lg:w-[80%] xl:w-[70%] h-[300px] md:h-[350px] border-4 border-gray-300 rounded-3xl overflow-hidden bg-white shadow-xl">
+        <div className="flex h-full overflow-x-auto space-x-2 p-4 md:space-x-0 md:p-0 scrollbar-hide">
+          {services.map((service) => (
+            <div
+              key={service.id}
+              className="group relative w-[200px] md:w-[10%] h-full flex-shrink-0 transition-all duration-500 ease-in-out hover:w-[250px] hover:z-4 cursor-pointer"
+            >
+              <img
+                src={service.imgSrc}
+                alt={service.name}
+                className="w-full h-full object-cover transition-transform duration-500 ease-in-out transform group-hover:scale-105"
+              />
+              {/* Overlay text */}
+              <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+                <h2 className="text-white text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-center tracking-wide px-2">
+                  {service.name.toUpperCase()}
+                </h2>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
