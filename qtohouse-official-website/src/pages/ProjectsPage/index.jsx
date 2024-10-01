@@ -120,7 +120,7 @@ function ProjectPage() {
   };
 
   return (
-    <div className="w-full px-6 py-10 bg-gray-100">
+    <div className="w-full px-6 py-10 bg-gray-100 font-poppins">
       {/* Page Header */}
       <div className="flex flex-col items-start mb-10">
         <h1 className="text-4xl font-bold text-gray-800">Projects</h1>
@@ -274,74 +274,123 @@ function ProjectPage() {
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
-                className="flex flex-col border border-gray-300 rounded-lg p-6 shadow-sm hover:shadow-lg transition-shadow duration-300"
+                className={`flex flex-col border border-gray-300 rounded-lg p-6 shadow-sm hover:shadow-lg transition-shadow duration-300 ${
+                  viewMode === 'list' ? 'w-full flex-row items-center justify-between' : ''
+                }`}
               >
-                <div className="flex justify-between items-center mb-4">
-                  <Chip label="New" color="error" size="small" />
-                  <p className="text-gray-500 text-sm">Bid Date: {project.bid_date}</p>
-                </div>
-                <h1 className="text-xl font-bold mb-2">{project.name}</h1>
-                <div className="flex items-center text-gray-500 mb-4">
-                  <LocationOnIcon className="text-yellow-500 mr-2" />
-                  <p>{project.location}</p>
-                </div>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <Chip
-                    label="Better Park City Authority"
-                    variant="outlined"
-                    size="small"
-                    sx={{
-                      color: '#666',
-                      borderColor: '#FFD700',
-                      fontWeight: 'bold'
-                    }}
-                  />
-                  <Chip
-                    label={`Qto- ${project.qto_status}`}
-                    size="small"
-                    sx={{
-                      backgroundColor: '#F39321',
-                      color: '#fff',
-                      fontWeight: 'bold'
-                    }}
-                  />
-                </div>
-                <div className="flex justify-between items-center mb-4">
-                  <p className="text-lg font-semibold">
-                    Bid Amount: ${project.bid_amount.toLocaleString()}
-                  </p>
-                </div>
-                <div className="flex justify-between">
-                  <Button
-                    variant="contained"
-                    sx={{
-                      backgroundColor: '#FFD700',
-                      color: '#000',
-                      '&:hover': { backgroundColor: '#FFC000' },
-                      fontWeight: 'bold',
-                      padding: '8px 16px',
-                      textTransform: 'none'
-                    }}
-                    size="small"
-                    onClick={() => navigate(`/projects/${project.id}`)}
-                  >
-                    See More Details
-                  </Button>
-                  <Button
-                    variant="outlined"
-                    sx={{
-                      borderColor: '#FFD700',
-                      color: '#FFD700',
-                      '&:hover': { borderColor: '#FFC000', color: '#FFC000' },
-                      fontWeight: 'bold',
-                      padding: '6px 12px',
-                      textTransform: 'none'
-                    }}
-                    size="small"
-                  >
-                    Request Takeoff
-                  </Button>
-                </div>
+                {viewMode === 'grid' ? (
+                  <>
+                    <div className="flex justify-between items-center mb-4">
+                      <Chip label="New" color="error" size="small" />
+                      <p className="text-gray-500 text-sm">Bid Date: {project.bid_date}</p>
+                    </div>
+                    <h1 className="text-xl font-bold mb-2">{project.name}</h1>
+                    <div className="flex items-center text-gray-500 mb-4">
+                      <LocationOnIcon className="text-yellow-500 mr-2" />
+                      <p>{project.location}</p>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <Chip
+                        label="Better Park City Authority"
+                        variant="outlined"
+                        size="small"
+                        sx={{
+                          color: '#666',
+                          borderColor: '#FFD700',
+                          fontWeight: 'bold'
+                        }}
+                      />
+                      <Chip
+                        label={`Qto- ${project.qto_status}`}
+                        size="small"
+                        sx={{
+                          backgroundColor: '#F39321',
+                          color: '#fff',
+                          fontWeight: 'bold'
+                        }}
+                      />
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <Button
+                        variant="contained"
+                        sx={{
+                          backgroundColor: '#FFD700',
+                          color: '#000',
+                          '&:hover': { backgroundColor: '#FFC000' },
+                          fontWeight: 'bold',
+                          padding: '8px 16px',
+                          textTransform: 'none'
+                        }}
+                        size="small"
+                        onClick={() => navigate(`/projects/${project.id}`)}
+                      >
+                        See More Details
+                      </Button>
+                      <Button
+                        variant="outlined"
+                        sx={{
+                          borderColor: '#FFD700',
+                          color: '#FFD700',
+                          '&:hover': { borderColor: '#FFC000', color: '#FFC000' },
+                          fontWeight: 'bold',
+                          padding: '6px 12px',
+                          textTransform: 'none'
+                        }}
+                        size="small"
+                      >
+                        Request Takeoff
+                      </Button>
+                    </div>
+                  </>
+                ) : (
+                  <div className="flex w-full justify-between items-center gap-4">
+                    <div className="flex flex-col gap-2">
+                      <h1 className="text-xl font-bold">{project.name}</h1>
+                      <p className="text-sm text-gray-500">Bid Date: {project.bid_date}</p>
+                      <p className="text-lg font-semibold">Bid Amount: ${project.bid_amount.toLocaleString()}</p>
+                      <Chip
+                        label={`Qto- ${project.qto_status}`}
+                        size="small"
+                        sx={{
+                          backgroundColor: '#F39321',
+                          color: '#fff',
+                          fontWeight: 'bold'
+                        }}
+                      />
+                    </div>
+                    <div className="flex flex-col gap-4">
+                      <Button
+                        variant="contained"
+                        sx={{
+                          backgroundColor: '#FFD700',
+                          color: '#000',
+                          '&:hover': { backgroundColor: '#FFC000' },
+                          fontWeight: 'bold',
+                          padding: '8px 16px',
+                          textTransform: 'none'
+                        }}
+                        size="small"
+                        onClick={() => navigate(`/projects/${project.id}`)}
+                      >
+                        See More Details
+                      </Button>
+                      <Button
+                        variant="outlined"
+                        sx={{
+                          borderColor: '#FFD700',
+                          color: '#FFD700',
+                          '&:hover': { borderColor: '#FFC000', color: '#FFC000' },
+                          fontWeight: 'bold',
+                          padding: '6px 12px',
+                          textTransform: 'none'
+                        }}
+                        size="small"
+                      >
+                        Request Takeoff
+                      </Button>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>

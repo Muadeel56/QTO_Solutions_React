@@ -12,7 +12,7 @@ import ContactsIcon from "@mui/icons-material/Contacts";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import QuoteIcon from "@mui/icons-material/AttachMoney";
-import PersonIcon from '@mui/icons-material/Person';
+import PersonIcon from "@mui/icons-material/Person";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -28,19 +28,35 @@ function Header() {
   };
 
   return (
-    <header className="w-full shadow-md">
+    <header className="w-full shadow-md font-inter">
       {/* Top Contact Bar */}
       <div className="h-[50px] bg-gray-900 text-white px-6 md:px-16 flex items-center justify-between">
         <div className="flex space-x-6">
+          {/* Email Link */}
           <div className="flex space-x-2 items-center text-sm">
             <EmailIcon className="text-yellow-500" />
-            <p>info@qtohouse.com</p>
+            <a
+              href="mailto:info@qtohouse.com"
+              className="text-white cursor-pointer inline-block"
+              title="Send us an email"
+            >
+              info@qtohouse.com
+            </a>
           </div>
+
+          {/* Phone Number Link */}
           <div className="flex space-x-2 items-center text-sm">
             <PhoneIcon className="text-yellow-500" />
-            <p>(571)-748-4366</p>
+            <a
+              href="tel:+15717484366"
+              className=" text-white cursor-pointer inline-block"
+              title="Call us"
+            >
+              (571)-748-4366
+            </a>
           </div>
         </div>
+
         <div className="flex space-x-4 items-center">
           <button
             onClick={handleLoginClick}
@@ -67,7 +83,11 @@ function Header() {
           {/* Hamburger Icon for Mobile */}
           <div className="md:hidden">
             <button onClick={handleToggleMenu} className="text-gray-700">
-              {menuOpen ? <CloseIcon fontSize="large" /> : <MenuIcon fontSize="large" />}
+              {menuOpen ? (
+                <CloseIcon fontSize="large" />
+              ) : (
+                <MenuIcon fontSize="large" />
+              )}
             </button>
           </div>
 

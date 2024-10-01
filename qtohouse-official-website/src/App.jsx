@@ -28,7 +28,7 @@ function App() {
         <Header />
 
         {/* Main Content with Flex-Grow */}
-        <main className="flex-grow">
+        <main className="flex-grow font-poppins">
           <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/" element={<HomePage />} />
