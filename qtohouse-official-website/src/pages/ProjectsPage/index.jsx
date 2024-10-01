@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import { Button, TextField, Chip } from '@mui/material';
+import ViewListIcon from '@mui/icons-material/ViewList';
+import GridViewIcon from '@mui/icons-material/GridView';
+import { Button, TextField, Chip, IconButton } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 // Dummy data from the backend (as an example)
@@ -50,6 +52,7 @@ function ProjectPage() {
     division: false
   });
   const [selectedTab, setSelectedTab] = useState('Active');
+  const [viewMode, setViewMode] = useState('grid'); // Track grid or list view
 
   const navigate = useNavigate();
 
@@ -233,32 +236,41 @@ function ProjectPage() {
         {/* Project Tabs and Listings */}
         <div className="flex-grow w-full bg-white p-6 shadow-md rounded-lg">
           {/* Project Tabs */}
-          <div className="flex flex-wrap gap-4 mb-8">
-            {['Active', 'Past', 'My Projects'].map((tab) => (
-              <Button
-                key={tab}
-                variant={selectedTab === tab ? 'contained' : 'outlined'}
-                onClick={() => setSelectedTab(tab)}
-                sx={{
-                  backgroundColor: selectedTab === tab ? '#FFD700' : undefined,
-                  color: selectedTab === tab ? '#000' : '#333',
-                  borderColor: '#FFD700',
-                  '&:hover': {
-                    backgroundColor: selectedTab === tab ? '#FFC000' : undefined
-                  },
-                  padding: '8px 16px',
-                  fontSize: '1rem',
-                  fontWeight: 'bold',
-                  textTransform: 'none'
-                }}
-              >
-                {tab} Projects
-              </Button>
-            ))}
+          <div className="flex flex-wrap gap-4 mb-8 items-center justify-between">
+            <div className="flex space-x-4">
+              {['Active', 'Past', 'My Projects'].map((tab) => (
+                <Button
+                  key={tab}
+                  variant={selectedTab === tab ? 'contained' : 'outlined'}
+                  onClick={() => setSelectedTab(tab)}
+                  sx={{
+                    backgroundColor: selectedTab === tab ? '#FFD700' : undefined,
+                    color: selectedTab === tab ? '#000' : '#333',
+                    borderColor: '#FFD700',
+                    '&:hover': {
+                      backgroundColor: selectedTab === tab ? '#FFC000' : undefined
+                    },
+                    padding: '8px 16px',
+                    fontSize: '1rem',
+                    fontWeight: 'bold',
+                    textTransform: 'none'
+                  }}
+                >
+                  {tab} Projects
+                </Button>
+              ))}
+            </div>
+
+            {/* View Toggle Buttons */}
+            <div>
+              <IconButton onClick={() => setViewMode(viewMode === 'list' ? 'grid' : 'list')}>
+                {viewMode === 'list' ? <GridViewIcon fontSize="large" /> : <ViewListIcon fontSize="large" />}
+              </IconButton>
+            </div>
           </div>
 
           {/* Project Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className={`grid ${viewMode === 'grid' ? 'grid-cols-1 md:grid-cols-2 gap-6' : ''}`}>
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
@@ -294,10 +306,12 @@ function ProjectPage() {
                     }}
                   />
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center mb-4">
                   <p className="text-lg font-semibold">
                     Bid Amount: ${project.bid_amount.toLocaleString()}
                   </p>
+                </div>
+                <div className="flex justify-between">
                   <Button
                     variant="contained"
                     sx={{
@@ -313,22 +327,21 @@ function ProjectPage() {
                   >
                     See More Details
                   </Button>
+                  <Button
+                    variant="outlined"
+                    sx={{
+                      borderColor: '#FFD700',
+                      color: '#FFD700',
+                      '&:hover': { borderColor: '#FFC000', color: '#FFC000' },
+                      fontWeight: 'bold',
+                      padding: '6px 12px',
+                      textTransform: 'none'
+                    }}
+                    size="small"
+                  >
+                    Request Takeoff
+                  </Button>
                 </div>
-                <Button
-                  variant="outlined"
-                  className="mt-4"
-                  sx={{
-                    borderColor: '#FFD700',
-                    color: '#FFD700',
-                    '&:hover': { borderColor: '#FFC000', color: '#FFC000' },
-                    fontWeight: 'bold',
-                    padding: '6px 12px',
-                    textTransform: 'none'
-                  }}
-                  size="small"
-                >
-                  Add to Cart
-                </Button>
               </div>
             ))}
           </div>

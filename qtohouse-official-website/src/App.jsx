@@ -18,6 +18,7 @@ import QtoVideo from "./components/QtoVideo";
 import PlanHolders from "./components/PlanHolders";
 import ImageComponent from "./components/ImagesComponent";
 import QuotePage from "./pages/QuotePage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
@@ -29,7 +30,8 @@ function App() {
         {/* Main Content with Flex-Grow */}
         <main className="flex-grow">
           <Routes>
-            <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/" element={<HomePage />} />
             <Route path="/projects" element={<ProjectPage />} />
             <Route path="/sample" element={<SamplePage />} />
             <Route path="/about" element={<AboutPage />} />

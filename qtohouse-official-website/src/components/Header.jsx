@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/images/logo.svg";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -9,15 +9,22 @@ import DescriptionIcon from "@mui/icons-material/Description";
 import InfoIcon from "@mui/icons-material/Info";
 import WorkIcon from "@mui/icons-material/Work";
 import ContactsIcon from "@mui/icons-material/Contacts";
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
-import QuoteIcon from '@mui/icons-material/AttachMoney';
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
+import QuoteIcon from "@mui/icons-material/AttachMoney";
+import PersonIcon from '@mui/icons-material/Person';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleToggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const handleLoginClick = () => {
+    navigate("/login");
+    setMenuOpen(false);
   };
 
   return (
@@ -32,6 +39,19 @@ function Header() {
           <div className="flex space-x-2 items-center text-sm">
             <PhoneIcon className="text-yellow-500" />
             <p>(571)-748-4366</p>
+          </div>
+        </div>
+        <div className="flex space-x-4 items-center">
+          <button
+            onClick={handleLoginClick}
+            className="flex items-center space-x-2 bg-yellow-500 text-black px-4 py-1 rounded-md hover:bg-yellow-600 transition-all font-medium shadow-md md:shadow-none"
+          >
+            <PersonIcon />
+            <p>Login</p>
+          </button>
+          <div className="hidden md:flex items-center space-x-2">
+            <PersonIcon />
+            <p className="text-sm">John Doe</p>
           </div>
         </div>
       </div>
@@ -58,27 +78,51 @@ function Header() {
             }`}
           >
             <div className="flex flex-col md:flex-row md:items-center space-y-6 md:space-y-0 md:space-x-8">
-              <Link to="/" onClick={() => setMenuOpen(false)} className="flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium">
+              <Link
+                to="/"
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium"
+              >
                 <HomeIcon className="text-yellow-500" />
                 <p>Home</p>
               </Link>
-              <Link to="/projects" onClick={() => setMenuOpen(false)} className="flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium">
+              <Link
+                to="/projects"
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium"
+              >
                 <BusinessIcon className="text-yellow-500" />
                 <p>Projects</p>
               </Link>
-              <Link to="/sample" onClick={() => setMenuOpen(false)} className="flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium">
+              <Link
+                to="/sample"
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium"
+              >
                 <DescriptionIcon className="text-yellow-500" />
                 <p>Samples</p>
               </Link>
-              <Link to="/about" onClick={() => setMenuOpen(false)} className="flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium">
+              <Link
+                to="/about"
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium"
+              >
                 <InfoIcon className="text-yellow-500" />
                 <p>About Us</p>
               </Link>
-              <Link to="/careers" onClick={() => setMenuOpen(false)} className="flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium">
+              <Link
+                to="/careers"
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium"
+              >
                 <WorkIcon className="text-yellow-500" />
                 <p>Careers</p>
               </Link>
-              <Link to="/contact" onClick={() => setMenuOpen(false)} className="flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium">
+              <Link
+                to="/contact"
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium"
+              >
                 <ContactsIcon className="text-yellow-500" />
                 <p>Contact Us</p>
               </Link>
