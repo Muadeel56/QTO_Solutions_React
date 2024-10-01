@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import { Button, TextField } from '@mui/material';
+import { Button, TextField, Chip } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 // Dummy data from the backend (as an example)
@@ -15,7 +15,8 @@ const dummyProjects = {
       location: "Lahore, Pakistan",
       bid_amount: 1500000,
       status: "Active",
-      division: "Retail"
+      division: "Retail",
+      qto_status: "In Progress"
     },
     {
       id: 2,
@@ -24,53 +25,10 @@ const dummyProjects = {
       location: "Islamabad, Pakistan",
       bid_amount: 3000000,
       status: "Active",
-      division: "Residential"
+      division: "Residential",
+      qto_status: "Available"
     },
-    {
-      id: 3,
-      bid_date: "2024-03-15",
-      name: "Karachi Residential Apartments",
-      location: "Karachi, Pakistan",
-      bid_amount: 1200000,
-      status: "Past",
-      division: "Residential"
-    },
-    {
-      id: 4,
-      bid_date: "2024-07-20",
-      name: "Peshawar Hospital Expansion",
-      location: "Peshawar, Pakistan",
-      bid_amount: 2200000,
-      status: "My Projects",
-      division: "Healthcare"
-    },
-    {
-      id: 5,
-      bid_date: "2024-09-05",
-      name: "Faisalabad Industrial Complex",
-      location: "Faisalabad, Pakistan",
-      bid_amount: 5000000,
-      status: "Active",
-      division: "Industrial"
-    },
-    {
-      id: 6,
-      bid_date: "2024-04-11",
-      name: "Quetta Commercial Plaza",
-      location: "Quetta, Pakistan",
-      bid_amount: 1800000,
-      status: "Past",
-      division: "Commercial"
-    },
-    {
-      id: 7,
-      bid_date: "2024-08-25",
-      name: "Multan Green Housing Project",
-      location: "Multan, Pakistan",
-      bid_amount: 4000000,
-      status: "Active",
-      division: "Residential"
-    }
+    // Additional projects...
   ]
 };
 
@@ -91,12 +49,11 @@ function ProjectPage() {
     status: false,
     division: false
   });
-  const [selectedTab, setSelectedTab] = useState('Active'); // State to track the selected tab
+  const [selectedTab, setSelectedTab] = useState('Active');
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Simulate fetching data from backend
     setProjects(dummyProjects.projects);
     setFilteredProjects(dummyProjects.projects);
   }, []);
@@ -113,42 +70,36 @@ function ProjectPage() {
   useEffect(() => {
     let updatedProjects = projects;
 
-    // Apply keyword filter
     if (filters.keyword) {
       updatedProjects = updatedProjects.filter((project) =>
         project.name.toLowerCase().includes(filters.keyword.toLowerCase())
       );
     }
 
-    // Apply location filter
     if (filters.location) {
       updatedProjects = updatedProjects.filter((project) =>
         project.location.toLowerCase().includes(filters.location.toLowerCase())
       );
     }
 
-    // Apply bid amount filter
     if (filters.bidAmount) {
       updatedProjects = updatedProjects.filter(
         (project) => project.bid_amount <= parseFloat(filters.bidAmount)
       );
     }
 
-    // Apply status filter
     if (filters.status) {
       updatedProjects = updatedProjects.filter((project) =>
         project.status.toLowerCase().includes(filters.status.toLowerCase())
       );
     }
 
-    // Apply division filter
     if (filters.division) {
       updatedProjects = updatedProjects.filter((project) =>
         project.division.toLowerCase().includes(filters.division.toLowerCase())
       );
     }
 
-    // Apply selected tab filter (status filter)
     if (selectedTab) {
       updatedProjects = updatedProjects.filter(
         (project) => project.status.toLowerCase() === selectedTab.toLowerCase()
@@ -253,31 +204,6 @@ function ProjectPage() {
             )}
           </div>
 
-          {/* Filter By Status */}
-          <div className="mb-4">
-            <div
-              className="flex items-center justify-between cursor-pointer"
-              onClick={() => toggleFilter('status')}
-            >
-              <h1 className="text-lg font-medium text-gray-700">Status</h1>
-              <ArrowDropDownIcon className="text-gray-600" />
-            </div>
-            {openFilters.status && (
-              <TextField
-                fullWidth
-                variant="outlined"
-                size="small"
-                placeholder="Enter status..."
-                value={filters.status}
-                onChange={(e) => handleFilterChange('status', e.target.value)}
-                InputProps={{
-                  endAdornment: <SearchIcon className="text-yellow-500" />
-                }}
-                className="mt-4"
-              />
-            )}
-          </div>
-
           {/* Filter By Division */}
           <div className="mb-4">
             <div
@@ -307,49 +233,28 @@ function ProjectPage() {
         {/* Project Tabs and Listings */}
         <div className="flex-grow w-full bg-white p-6 shadow-md rounded-lg">
           {/* Project Tabs */}
-          <div className="flex space-x-4 mb-8">
-            <Button
-              variant={selectedTab === 'Active' ? 'contained' : 'outlined'}
-              onClick={() => setSelectedTab('Active')}
-              sx={{
-                backgroundColor: selectedTab === 'Active' ? '#FFD700' : undefined,
-                color: selectedTab === 'Active' ? '#000' : '#333',
-                borderColor: '#FFD700',
-                '&:hover': {
-                  backgroundColor: selectedTab === 'Active' ? '#FFC000' : undefined
-                }
-              }}
-            >
-              Active Projects
-            </Button>
-            <Button
-              variant={selectedTab === 'Past' ? 'contained' : 'outlined'}
-              onClick={() => setSelectedTab('Past')}
-              sx={{
-                backgroundColor: selectedTab === 'Past' ? '#FFD700' : undefined,
-                color: selectedTab === 'Past' ? '#000' : '#333',
-                borderColor: '#FFD700',
-                '&:hover': {
-                  backgroundColor: selectedTab === 'Past' ? '#FFC000' : undefined
-                }
-              }}
-            >
-              Past Projects
-            </Button>
-            <Button
-              variant={selectedTab === 'My Projects' ? 'contained' : 'outlined'}
-              onClick={() => setSelectedTab('My Projects')}
-              sx={{
-                backgroundColor: selectedTab === 'My Projects' ? '#FFD700' : undefined,
-                color: selectedTab === 'My Projects' ? '#000' : '#333',
-                borderColor: '#FFD700',
-                '&:hover': {
-                  backgroundColor: selectedTab === 'My Projects' ? '#FFC000' : undefined
-                }
-              }}
-            >
-              My Projects
-            </Button>
+          <div className="flex flex-wrap gap-4 mb-8">
+            {['Active', 'Past', 'My Projects'].map((tab) => (
+              <Button
+                key={tab}
+                variant={selectedTab === tab ? 'contained' : 'outlined'}
+                onClick={() => setSelectedTab(tab)}
+                sx={{
+                  backgroundColor: selectedTab === tab ? '#FFD700' : undefined,
+                  color: selectedTab === tab ? '#000' : '#333',
+                  borderColor: '#FFD700',
+                  '&:hover': {
+                    backgroundColor: selectedTab === tab ? '#FFC000' : undefined
+                  },
+                  padding: '8px 16px',
+                  fontSize: '1rem',
+                  fontWeight: 'bold',
+                  textTransform: 'none'
+                }}
+              >
+                {tab} Projects
+              </Button>
+            ))}
           </div>
 
           {/* Project Cards */}
@@ -357,34 +262,73 @@ function ProjectPage() {
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
-                className="flex flex-col border border-gray-300 rounded-lg p-4 shadow-sm bg-gray-800 text-white hover:shadow-lg transition-shadow duration-300"
+                className="flex flex-col border border-gray-300 rounded-lg p-6 shadow-sm hover:shadow-lg transition-shadow duration-300"
               >
-                <h1 className="text-xl font-bold text-yellow-400 mb-2">
-                  Bid Date: {project.bid_date ? project.bid_date : "None"}
-                </h1>
-                <p className="text-lg font-semibold mb-2">{project.name}</p>
-                <div className="flex items-center text-gray-400 mb-4">
-                  <LocationOnIcon className="text-yellow-400 mr-2" />
+                <div className="flex justify-between items-center mb-4">
+                  <Chip label="New" color="error" size="small" />
+                  <p className="text-gray-500 text-sm">Bid Date: {project.bid_date}</p>
+                </div>
+                <h1 className="text-xl font-bold mb-2">{project.name}</h1>
+                <div className="flex items-center text-gray-500 mb-4">
+                  <LocationOnIcon className="text-yellow-500 mr-2" />
                   <p>{project.location}</p>
+                </div>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <Chip
+                    label="Better Park City Authority"
+                    variant="outlined"
+                    size="small"
+                    sx={{
+                      color: '#666',
+                      borderColor: '#FFD700',
+                      fontWeight: 'bold'
+                    }}
+                  />
+                  <Chip
+                    label={`Qto- ${project.qto_status}`}
+                    size="small"
+                    sx={{
+                      backgroundColor: '#F39321',
+                      color: '#fff',
+                      fontWeight: 'bold'
+                    }}
+                  />
                 </div>
                 <div className="flex justify-between items-center">
                   <p className="text-lg font-semibold">
-                    Bid Amount: ${project.bid_amount ? project.bid_amount.toLocaleString() : "None"}
+                    Bid Amount: ${project.bid_amount.toLocaleString()}
                   </p>
                   <Button
                     variant="contained"
                     sx={{
                       backgroundColor: '#FFD700',
                       color: '#000',
-                      '&:hover': { backgroundColor: '#FFC000' }
+                      '&:hover': { backgroundColor: '#FFC000' },
+                      fontWeight: 'bold',
+                      padding: '8px 16px',
+                      textTransform: 'none'
                     }}
                     size="small"
-                    onClick={() => navigate(`/projects/${project.id}`)} // Navigate to project detail page
-              
+                    onClick={() => navigate(`/projects/${project.id}`)}
                   >
                     See More Details
                   </Button>
                 </div>
+                <Button
+                  variant="outlined"
+                  className="mt-4"
+                  sx={{
+                    borderColor: '#FFD700',
+                    color: '#FFD700',
+                    '&:hover': { borderColor: '#FFC000', color: '#FFC000' },
+                    fontWeight: 'bold',
+                    padding: '6px 12px',
+                    textTransform: 'none'
+                  }}
+                  size="small"
+                >
+                  Add to Cart
+                </Button>
               </div>
             ))}
           </div>
