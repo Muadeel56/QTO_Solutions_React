@@ -4,11 +4,14 @@ import logo from "../assets/images/logo.svg";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import HomeIcon from "@mui/icons-material/Home";
+import BusinessIcon from "@mui/icons-material/Business";
+import DescriptionIcon from "@mui/icons-material/Description";
 import InfoIcon from "@mui/icons-material/Info";
 import WorkIcon from "@mui/icons-material/Work";
 import ContactsIcon from "@mui/icons-material/Contacts";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import QuoteIcon from '@mui/icons-material/AttachMoney';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -18,28 +21,28 @@ function Header() {
   };
 
   return (
-    <div className="w-full">
+    <header className="w-full shadow-md">
       {/* Top Contact Bar */}
-      <div className="h-[50px] bg-gray-800 text-white px-4 md:px-10 flex items-center justify-between">
-        <div className="flex space-x-4">
-          <div className="flex space-x-2 items-center">
-            <EmailIcon />
-            <p className="text-sm">info@qtohouse.com</p>
+      <div className="h-[50px] bg-gray-900 text-white px-6 md:px-16 flex items-center justify-between">
+        <div className="flex space-x-6">
+          <div className="flex space-x-2 items-center text-sm">
+            <EmailIcon className="text-yellow-500" />
+            <p>info@qtohouse.com</p>
           </div>
-          <div className="flex space-x-2 items-center">
-            <PhoneIcon />
-            <p className="text-sm">(571)-748-4366</p>
+          <div className="flex space-x-2 items-center text-sm">
+            <PhoneIcon className="text-yellow-500" />
+            <p>(571)-748-4366</p>
           </div>
         </div>
       </div>
 
       {/* Logo and Navigation */}
-      <div className="bg-white px-4 md:px-10 shadow-md">
-        <div className="flex justify-between items-center py-4 relative">
+      <div className="bg-white px-6 md:px-16 py-4 shadow-md">
+        <div className="flex justify-between items-center">
           {/* Logo */}
-          <div className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img src={logo} alt="logo" className="h-[60px]" />
-          </div>
+          </Link>
 
           {/* Hamburger Icon for Mobile */}
           <div className="md:hidden">
@@ -50,78 +53,57 @@ function Header() {
 
           {/* Navigation Links */}
           <nav
-            className={`absolute md:static left-0 top-[100%] md:flex bg-white md:bg-transparent md:space-x-6 space-y-4 md:space-y-0 w-full md:w-auto transition-all duration-300 md:flex-row items-center p-4 md:p-0 ${
-              menuOpen ? "block" : "hidden md:flex"
+            className={`fixed inset-y-0 right-0 transform md:transform-none md:static z-20 w-3/4 md:w-auto bg-gray-800 md:bg-transparent text-white md:text-gray-800 p-6 md:p-0 shadow-lg md:shadow-none transition-transform duration-300 md:flex md:space-x-8 items-center ${
+              menuOpen ? "translate-x-0" : "translate-x-full md:translate-x-0"
             }`}
           >
-            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 items-start md:items-center">
-              <div className="flex items-center space-x-1">
-                <HomeIcon className="text-gray-500" />
-                <Link
-                  to="/"
-                  className="text-gray-800 hover:text-gray-600 transition-all font-medium"
-                >
-                  Home
-                </Link>
-              </div>
-              <div className="flex items-center space-x-1">
-                <InfoIcon className="text-gray-500" />
-                <Link
-                  to="/projects"
-                  className="text-gray-800 hover:text-gray-600 transition-all font-medium"
-                >
-                  Projects
-                </Link>
-              </div>
-              <div className="flex items-center space-x-1">
-                <InfoIcon className="text-gray-500" />
-                <Link
-                  to="/sample"
-                  className="text-gray-800 hover:text-gray-600 transition-all font-medium"
-                >
-                  Samples
-                </Link>
-              </div>
-              <div className="flex items-center space-x-1">
-                <InfoIcon className="text-gray-500" />
-                <Link
-                  to="/about"
-                  className="text-gray-800 hover:text-gray-600 transition-all font-medium"
-                >
-                  About Us
-                </Link>
-              </div>
-              <div className="flex items-center space-x-1">
-                <WorkIcon className="text-gray-500" />
-                <Link
-                  to="/careers"
-                  className="text-gray-800 hover:text-gray-600 transition-all font-medium"
-                >
-                  Careers
-                </Link>
-              </div>
-              <div className="flex items-center space-x-1">
-                <ContactsIcon className="text-gray-500" />
-                <Link
-                  to="/contact"
-                  className="text-gray-800 hover:text-gray-600 transition-all font-medium"
-                >
-                  Contact Us
-                </Link>
-              </div>
+            <div className="flex flex-col md:flex-row md:items-center space-y-6 md:space-y-0 md:space-x-8">
+              <Link to="/" onClick={() => setMenuOpen(false)} className="flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium">
+                <HomeIcon className="text-yellow-500" />
+                <p>Home</p>
+              </Link>
+              <Link to="/projects" onClick={() => setMenuOpen(false)} className="flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium">
+                <BusinessIcon className="text-yellow-500" />
+                <p>Projects</p>
+              </Link>
+              <Link to="/sample" onClick={() => setMenuOpen(false)} className="flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium">
+                <DescriptionIcon className="text-yellow-500" />
+                <p>Samples</p>
+              </Link>
+              <Link to="/about" onClick={() => setMenuOpen(false)} className="flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium">
+                <InfoIcon className="text-yellow-500" />
+                <p>About Us</p>
+              </Link>
+              <Link to="/careers" onClick={() => setMenuOpen(false)} className="flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium">
+                <WorkIcon className="text-yellow-500" />
+                <p>Careers</p>
+              </Link>
+              <Link to="/contact" onClick={() => setMenuOpen(false)} className="flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium">
+                <ContactsIcon className="text-yellow-500" />
+                <p>Contact Us</p>
+              </Link>
             </div>
-            {/* Free Quotes Button */}
-            <div className="flex justify-center md:justify-start mt-4 md:mt-0 md:ml-6">
-              <Link to="/quote">
-                <button className="bg-yellow-500 text-black px-4 py-2 rounded-md hover:bg-yellow-600 transition-all font-medium">
-                  Get Free Quotes
+            {/* Get Free Quotes Button */}
+            <div className="flex justify-center md:justify-start mt-6 md:mt-0 md:ml-8">
+              <Link to="/quote" onClick={() => setMenuOpen(false)}>
+                <button className="bg-yellow-500 text-black px-6 py-2 rounded-md hover:bg-yellow-600 transition-all font-medium shadow-md md:shadow-none flex items-center space-x-2">
+                  <QuoteIcon />
+                  <p>Get Free Quotes</p>
                 </button>
               </Link>
             </div>
           </nav>
+
+          {/* Backdrop for Mobile Navigation */}
+          {menuOpen && (
+            <div
+              className="fixed inset-0 bg-black opacity-50 z-10 md:hidden"
+              onClick={() => setMenuOpen(false)}
+            />
+          )}
         </div>
       </div>
-    </div>
+    </header>
   );
 }
 
