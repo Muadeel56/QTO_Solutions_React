@@ -18,6 +18,9 @@ const services = [
   { id: 5, name: 'Electrical Estimation', imgSrc: electric },
   { id: 6, name: 'Lumber Estimation', imgSrc: lumber },
   { id: 7, name: 'Paint Estimation', imgSrc: paint },
+  { id: 8, name: 'Labor Health', imgSrc: laborheath },
+  { id: 9, name: 'Career', imgSrc: career },
+  { id: 10, name: 'Bidding', imgSrc: bidding },
 ];
 
 function TakeOffServices() {
