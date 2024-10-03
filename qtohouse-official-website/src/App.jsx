@@ -19,6 +19,9 @@ import PlanHolders from "./components/PlanHolders";
 import ImageComponent from "./components/ImagesComponent";
 import QuotePage from "./pages/QuotePage";
 import LoginPage from "./pages/LoginPage";
+import ClientsDashboard from "./pages/UserDashboard";
+import UserProfile from "./pages/UserProfile";
+import UserDashboard from "./pages/UserDashboard";
 
 function App() {
   return (
@@ -50,6 +53,8 @@ function App() {
             <Route path="/qto-video" element={<QtoVideo />} />
             <Route path="/plan-holders" element={<PlanHolders />} />
             <Route path="/images" element={<ImageComponent />} />
+            <Route path="/profile" element={<UserProfile />} />
+            <Route path="/dashboard" element={<UserDashboard />} />
           </Routes>
         </main>
 

@@ -13,10 +13,14 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import QuoteIcon from "@mui/icons-material/AttachMoney";
 import PersonIcon from "@mui/icons-material/Person";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import { Menu, MenuItem } from "@mui/material";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
   const navigate = useNavigate();
+  const isLoggedIn = true; // Assume logged in for demonstration
 
   const handleToggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -25,6 +29,14 @@ function Header() {
   const handleLoginClick = () => {
     navigate("/login");
     setMenuOpen(false);
+  };
+
+  const handleProfileClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleCloseProfileMenu = () => {
+    setAnchorEl(null);
   };
 
   return (
@@ -58,23 +70,59 @@ function Header() {
         </div>
 
         <div className="hidden sm:flex space-x-4 items-center">
-          <button
-            onClick={handleLoginClick}
-            className="flex items-center space-x-2 bg-yellow-500 text-black px-4 py-1 rounded-md hover:bg-yellow-600 transition-all font-medium shadow-md md:shadow-none"
-          >
-            <PersonIcon />
-            <p>Login</p>
-          </button>
-          <div className="hidden md:flex items-center space-x-2">
-            <PersonIcon />
-            <p className="text-sm">John Doe</p>
-          </div>
+          {!isLoggedIn ? (
+            <button
+              onClick={handleLoginClick}
+              className="flex items-center space-x-2 bg-yellow-500 text-black px-4 py-1 rounded-md hover:bg-yellow-600 transition-all font-medium shadow-md md:shadow-none"
+            >
+              <PersonIcon />
+              <p>Login</p>
+            </button>
+          ) : (
+            <div className="flex items-center space-x-2 relative">
+              <button
+                onClick={handleProfileClick}
+                className="flex items-center space-x-2 text-sm text-white cursor-pointer"
+              >
+                <PersonIcon />
+                <p>John Doe</p>
+                <ArrowDropDownIcon />
+              </button>
+
+              <Menu
+                anchorEl={anchorEl}
+                open={Boolean(anchorEl)}
+                onClose={handleCloseProfileMenu}
+                className="mt-2"
+              >
+                <MenuItem onClick={handleCloseProfileMenu}>
+                  <Link to="/profile" className="text-black">
+                    My Profile
+                  </Link>
+                </MenuItem>
+                <MenuItem onClick={handleCloseProfileMenu}>
+                  <Link to="/dashboard" className="text-black">
+                    My Dashboard
+                  </Link>
+                </MenuItem>
+                <MenuItem onClick={handleCloseProfileMenu}>
+                  <Link to="/favorites" className="text-black">
+                    My Favorites
+                  </Link>
+                </MenuItem>
+              </Menu>
+            </div>
+          )}
         </div>
 
         {/* Hamburger Icon for Mobile */}
         <div className="sm:hidden">
           <button onClick={handleToggleMenu} className="text-white">
-            {menuOpen ? <CloseIcon fontSize="large" /> : <MenuIcon fontSize="large" />}
+            {menuOpen ? (
+              <CloseIcon fontSize="large" />
+            ) : (
+              <MenuIcon fontSize="large" />
+            )}
           </button>
         </div>
       </div>
@@ -155,7 +203,7 @@ function Header() {
           </nav>
 
           {/* Login Button for Mobile View */}
-          {menuOpen && (
+          {menuOpen && !isLoggedIn && (
             <div className="flex flex-col items-center mt-6 sm:hidden">
               <button
                 onClick={handleLoginClick}
