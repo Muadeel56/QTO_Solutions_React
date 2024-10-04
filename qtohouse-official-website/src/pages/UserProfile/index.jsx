@@ -16,7 +16,7 @@ function UserProfile({ profile = {} }) {
             <p className="text-gray-500">{profile.email || "Email"}</p>
           </div>
           <Link
-            to="/edit-profile"
+            to="/user/edit-profile"
             className="text-white bg-yellow-600 hover:bg-yellow-700 font-semibold py-2 px-4 rounded"
           >
             Edit Profile

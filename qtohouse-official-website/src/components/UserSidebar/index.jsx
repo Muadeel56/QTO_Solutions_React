@@ -10,30 +10,41 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 
 function UserSidebar() {
   return (
-    <div className='absolute'>
-      <Sidebar>
+    <div className="absolute h-full">
+      <Sidebar backgroundColor="#1F2937" className="w-64 h-full shadow-lg rounded-lg">
         <Menu iconShape="square">
-          <MenuItem className='text-yellow-600' icon={<DashboardIcon sx={{ color: '#D97706' }} />}>
-            <Link to="/dashboard">Dashboard</Link>
+          {/* Dashboard Menu Item */}
+          <MenuItem className="text-yellow-500" icon={<DashboardIcon sx={{ color: '#D97706' }} />}>
+            <Link to="/user/dashboard" className="text-yellow-500">Dashboard</Link>
           </MenuItem>
-          <MenuItem className='text-yellow-600' icon={<PersonIcon />}>
-            <Link to="/profile">Profile</Link>
+
+          {/* Profile Menu Item */}
+          <MenuItem className="text-yellow-500" icon={<PersonIcon sx={{ color: '#D97706' }} />}>
+            <Link to="/user/profile" className="text-yellow-500">Profile</Link>
           </MenuItem>
-          <MenuItem className='text-yellow-600' icon={<FavoriteIcon />}>
-            <Link to="/favourites">Favourite Projects</Link>
+
+          {/* Favorite Projects Menu Item */}
+          <MenuItem className="text-yellow-500" icon={<FavoriteIcon sx={{ color: '#D97706' }} />}>
+            <Link to="/user/favourites" className="text-yellow-500">Favourite Projects</Link>
           </MenuItem>
-          <MenuItem className='text-yellow-600' icon={<EditIcon />}>
-            <Link to="/edit-profile">Edit Profile</Link>
+
+          {/* Edit Profile Menu Item */}
+          <MenuItem className="text-yellow-500" icon={<EditIcon sx={{ color: '#D97706' }} />}>
+            <Link to="/user/edit-profile" className="text-yellow-500">Edit Profile</Link>
           </MenuItem>
-          <MenuItem className='text-yellow-600' icon={<CalendarTodayIcon />}>
-            <Link to="/bid-calendar">Bid Calendar</Link>
+
+          {/* Bid Calendar Menu Item */}
+          <MenuItem className="text-yellow-500" icon={<CalendarTodayIcon sx={{ color: '#D97706' }} />}>
+            <Link to="/user/calendar" className="text-yellow-500">Bid Calendar</Link>
           </MenuItem>
-          <SubMenu className='text-yellow-600' title="Additional Options" icon={<AttachMoneyIcon />}>
-            <MenuItem className='text-yellow-600'>
-              <Link to="/settings">Settings</Link>
+
+          {/* SubMenu for Additional Options */}
+          <SubMenu title="Additional Options" className="text-yellow-500" icon={<AttachMoneyIcon sx={{ color: '#D97706' }} />}>
+            <MenuItem className="text-yellow-500">
+              <Link to="/user/settings" className="text-yellow-500">Settings</Link>
             </MenuItem>
-            <MenuItem className='text-yellow-600'>
-              <Link to="/help">Help</Link>
+            <MenuItem className="text-yellow-500">
+              <Link to="/user/help" className="text-yellow-500">Help</Link>
             </MenuItem>
           </SubMenu>
         </Menu>
