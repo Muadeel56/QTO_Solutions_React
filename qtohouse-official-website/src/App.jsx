@@ -10,31 +10,23 @@ import ProjectPage from "./pages/ProjectsPage";
 import CareersPage from "./pages/CareersPage";
 import SamplePage from "./pages/SamplesPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
-import ProjectDetails from "./components/ProjectDetails";
-import Specs from "./components/Specs";
-import QTOs from "./components/QTOs";
-import Addendums from "./components/Addendums";
-import QtoVideo from "./components/QtoVideo";
-import PlanHolders from "./components/PlanHolders";
-import ImageComponent from "./components/ImagesComponent";
-import QuotePage from "./pages/QuotePage";
-import LoginPage from "./pages/LoginPage";
-import ClientsDashboard from "./pages/UserDashboard";
 import UserProfile from "./pages/UserProfile";
 import UserDashboard from "./pages/UserDashboard";
+import QuotePage from "./pages/QuotePage";
+import UserLayout from "./components/UserLayout";
 
 function App() {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
-        {/* Header */}
+        {/* Header (Visible on all pages) */}
         <Header />
 
         {/* Main Content with Flex-Grow */}
         <main className="flex-grow font-poppins">
           <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/" element={<HomePage />} />
+            {/* Public Routes */}
+            <Route path="/" element={<HomePage />} />
             <Route path="/projects" element={<ProjectPage />} />
             <Route path="/sample" element={<SamplePage />} />
             <Route path="/about" element={<AboutPage />} />
@@ -42,23 +34,19 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/careers" element={<CareersPage />} />
             <Route path="/quote" element={<QuotePage />} />
-            <Route
-              path="/projects/:projectId"
-              element={<ProjectDetailPage />}
-            />
-            <Route path="/project-details" element={<ProjectDetails />} />
-            <Route path="/specs" element={<Specs />} />
-            <Route path="/qtos" element={<QTOs />} />
-            <Route path="/addendums" element={<Addendums />} />
-            <Route path="/qto-video" element={<QtoVideo />} />
-            <Route path="/plan-holders" element={<PlanHolders />} />
-            <Route path="/images" element={<ImageComponent />} />
-            <Route path="/profile" element={<UserProfile />} />
-            <Route path="/dashboard" element={<UserDashboard />} />
+            <Route path="/projects/:projectId" element={<ProjectDetailPage />} />
+
+            {/* User-Specific Routes (wrapped with UserLayout) */}
+            <Route path="/profile" element={<UserLayout><UserProfile /></UserLayout>} />
+            <Route path="/dashboard" element={<UserLayout><UserDashboard /></UserLayout>} />
+            <Route path="/dashboard" element={<UserLayout><UserDashboard /></UserLayout>} />
+            <Route path="/dashboard" element={<UserLayout><UserDashboard /></UserLayout>} />
+            <Route path="/dashboard" element={<UserLayout><UserDashboard /></UserLayout>} />
+            {/* Add more user-specific routes as needed */}
           </Routes>
         </main>
 
-        {/* Footer */}
+        {/* Footer (Visible on all pages) */}
         <Footer />
       </div>
     </Router>
