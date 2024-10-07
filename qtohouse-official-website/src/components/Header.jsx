@@ -96,17 +96,17 @@ function Header() {
                 className="mt-2"
               >
                 <MenuItem onClick={handleCloseProfileMenu}>
-                  <Link to="/profile" className="text-black">
+                  <Link to="/user/profile" className="text-black">
                     My Profile
                   </Link>
                 </MenuItem>
                 <MenuItem onClick={handleCloseProfileMenu}>
-                  <Link to="/dashboard" className="text-black">
+                  <Link to="/user/dashboard" className="text-black">
                     My Dashboard
                   </Link>
                 </MenuItem>
                 <MenuItem onClick={handleCloseProfileMenu}>
-                  <Link to="/favorites" className="text-black">
+                  <Link to="/user/favourites" className="text-black">
                     My Favorites
                   </Link>
                 </MenuItem>

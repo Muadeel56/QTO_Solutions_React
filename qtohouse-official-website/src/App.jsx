@@ -10,10 +10,8 @@ import ProjectPage from "./pages/ProjectsPage";
 import CareersPage from "./pages/CareersPage";
 import SamplePage from "./pages/SamplesPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
-import UserProfile from "./pages/UserProfile";
-import UserDashboard from "./pages/UserDashboard";
+import UserContainer from "./pages/UserContainer";
 import QuotePage from "./pages/QuotePage";
-import UserLayout from "./components/UserLayout";
 
 function App() {
   return (
@@ -36,13 +34,8 @@ function App() {
             <Route path="/quote" element={<QuotePage />} />
             <Route path="/projects/:projectId" element={<ProjectDetailPage />} />
 
-            {/* User-Specific Routes (wrapped with UserLayout) */}
-            <Route path="/profile" element={<UserLayout><UserProfile /></UserLayout>} />
-            <Route path="/dashboard" element={<UserLayout><UserDashboard /></UserLayout>} />
-            <Route path="/dashboard" element={<UserLayout><UserDashboard /></UserLayout>} />
-            <Route path="/dashboard" element={<UserLayout><UserDashboard /></UserLayout>} />
-            <Route path="/dashboard" element={<UserLayout><UserDashboard /></UserLayout>} />
-            {/* Add more user-specific routes as needed */}
+            {/* User-Specific Routes (wrapped with UserContainer) */}
+            <Route path="/user/*" element={<UserContainer />} />
           </Routes>
         </main>
 
