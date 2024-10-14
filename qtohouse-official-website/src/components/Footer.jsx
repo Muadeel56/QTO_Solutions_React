@@ -4,47 +4,41 @@ import { Instagram, Facebook, LinkedIn, Email, Phone } from '@mui/icons-material
 
 function Footer() {
   return (
-    <footer className="w-full bg-gray-900 text-gray-300 py-16 px-8">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start space-y-10 md:space-y-0">
+    <footer className="w-full bg-gray-900 text-gray-300 py-12 px-8">
+      <div className="max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 items-center">
         
         {/* Logo and Company Info */}
-        <div className="flex flex-col items-start space-y-6 w-full md:w-1/4">
-          <img src={logo} alt="logo" className="w-[120px] mb-4" />
-          <p className="text-sm leading-relaxed">
+        <div className="flex space-x-4">
+          <img src={logo} alt="logo" className="w-[100px]" />
+          <div>
+          <p className="text-sm text-justify leading-relaxed">
             QTO House is a professional estimation and quantity take-off service provider. We assist our clients in simplifying the bidding process with accurate and timely estimates.
           </p>
-          <p className="text-sm mt-4">&copy; 2024 QTO House. All rights reserved.</p>
-        </div>
-
-        {/* Quick Links Section */}
-        <div className="w-full md:w-1/4">
-          <h1 className="text-lg font-semibold text-yellow-500 mb-4">Quick Links</h1>
-          <div className="flex flex-col space-y-2">
-            {['Home', 'About Us', 'Contact Us', 'FAQ', 'Career'].map((link, index) => (
-              <a key={index} href={`#${link.toLowerCase().replace(' ', '-')}`} className="hover:text-yellow-400 transition-all">
-                {link}
-              </a>
-            ))}
+          <p className="text-xs mt-2 text-gray-400">&copy; 2024 QTO House. All rights reserved.</p>
           </div>
         </div>
+
+        
 
         {/* Contact Us Section */}
-        <div className="w-full md:w-1/4">
-          <h1 className="text-lg font-semibold text-yellow-500 mb-4">Contact Us</h1>
-          <div className="flex items-center mb-2">
-            <Email className="text-yellow-500 mr-2" />
-            <p>info@qtohouse.com</p>
-          </div>
-          <div className="flex items-center">
-            <Phone className="text-yellow-500 mr-2" />
-            <p>(571)-748-4366</p>
+        <div className=' flex flex-col items-center justify-center'>
+          <h1 className="text-2xl font-semibold text-yellow-500 mb-4">Contact Us</h1>
+          <div className="flex flex-col space-y-2">
+            <div className="flex items-center">
+              <Email className="text-yellow-500 mr-2" />
+              <p className="text-">info@qtohouse.com</p>
+            </div>
+            <div className="flex items-center">
+              <Phone className="text-yellow-500 mr-2" />
+              <p className="text-">(571)-748-4366</p>
+            </div>
           </div>
         </div>
 
         {/* Social Media Links */}
-        <div className="w-full md:w-1/4">
-          <h1 className="text-lg font-semibold text-yellow-500 mb-4">Follow Us</h1>
-          <div className="flex space-x-6">
+        <div className=' flex flex-col items-center justify-center'>
+          <h1 className="text-2xl font-semibold text-yellow-500 mb-4">Follow Us</h1>
+          <div className="flex space-x-4">
             <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
               <Instagram className="text-gray-300 hover:text-yellow-400 text-3xl transition-all" />
             </a>
@@ -56,10 +50,24 @@ function Footer() {
             </a>
           </div>
         </div>
+
+        {/* Quick Links Section */}
+        <div className=' flex flex-col items-center justify-center'>
+          <h1 className="text-2xl font-semibold text-yellow-500 mb-4">Quick Links</h1>
+          <ul className="space-y-2 ">
+            {['Home', 'About Us', 'Contact Us', 'FAQ', 'Career'].map((link, index) => (
+              <li key={index}>
+                <a href={`#${link.toLowerCase().replace(' ', '-')}`} className="hover:text-yellow-400 text- transition-all">
+                  {link}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       {/* Bottom Section */}
-      <div className="border-t border-gray-700 mt-10 pt-6">
+      <div className="border-t border-gray-700 mt-8 pt-4">
         <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
           <p>Estimation Made Simple with QTO House</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
