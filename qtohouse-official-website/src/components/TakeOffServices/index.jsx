@@ -7,8 +7,6 @@ import electric from '/images/electric-1.png';
 import lumber from '/images/lumber-1.png';
 import paint from '/images/paint-1.png';
 import laborheath from '/images/laborhealth.png';
-import career from '/images/career.jpg';
-import bidding from '/images/bidding.png';
 
 const services = [
   { id: 1, name: 'Concrete Estimation', imgSrc: concrete },
@@ -19,8 +17,6 @@ const services = [
   { id: 6, name: 'Lumber Estimation', imgSrc: lumber },
   { id: 7, name: 'Paint Estimation', imgSrc: paint },
   { id: 8, name: 'Labor Health', imgSrc: laborheath },
-  { id: 9, name: 'Career', imgSrc: career },
-  { id: 10, name: 'Bidding', imgSrc: bidding },
 ];
 
 function TakeOffServices() {
@@ -31,29 +27,32 @@ function TakeOffServices() {
         We also provide takeoff services to all trade contracts
       </h1>
 
-      {/* Image Strip Container */}
-      <div className="w-full md:w-[90%] lg:w-[80%] xl:w-[70%] h-[300px] md:h-[350px] border-4 border-gray-300 rounded-3xl overflow-hidden bg-white shadow-xl">
-        <div className="flex h-full overflow-x-auto space-x-2 p-4 md:space-x-0 md:p-0 scrollbar-hide">
-          {services.map((service) => (
-            <div
-              key={service.id}
-              className="group relative w-[200px] md:w-[10%] h-full flex-shrink-0 transition-all duration-500 ease-in-out hover:w-[250px] hover:z-4 cursor-pointer"
-            >
-              <img
-                src={service.imgSrc}
-                alt={service.name}
-                className="w-full h-full object-cover transition-transform duration-500 ease-in-out transform group-hover:scale-105"
-              />
-              {/* Overlay text */}
-              <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
-                <h2 className="text-white text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-center tracking-wide px-2">
-                  {service.name.toUpperCase()}
-                </h2>
-              </div>
+      {/* Image Slices */}
+      <div className="flex w-full h-[250px] md:h-[350px] lg:h-[450px] justify-center items-center border-8 border-gray-600 rounded-[100px] overflow-hidden">
+        {services.map((service) => (
+          <div
+            key={service.id}
+            className="group flex-grow h-full relative overflow-hidden transition-all duration-[1000ms] ease-in-out hover:flex-grow-[50] flex-shrink-0"
+            style={{
+              flexBasis: '100px', // Base size for each image slice
+            }}
+          >
+            {/* Image */}
+            <img
+              src={service.imgSrc}
+              alt={service.name}
+              className="w-full h-full object-cover transition-transform duration-[1000ms] ease-in-out transform group-hover:scale-105 group-hover:shadow-2xl"
+            />
+            {/* Overlay with text */}
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out transform group-hover:scale-105">
+              <h2 className="text-white text-base md:text-3xl lg:text-4xl font-semibold text-center px-2 whitespace-nowrap transition-all duration-[800ms]">
+                {service.name.toUpperCase()}
+              </h2>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
+      
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "../assets/images/logo.svg";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -20,6 +20,7 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation(); // To get the current path
   const isLoggedIn = true; // Assume logged in for demonstration
 
   const handleToggleMenu = () => {
@@ -38,6 +39,9 @@ function Header() {
   const handleCloseProfileMenu = () => {
     setAnchorEl(null);
   };
+
+  // Helper function to check if a route is active
+  const isActive = (path) => location.pathname === path;
 
   return (
     <header className="w-full shadow-md font-inter">
@@ -145,7 +149,9 @@ function Header() {
               <Link
                 to="/"
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium"
+                className={`flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium ${
+                  isActive("/") ? "font-bold text-yellow-500" : ""
+                }`}
               >
                 <HomeIcon className="text-yellow-500" />
                 <p>Home</p>
@@ -153,7 +159,9 @@ function Header() {
               <Link
                 to="/projects"
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium"
+                className={`flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium ${
+                  isActive("/projects") ? "font-bold text-yellow-500" : ""
+                }`}
               >
                 <BusinessIcon className="text-yellow-500" />
                 <p>Projects</p>
@@ -161,7 +169,9 @@ function Header() {
               <Link
                 to="/sample"
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium"
+                className={`flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium ${
+                  isActive("/sample") ? "font-bold text-yellow-500" : ""
+                }`}
               >
                 <DescriptionIcon className="text-yellow-500" />
                 <p>Samples</p>
@@ -169,7 +179,9 @@ function Header() {
               <Link
                 to="/about"
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium"
+                className={`flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium ${
+                  isActive("/about") ? "font-bold text-yellow-500" : ""
+                }`}
               >
                 <InfoIcon className="text-yellow-500" />
                 <p>About Us</p>
@@ -177,7 +189,9 @@ function Header() {
               <Link
                 to="/careers"
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium"
+                className={`flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium ${
+                  isActive("/careers") ? "font-bold text-yellow-500" : ""
+                }`}
               >
                 <WorkIcon className="text-yellow-500" />
                 <p>Careers</p>
@@ -185,7 +199,9 @@ function Header() {
               <Link
                 to="/contact"
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium"
+                className={`flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium ${
+                  isActive("/contact") ? "font-bold text-yellow-500" : ""
+                }`}
               >
                 <ContactsIcon className="text-yellow-500" />
                 <p>Contact Us</p>

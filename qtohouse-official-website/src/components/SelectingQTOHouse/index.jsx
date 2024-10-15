@@ -1,33 +1,43 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import enhancedImage from '../../assets/images/enhanced-image 5.png';
-
-// Importing Icons from Material UI
 import PersonIcon from '@mui/icons-material/Person';
 import AssessmentIcon from '@mui/icons-material/Assessment';
 import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturing';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 
 function SelectingQTOHouse() {
+  // Trigger animations when elements come into view
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fadeInUp');
+        }
+      });
+    });
+    const elements = document.querySelectorAll('.animateOnScroll');
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="w-full py-10 bg-gray-50 dark:bg-gray-900 px-4">
+    <div className="w-full py-10 bg-gray-50 dark:bg-gray-900 px-4 animateOnScroll">
       <div className="flex flex-col lg:flex-row space-y-8 lg:space-y-0 lg:space-x-10 items-center">
         {/* Heading Section */}
-        <div className="w-full text-center lg:text-left lg:w-1/2 space-y-4">
+        <div className="w-full text-center lg:text-left lg:w-1/2 space-y-4 animate-fadeInUp">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">
             Selecting QTO House: A Decision for Excellence
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            Join hands with QTO House, where we blend a decade of professional expertise with a personal touch
-            for each project. Our certified estimators are champions of accuracy, delivering results that resonate
-            with the cost and quality your projects deserve.
+            Join hands with QTO House, where we blend a decade of professional expertise with a personal touch for each project.
           </p>
         </div>
 
-        {/* Image */}
+        {/* Image Section */}
         <img
           src={enhancedImage}
           alt="enhanced"
-          className="w-full lg:w-1/2 h-auto rounded-lg shadow-md"
+          className="w-full lg:w-1/2 h-auto rounded-lg shadow-md animate-fadeInUp"
         />
       </div>
 
@@ -53,7 +63,7 @@ function SelectingQTOHouse() {
           description: "At QTO House, value meets virtue - offering cost-efficient solutions without skimping on precision.",
           Icon: MonetizationOnIcon,
         }].map(({ title, description, Icon }, index) => (
-          <div key={index} className="flex items-start space-x-4">
+          <div key={index} className="flex items-start space-x-4 animateOnScroll transition-transform duration-500 transform hover:scale-105">
             <Icon className="text-yellow-500 text-4xl" />
             <div>
               <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
@@ -66,6 +76,7 @@ function SelectingQTOHouse() {
           </div>
         ))}
       </div>
+      
     </div>
   );
 }

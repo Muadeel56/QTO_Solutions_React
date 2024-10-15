@@ -74,6 +74,7 @@ function CommitmentToValue() {
           </div>
         </div>
       </div>
+      
     </div>
   );
 }
