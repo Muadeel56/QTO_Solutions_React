@@ -13,7 +13,7 @@ import EsteemedClientele from '../../components/EsteemedClientele';
 function HomePage() {
   return (
     <div className="relative w-full min-h-screen flex flex-col">
-      {/* Background Image Section */}
+      {/* Background Image Section */}   
       <div className="w-full h-[60vh] sm:h-[70vh] md:h-[80vh] relative">
         <img src={ci1} alt="ci1" className="w-full h-full object-cover" />
         <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-70 space-y-6 px-4">
