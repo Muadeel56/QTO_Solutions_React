@@ -9,19 +9,31 @@ import CommitmentToValue from '../../components/CommitmentToValue';
 import TakeOffServices from '../../components/TakeOffServices';
 import Process from '../../components/Process';
 import EsteemedClientele from '../../components/EsteemedClientele';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
+import CountUp from 'react-countup';
 
 function HomePage() {
   const navigate = useNavigate(); // Initialize useNavigate
+
+  const countUpProps = {
+    start: 0,       // Start counting from 0
+    duration: 3,    // Smooth animation duration
+    delay: 0.5,     // Adds a slight delay before animation starts
+    easingFn: (t, b, c, d) => {  // Custom easing function for smoother feel
+      t /= d;
+      t--;
+      return -c * (t * t * t * t - 1) + b;
+    },
+  };
 
   return (
     <div className="relative w-full min-h-screen flex flex-col">
       {/* Background Image Section */}
       <div className="w-full h-[60vh] sm:h-[70vh] md:h-[80vh] relative">
         <img src={ci1} alt="ci1" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-70 space-y-6 px-4">
+        <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-70 space-y-10 px-4">
           {/* Main Text on Top of Image */}
-          <div className="text-center text-white space-y-4">
+          <div className="flex flex-col items-center w-full sm:w-[90%] md:w-[70%] lg:w-[90%] text-center text-white space-y-8">
             <p className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">Welcome to QTO House</p>
             <p className="text-base sm:text-lg md:text-2xl lg:text-3xl font-light">
               "Mastering the Art of Accurate Construction Estimates & Detailed Quantity Take-Offs, On Schedule & Within Your Financial Blueprint"
@@ -33,17 +45,21 @@ function HomePage() {
             <div className="flex flex-col items-center w-1/2 sm:w-1/5 mb-4 sm:mb-0">
               <DescriptionIcon className="text-yellow-500 text-3xl sm:text-4xl md:text-5xl" />
               <p className="mt-2 text-sm sm:text-base md:text-lg lg:text-xl font-semibold">QTO-Available</p>
-              <p className="text-lg sm:text-xl md:text-2xl font-bold">200</p>
+              <p className="text-lg sm:text-xl md:text-2xl font-bold">
+                <CountUp {...countUpProps} end={200} />
+              </p>
             </div>
             <div className="flex flex-col items-center w-1/2 sm:w-1/5 mb-4 sm:mb-0">
               <HourglassEmptyIcon className="text-yellow-500 text-3xl sm:text-4xl md:text-5xl" />
               <p className="mt-2 text-sm sm:text-base md:text-lg lg:text-xl font-semibold">QTO-In Progress</p>
-              <p className="text-lg sm:text-xl md:text-2xl font-bold">81</p>
+              <p className="text-lg sm:text-xl md:text-2xl font-bold">
+                <CountUp {...countUpProps} end={81} />
+              </p>
             </div>
             <div className="w-full sm:w-1/5 mb-4 sm:mb-0 flex justify-center">
               <button
                 className="bg-yellow-500 text-black text-sm sm:text-base md:text-lg font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-yellow-600 transition-all"
-                onClick={() => navigate('/sample')} // Use navigate to redirect
+                onClick={() => navigate('/sample')}
               >
                 Get Free Sample
               </button>
@@ -51,19 +67,23 @@ function HomePage() {
             <div className="flex flex-col items-center w-1/2 sm:w-1/5 mb-4 sm:mb-0">
               <CheckCircleOutlineIcon className="text-yellow-500 text-3xl sm:text-4xl md:text-5xl" />
               <p className="mt-2 text-sm sm:text-base md:text-lg lg:text-xl font-semibold">Bid Results</p>
-              <p className="text-lg sm:text-xl md:text-2xl font-bold">50</p>
+              <p className="text-lg sm:text-xl md:text-2xl font-bold">
+                <CountUp {...countUpProps} end={50} />
+              </p>
             </div>
             <div className="flex flex-col items-center w-1/2 sm:w-1/5 mb-4 sm:mb-0">
               <DoneOutlineIcon className="text-yellow-500 text-3xl sm:text-4xl md:text-5xl" />
               <p className="mt-2 text-sm sm:text-base md:text-lg lg:text-xl font-semibold">Awarded</p>
-              <p className="text-lg sm:text-xl md:text-2xl font-bold">100</p>
+              <p className="text-lg sm:text-xl md:text-2xl font-bold">
+                <CountUp {...countUpProps} end={100} />
+              </p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Remaining Content Sections */}
-      <div className="w-full px-4 sm:px-8 md:px-10 lg:px-16 py-10 space-y-12">
+      <div className="w-full  pt-10 space-y-12">
         <SelectingQTOHouse />
         <CommitmentToValue />
         <TakeOffServices />

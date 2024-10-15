@@ -50,12 +50,14 @@ function LoginPage() {
               fullWidth
               variant="contained"
               sx={{
-                backgroundColor: '#FFD700',
-                color: '#000',
+                backgroundColor: '#facc15',
+                color: '#fff',
                 padding: '10px',
+                borderRadius: '20px',
                 fontWeight: 'bold',
-                '&:hover': { backgroundColor: '#FFC000' }
+                '&:hover': { backgroundColor: '#ca8a04' }
               }}
+              
             >
               Login
             </Button>
@@ -68,8 +70,8 @@ function LoginPage() {
               variant="outlined"
               sx={{
                 borderColor: '#FFD700',
-                color: '#FFD700',
-                '&:hover': { borderColor: '#FFC000', color: '#FFC000' }
+                color: '#ca8a04',
+                '&:hover': { borderColor: '#facc15', backgroundColor: '#facc15', color: 'white' }
               }}
             >
               Register

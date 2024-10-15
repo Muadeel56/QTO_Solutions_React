@@ -16,12 +16,11 @@ import PersonIcon from "@mui/icons-material/Person";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { Menu, MenuItem } from "@mui/material";
 
-function Header() {
+function Header({ isLoggedIn, setIsLoggedIn }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const navigate = useNavigate();
   const location = useLocation(); // To get the current path
-  const isLoggedIn = true; // Assume logged in for demonstration
 
   const handleToggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -30,6 +29,11 @@ function Header() {
   const handleLoginClick = () => {
     navigate("/login");
     setMenuOpen(false);
+  };
+
+  const handleLogoutClick = () => {
+    setIsLoggedIn(false);
+    navigate("/login");
   };
 
   const handleProfileClick = (event) => {
@@ -114,6 +118,9 @@ function Header() {
                     My Favorites
                   </Link>
                 </MenuItem>
+                <MenuItem onClick={handleLogoutClick} className="text-black">
+                  Logout
+                </MenuItem>
               </Menu>
             </div>
           )}
@@ -157,16 +164,6 @@ function Header() {
                 <p>Home</p>
               </Link>
               <Link
-                to="/projects"
-                onClick={() => setMenuOpen(false)}
-                className={`flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium ${
-                  isActive("/projects") ? "font-bold text-yellow-500" : ""
-                }`}
-              >
-                <BusinessIcon className="text-yellow-500" />
-                <p>Projects</p>
-              </Link>
-              <Link
                 to="/sample"
                 onClick={() => setMenuOpen(false)}
                 className={`flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium ${
@@ -206,7 +203,22 @@ function Header() {
                 <ContactsIcon className="text-yellow-500" />
                 <p>Contact Us</p>
               </Link>
+
+              {/* Conditionally render the Projects link if logged in */}
+              {isLoggedIn && (
+                <Link
+                  to="/projects"
+                  onClick={() => setMenuOpen(false)}
+                  className={`flex items-center space-x-2 hover:text-yellow-400 transition-all font-medium ${
+                    isActive("/projects") ? "font-bold text-yellow-500" : ""
+                  }`}
+                >
+                  <BusinessIcon className="text-yellow-500" />
+                  <p>Projects</p>
+                </Link>
+              )}
             </div>
+
             {/* Get Free Quotes Button */}
             <div className="flex justify-center md:justify-start mt-6 md:mt-0 md:ml-8">
               <Link to="/quote" onClick={() => setMenuOpen(false)}>
@@ -217,29 +229,8 @@ function Header() {
               </Link>
             </div>
           </nav>
-
-          {/* Login Button for Mobile View */}
-          {menuOpen && !isLoggedIn && (
-            <div className="flex flex-col items-center mt-6 sm:hidden">
-              <button
-                onClick={handleLoginClick}
-                className="flex items-center space-x-2 bg-yellow-500 text-black px-4 py-2 rounded-md hover:bg-yellow-600 transition-all font-medium shadow-md"
-              >
-                <PersonIcon />
-                <p>Login</p>
-              </button>
-            </div>
-          )}
         </div>
       </div>
-
-      {/* Backdrop for Mobile Navigation */}
-      {menuOpen && (
-        <div
-          className="fixed inset-0 bg-black opacity-50 z-10 md:hidden"
-          onClick={() => setMenuOpen(false)}
-        />
-      )}
     </header>
   );
 }

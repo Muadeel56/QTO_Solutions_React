@@ -21,7 +21,7 @@ function SelectingQTOHouse() {
   }, []);
 
   return (
-    <div className="w-full py-10 bg-gray-50 dark:bg-gray-900 px-4 animateOnScroll">
+    <div className="w-full py-10  px-10 animateOnScroll">
       <div className="flex flex-col lg:flex-row space-y-8 lg:space-y-0 lg:space-x-10 items-center">
         {/* Heading Section */}
         <div className="w-full text-center lg:text-left lg:w-1/2 space-y-4 animate-fadeInUp">
@@ -39,6 +39,7 @@ function SelectingQTOHouse() {
           alt="enhanced"
           className="w-full lg:w-1/2 h-auto rounded-lg shadow-md animate-fadeInUp"
         />
+        <img/>
       </div>
 
       {/* Features Section */}

@@ -21,7 +21,7 @@ const services = [
 
 function TakeOffServices() {
   return (
-    <div className="flex flex-col items-center justify-center my-16 px-4">
+    <div className="flex flex-col items-center justify-center my-16 px-32">
       {/* Heading */}
       <h1 className="text-3xl md:text-4xl font-semibold text-center mb-10">
         We also provide takeoff services to all trade contracts
@@ -32,7 +32,7 @@ function TakeOffServices() {
         {services.map((service) => (
           <div
             key={service.id}
-            className="group flex-grow h-full relative overflow-hidden transition-all duration-[1000ms] ease-in-out hover:flex-grow-[50] flex-shrink-0"
+            className="group flex-grow h-full relative overflow-hidden transition-all duration-[1000ms] ease-in-out md:hover:flex-grow-[50] flex-shrink-0"
             style={{
               flexBasis: '100px', // Base size for each image slice
             }}

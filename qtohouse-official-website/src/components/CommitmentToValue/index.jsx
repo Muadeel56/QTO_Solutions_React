@@ -1,5 +1,17 @@
 import React from 'react';
-import comercial from '../../assets/images/comercial.png';
+import Group389 from '../../assets/images/Group 389.png';
+import MaskGroup from '../../assets/images/Mask group.png';
+import bridge from '../../assets/images/Bridge.png';  
+import manufacturing from '../../assets/images/Manufacturing.png';
+import Group313 from '../../assets/images/Group 313.png';
+import commercial from '../../assets/images/commercial-construction.png';
+import prefab from '../../assets/images/Prefab House.png';
+import skyscrapers from '../../assets/images/Skyscrapers.png';
+import uscapitol from '../../assets/images/US Capitol.png';
+import Group312 from '../../assets/images/Group 312.png';
+import heavycivilheader from '../../assets/images/heavy-civil-header.png';
+import Group316 from '../../assets/images/Group 316.png';
+import Rectangle78 from '../../assets/images/Rectangle 78.png';
 import GavelIcon from '@mui/icons-material/Gavel';
 import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturing';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
@@ -8,7 +20,7 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 
 function CommitmentToValue() {
   return (
-    <div className="w-full bg-gray-100 py-10 md:py-16">
+    <div className="w-full bg-gray-100 py-10  md:py-16">
       <div className="flex flex-col space-y-8 px-6 md:px-10 lg:px-20 justify-center items-center">
         {/* Header Section */}
         <div className="max-w-2xl space-y-4 text-center">
@@ -64,17 +76,26 @@ function CommitmentToValue() {
             ))}
           </div>
 
-          {/* Right Section (Image) */}
-          <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-            <img
-              src={comercial}
-              alt="commercial"
-              className="w-full max-w-md rounded-md shadow-lg object-cover"
-            />
+          {/* Right Section (Images arranged in grid) */}
+          <div className="w-full lg:w-1/2 grid grid-cols-3 grid-rows-2 gap-4">
+            <div className="col-span-1 row-span-1">
+              <img src={MaskGroup} alt="Commercial Construction" className="rounded-md shadow-lg h-full w-full object-cover" />
+            </div>
+            <div className="col-span-1 row-span-1">
+              <img src={Group312} alt="Residential Construction" className="rounded-md shadow-lg h-full w-full object-cover" />
+            </div>
+            <div className="col-span-1 row-span-2">
+              <img src={Group313} alt="Industrial Construction" className="rounded-md shadow-lg h-full w-full object-cover" />
+            </div>
+            <div className="col-span-1 row-span-1">
+              <img src={Group316} alt="Federal Construction" className="rounded-md shadow-lg h-full w-full object-cover" />
+            </div>
+            <div className="col-span-1 row-span-1">
+              <img src={Group389} alt="Heavy Civil Construction" className="rounded-md shadow-lg h-full w-full object-cover" />
+            </div>
           </div>
         </div>
       </div>
-      
     </div>
   );
 }
