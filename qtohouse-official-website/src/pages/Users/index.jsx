@@ -43,7 +43,7 @@ function Users() {
   return (
     <Box sx={{ padding: "2rem", backgroundColor: "#f5f5f5", minHeight: "100vh" }}>
       {/* Header */}
-      <Typography variant="h4" fontWeight="bold" mb={2} sx={{ color: "#d97706" }}>
+      <Typography variant="h4" fontWeight="bold" mb={2} sx={{ color: "#ca8a04" }}>
         Users
       </Typography>
       <Typography variant="body1" color="textSecondary" mb={4}>
@@ -61,7 +61,7 @@ function Users() {
               fontWeight: "bold",
               padding: "10px 20px",
               borderRadius: "8px",
-              backgroundColor: "#d97706",
+              backgroundColor: "#ca8a04",
               "&:hover": { backgroundColor: "#1565C0" },
             }}
           >
@@ -76,9 +76,9 @@ function Users() {
               mr: 2,
               padding: "8px 16px",
               borderRadius: "8px",
-              borderColor: "#d97706",
-              color: "#d97706",
-              "&:hover": { borderColor: "#1565C0", color: "#1565C0" },
+              borderColor: "#ca8a04",
+              color: "#ca8a04",
+              "&:hover": { borderColor: "#ca8a04", color: "#ca8a04" },
             }}
           >
             Filters
@@ -90,9 +90,9 @@ function Users() {
               mr: 2,
               padding: "8px 16px",
               borderRadius: "8px",
-              borderColor: "#d97706",
-              color: "#d97706",
-              "&:hover": { borderColor: "#1565C0", color: "#1565C0" },
+              borderColor: "#ca8a04",
+              color: "#ca8a04",
+              "&:hover": { borderColor: "#ca8a04", color: "#ca8a04" },
             }}
           >
             Import
@@ -167,12 +167,12 @@ function Users() {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell sx={{ fontWeight: "bold", color: "#d97706" }}>Name</TableCell>
-              <TableCell sx={{ fontWeight: "bold", color: "#d97706" }}>Company</TableCell>
-              <TableCell sx={{ fontWeight: "bold", color: "#d97706" }}>Email</TableCell>
-              <TableCell sx={{ fontWeight: "bold", color: "#d97706" }}>Phone</TableCell>
-              <TableCell sx={{ fontWeight: "bold", color: "#d97706" }}>Status</TableCell>
-              <TableCell sx={{ fontWeight: "bold", color: "#d97706" }}>Actions</TableCell>
+              <TableCell sx={{ fontWeight: "bold", color: "#ca8a04" }}>Name</TableCell>
+              <TableCell sx={{ fontWeight: "bold", color: "#ca8a04" }}>Company</TableCell>
+              <TableCell sx={{ fontWeight: "bold", color: "#ca8a04" }}>Email</TableCell>
+              <TableCell sx={{ fontWeight: "bold", color: "#ca8a04" }}>Phone</TableCell>
+              <TableCell sx={{ fontWeight: "bold", color: "#ca8a04" }}>Status</TableCell>
+              <TableCell sx={{ fontWeight: "bold", color: "#ca8a04" }}>Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -181,7 +181,7 @@ function Users() {
               <TableCell>
                 <Grid container spacing={2} alignItems="center">
                   <Grid item>
-                    <Avatar sx={{ backgroundColor: "#d97706" }}>
+                    <Avatar sx={{ backgroundColor: "#ca8a04" }}>
                       <PersonIcon />
                     </Avatar>
                   </Grid>
@@ -244,7 +244,7 @@ function Users() {
                   height: 128,
                   marginBottom: "16px",
                   fontSize: "48px",
-                  backgroundColor: "#d97706",
+                  backgroundColor: "#ca8a04",
                 }}
               >
                 JD

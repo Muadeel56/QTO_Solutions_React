@@ -28,10 +28,10 @@ function UserDashboard() {
     <Box sx={{ padding: 3 }}>
       {/* Header Section */}
       <Box mb={3}>
-        <Typography variant="h4" fontWeight="bold">
+        <Typography variant="h4" fontWeight="bold" sx={{ color: "#ca8a04" }}>
           Analytics
         </Typography>
-        <Typography variant="subtitle2" color="gray">
+        <Typography variant="subtitle2" color="gray" >
           Dashboards / Analytics
         </Typography>
       </Box>
@@ -44,7 +44,7 @@ function UserDashboard() {
               <Typography variant="subtitle2" color="textSecondary">
                 Users
               </Typography>
-              <Typography variant="h4" fontWeight="bold">
+              <Typography variant="h4" fontWeight="bold" color="#ca8a04">
                 28.07K
               </Typography>
               <Typography variant="caption" color={green[500]}>
@@ -63,7 +63,7 @@ function UserDashboard() {
               <Typography variant="subtitle2" color="textSecondary">
                 Sessions
               </Typography>
-              <Typography variant="h4" fontWeight="bold">
+              <Typography variant="h4" fontWeight="bold" color="#ca8a04">
                 97.67K
               </Typography>
               <Typography variant="caption" color={red[500]}>
@@ -82,7 +82,7 @@ function UserDashboard() {
               <Typography variant="subtitle2" color="textSecondary">
                 Bounce Rate
               </Typography>
-              <Typography variant="h4" fontWeight="bold">
+              <Typography variant="h4" fontWeight="bold" color="#ca8a04">
                 40.57%
               </Typography>
               <Typography variant="caption" color={orange[500]}>
@@ -101,7 +101,7 @@ function UserDashboard() {
               <Typography variant="subtitle2" color="textSecondary">
                 Avg. Visit Duration
               </Typography>
-              <Typography variant="h4" fontWeight="bold">
+              <Typography variant="h4" fontWeight="bold" color="#ca8a04">
                 3m 40s
               </Typography>
               <Typography variant="caption" color={green[500]}>
@@ -119,7 +119,7 @@ function UserDashboard() {
       <Card sx={{ boxShadow: 3 }}>
         <Box p={3}>
           <Box display="flex" justifyContent="space-between">
-            <Typography variant="h6" fontWeight="bold">
+            <Typography variant="h6" fontWeight="bold" sx={{ color: "#ca8a04" }}>
               Users By Device
             </Typography>
             <IconButton>

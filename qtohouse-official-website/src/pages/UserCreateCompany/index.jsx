@@ -59,7 +59,7 @@ function UserCreateCompany() {
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <BusinessIcon sx={{ color: "#d97706" }} />
+                    <BusinessIcon sx={{ color: "#ca8a04" }} />
                   </InputAdornment>
                 ),
               }}
@@ -72,7 +72,7 @@ function UserCreateCompany() {
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <LocationOnIcon sx={{ color: "#d97706" }} />
+                    <LocationOnIcon sx={{ color: "#ca8a04" }} />
                   </InputAdornment>
                 ),
               }}
@@ -87,7 +87,7 @@ function UserCreateCompany() {
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
-                        <PublicIcon sx={{ color: "#d97706" }} />
+                        <PublicIcon sx={{ color: "#ca8a04" }} />
                       </InputAdornment>
                     ),
                   }}
@@ -105,7 +105,7 @@ function UserCreateCompany() {
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
-                        <LocationOnIcon sx={{ color: "#d97706" }} />
+                        <LocationOnIcon sx={{ color: "#ca8a04" }} />
                       </InputAdornment>
                     ),
                   }}
@@ -124,7 +124,7 @@ function UserCreateCompany() {
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <PublicIcon sx={{ color: "#d97706" }} />
+                    <PublicIcon sx={{ color: "#ca8a04" }} />
                   </InputAdornment>
                 ),
               }}
@@ -140,7 +140,7 @@ function UserCreateCompany() {
           >
             <Typography
               variant="h6"
-              sx={{ fontWeight: "bold", marginBottom: "12px", color: "#d97706" }}
+              sx={{ fontWeight: "bold", marginBottom: "12px", color: "#ca8a04" }}
             >
               Contact Information
             </Typography>
@@ -152,7 +152,7 @@ function UserCreateCompany() {
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <BusinessIcon sx={{ color: "#d97706" }} />
+                    <BusinessIcon sx={{ color: "#ca8a04" }} />
                   </InputAdornment>
                 ),
               }}
@@ -165,7 +165,7 @@ function UserCreateCompany() {
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <LocationOnIcon sx={{ color: "#d97706" }} />
+                    <LocationOnIcon sx={{ color: "#ca8a04" }} />
                   </InputAdornment>
                 ),
               }}
@@ -180,7 +180,7 @@ function UserCreateCompany() {
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
-                        <PublicIcon sx={{ color: "#d97706" }} />
+                        <PublicIcon sx={{ color: "#ca8a04" }} />
                       </InputAdornment>
                     ),
                   }}
@@ -198,7 +198,7 @@ function UserCreateCompany() {
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
-                        <LocationOnIcon sx={{ color: "#d97706" }} />
+                        <LocationOnIcon sx={{ color: "#ca8a04" }} />
                       </InputAdornment>
                     ),
                   }}
@@ -217,7 +217,7 @@ function UserCreateCompany() {
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <MailOutlineIcon sx={{ color: "#d97706" }} />
+                    <MailOutlineIcon sx={{ color: "#ca8a04" }} />
                   </InputAdornment>
                 ),
               }}
@@ -230,7 +230,7 @@ function UserCreateCompany() {
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <PhoneIcon sx={{ color: "#d97706" }} />
+                    <PhoneIcon sx={{ color: "#ca8a04" }} />
                   </InputAdornment>
                 ),
               }}
@@ -243,7 +243,7 @@ function UserCreateCompany() {
           <Paper elevation={3} sx={{ padding: "16px", borderRadius: "16px" }}>
             <Typography
               variant="h6"
-              sx={{ fontWeight: "bold", marginBottom: "12px", color: "#d97706" }}
+              sx={{ fontWeight: "bold", marginBottom: "12px", color: "#ca8a04" }}
             >
               Company Details
             </Typography>
@@ -257,7 +257,7 @@ function UserCreateCompany() {
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
-                        <CalendarTodayIcon sx={{ color: "#d97706" }} />
+                        <CalendarTodayIcon sx={{ color: "#ca8a04" }} />
                       </InputAdornment>
                     ),
                   }}
@@ -272,7 +272,7 @@ function UserCreateCompany() {
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
-                        <ConstructionIcon sx={{ color: "#d97706" }} />
+                        <ConstructionIcon sx={{ color: "#ca8a04" }} />
                       </InputAdornment>
                     ),
                   }}

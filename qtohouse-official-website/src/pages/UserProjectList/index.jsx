@@ -23,12 +23,12 @@ import AddIcon from '@mui/icons-material/Add';
 import SearchIcon from '@mui/icons-material/Search';
 import SortIcon from '@mui/icons-material/Sort';
 
-function UserListCompanies() {
+function UserProjectList() {
   // Sample Data
-  const companies = [
-    { name: 'ABC Construction', contact: 'John Doe', location: 'New York', contractorType: 'General', constructionType: 'Residential' },
-    { name: 'XYZ Builders', contact: 'Jane Smith', location: 'San Francisco', contractorType: 'Subcontractor', constructionType: 'Commercial' },
-    { name: 'LMN Contractors', contact: 'Chris Brown', location: 'Los Angeles', contractorType: 'General', constructionType: 'Industrial' },
+  const projects = [
+    { title: 'Bridge Construction', manager: 'Alice Johnson', location: 'Chicago', status: 'In Progress', type: 'Infrastructure' },
+    { title: 'Apartment Complex', manager: 'Bob Harris', location: 'Miami', status: 'Completed', type: 'Residential' },
+    { title: 'Office Tower', manager: 'Charlie Davis', location: 'New York', status: 'In Progress', type: 'Commercial' },
   ];
 
   const [sortBy, setSortBy] = React.useState('');
@@ -39,18 +39,18 @@ function UserListCompanies() {
 
   return (
     <Box p={4}>
-      {/* Title and Add Company Button */}
+      {/* Title and Add Project Button */}
       <Box display="flex" justifyContent="space-between" alignItems="center" mb={4}>
-        <Typography variant="h4" fontWeight="bold" sx={{ color: '#ca8a04' }}>
-          Companies
+        <Typography variant="h4" fontWeight="bold" sx={{ color:"#ca8a04" }}>
+          Projects
         </Typography>
         <Button
           variant="contained"
           color="primary"
           startIcon={<AddIcon />}
-          sx={{ backgroundColor: '#ca8a04', '&:hover': { backgroundColor: '#a16207' } }}
+          sx={{ backgroundColor: '#ca8a04', '&:hover': { backgroundColor: '#b45309' } }}
         >
-          Add New Company
+          Add New Project
         </Button>
       </Box>
 
@@ -59,7 +59,7 @@ function UserListCompanies() {
         <Grid item xs={12} md={6}>
           <TextField
             variant="outlined"
-            placeholder="Search for companies"
+            placeholder="Search for projects"
             fullWidth
             InputProps={{
               startAdornment: (
@@ -85,8 +85,8 @@ function UserListCompanies() {
               <MenuItem value="" disabled>
                 Sort By
               </MenuItem>
-              <MenuItem value="Owner">Owner</MenuItem>
-              <MenuItem value="Company">Company</MenuItem>
+              <MenuItem value="Manager">Manager</MenuItem>
+              <MenuItem value="Title">Title</MenuItem>
               <MenuItem value="Location">Location</MenuItem>
             </Select>
           </FormControl>
@@ -98,21 +98,21 @@ function UserListCompanies() {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Company Name</TableCell>
-              <TableCell>Contact Person</TableCell>
+              <TableCell>Project Title</TableCell>
+              <TableCell>Manager</TableCell>
               <TableCell>Location</TableCell>
-              <TableCell>Contractor Type</TableCell>
-              <TableCell>Type of Construction</TableCell>
+              <TableCell>Status</TableCell>
+              <TableCell>Type</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {companies.map((company, index) => (
+            {projects.map((project, index) => (
               <TableRow key={index}>
-                <TableCell>{company.name}</TableCell>
-                <TableCell>{company.contact}</TableCell>
-                <TableCell>{company.location}</TableCell>
-                <TableCell>{company.contractorType}</TableCell>
-                <TableCell>{company.constructionType}</TableCell>
+                <TableCell>{project.title}</TableCell>
+                <TableCell>{project.manager}</TableCell>
+                <TableCell>{project.location}</TableCell>
+                <TableCell>{project.status}</TableCell>
+                <TableCell>{project.type}</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -127,4 +127,4 @@ function UserListCompanies() {
   );
 }
 
-export default UserListCompanies;
+export default UserProjectList;
