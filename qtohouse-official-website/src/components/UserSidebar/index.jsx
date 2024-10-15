@@ -11,7 +11,7 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 function UserSidebar() {
   return (
     <div className="absolute h-full">
-      <Sidebar backgroundColor="#1F2937" className="w-64 h-full shadow-lg rounded-lg">
+      <Sidebar backgroundColor="#" className="w-64 h-full shadow-lg rounded-lg">
         <Menu iconShape="square">
           {/* Dashboard Menu Item */}
           <MenuItem className="text-yellow-500" icon={<DashboardIcon sx={{ color: '#D97706' }} />}>
@@ -19,8 +19,17 @@ function UserSidebar() {
           </MenuItem>
 
           {/* Profile Menu Item */}
-          <MenuItem className="text-yellow-500" icon={<PersonIcon sx={{ color: '#D97706' }} />}>
-            <Link to="/user/profile" className="text-yellow-500">Profile</Link>
+          <SubMenu title="Companies" label="Companies" className="text-yellow-500" icon={<PersonIcon sx={{ color: '#D97706' }} />}> 
+            <MenuItem className="text-yellow-500">
+              <Link to="/user/list-companies" className="text-yellow-500">List of Companies</Link>
+            </MenuItem>
+            <MenuItem className="text-yellow-500">
+              <Link to="/user/create-company" className="text-yellow-500">Create Company</Link>
+            </MenuItem>
+          </SubMenu>
+
+          <MenuItem className="text-yellow-500" icon={<FavoriteIcon sx={{ color: '#D97706' }} />}>
+            <Link to="/user/users" className="text-yellow-500">Users</Link>
           </MenuItem>
 
           {/* Favorite Projects Menu Item */}

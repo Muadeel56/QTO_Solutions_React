@@ -7,6 +7,7 @@ import {
   Card,
   CardContent,
   Divider,
+  IconButton,
 } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
 import BusinessIcon from "@mui/icons-material/Business";
@@ -15,163 +16,185 @@ import RequestQuoteIcon from "@mui/icons-material/RequestQuote";
 import FolderIcon from "@mui/icons-material/Folder";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import TimelineIcon from "@mui/icons-material/Timeline";
-import LinearProgressBar from "../../components/LinearProgressBar";
-import ProjectProgress from "../../components/ProjectProgress";
+import DesktopMacIcon from "@mui/icons-material/DesktopMac";
+import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
+import TabletMacIcon from "@mui/icons-material/TabletMac";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import CircularProgressBar from "../../components/CircularProgressBar"; // Assume you have a circular progress bar component
+import { green, red, orange } from "@mui/material/colors";
 
 function UserDashboard() {
   return (
-    <Box className="flex flex-col min-h-screen mt-20 p-4 md:p-8">
-      {/* Main Dashboard Section */}
-      <Box className="mb-8">
-        <Box className="flex flex-col md:flex-row justify-between items-center mb-6">
-          <Box>
-            <Typography variant="h4" sx={{ fontWeight: "bold" }} className="text-yellow-400">
-              Dashboard
-            </Typography>
-            <Typography variant="body1" className="text-gray-600">
-              This is the user dashboard overview.
-            </Typography>
-          </Box>
-          <Button
-            variant="contained"
-            startIcon={<DownloadIcon />}
-            sx={{
-              backgroundColor: "#D97706",
-              color: "white",
-              "&:hover": { backgroundColor: "#CA8A04" },
-            }}
-            className="mt-4 md:mt-0"
-          >
-            Export Data
-          </Button>
-        </Box>
+    <Box sx={{ padding: 3 }}>
+      {/* Header Section */}
+      <Box mb={3}>
+        <Typography variant="h4" fontWeight="bold">
+          Analytics
+        </Typography>
+        <Typography variant="subtitle2" color="gray">
+          Dashboards / Analytics
+        </Typography>
       </Box>
 
-      {/* Overview Cards Section */}
-      <Grid container spacing={4} className="mb-8">
-        {[
-          {
-            title: "Total Projects",
-            icon: <BusinessIcon sx={{ fontSize: 50 }} className="text-yellow-600" />,
-            count: 30,
-            description: "Total number of projects created.",
-          },
-          {
-            title: "Favorite Projects",
-            icon: <StarIcon sx={{ fontSize: 50 }} className="text-yellow-600" />,
-            count: 5,
-            description: "Projects marked as favorites.",
-          },
-          {
-            title: "Takeoff Requests",
-            icon: <RequestQuoteIcon sx={{ fontSize: 50 }} className="text-yellow-600" />,
-            count: 10,
-            description: "Requests submitted for project takeoffs.",
-          },
-          {
-            title: "My Projects",
-            icon: <FolderIcon sx={{ fontSize: 50 }} className="text-yellow-600" />,
-            count: 15,
-            description: "Projects you are currently managing.",
-          },
-        ].map((card, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
-            <Card
-              sx={{
-                boxShadow: 3,
-                transition: "0.3s",
-                "&:hover": { transform: "scale(1.02)" },
-                textAlign: "center",
-              }}
-            >
-              <CardContent>
-                {card.icon}
-                <Typography variant="h5" sx={{ fontWeight: "bold", mt: 2 }}>
-                  {card.count}
-                </Typography>
-                <Typography variant="body2" className="text-gray-500">
-                  {card.description}
-                </Typography>
-                <Divider sx={{ my: 1 }} />
-                <Typography variant="body1" sx={{ color: "textSecondary" }}>
-                  {card.title}
-                </Typography>
-                <Typography variant="caption" className="text-gray-500">
-                  Since January 2023
-                </Typography>
-              </CardContent>
-            </Card>
+      {/* Statistics Cards */}
+      <Grid container spacing={3} mb={5}>
+        <Grid item xs={12} sm={6} lg={3}>
+          <Card sx={{ boxShadow: 3 }}>
+            <CardContent>
+              <Typography variant="subtitle2" color="textSecondary">
+                Users
+              </Typography>
+              <Typography variant="h4" fontWeight="bold">
+                28.07K
+              </Typography>
+              <Typography variant="caption" color={green[500]}>
+                12% Increase vs Previous Month
+              </Typography>
+              <Box display="flex" justifyContent="flex-end" mt={2}>
+                <BusinessIcon fontSize="large" sx={{ color: green[500] }} />
+              </Box>
+            </CardContent>
+          </Card>
+        </Grid>
+
+        <Grid item xs={12} sm={6} lg={3}>
+          <Card sx={{ boxShadow: 3 }}>
+            <CardContent>
+              <Typography variant="subtitle2" color="textSecondary">
+                Sessions
+              </Typography>
+              <Typography variant="h4" fontWeight="bold">
+                97.67K
+              </Typography>
+              <Typography variant="caption" color={red[500]}>
+                8% Decrease vs Previous Month
+              </Typography>
+              <Box display="flex" justifyContent="flex-end" mt={2}>
+                <StarIcon fontSize="large" sx={{ color: red[500] }} />
+              </Box>
+            </CardContent>
+          </Card>
+        </Grid>
+
+        <Grid item xs={12} sm={6} lg={3}>
+          <Card sx={{ boxShadow: 3 }}>
+            <CardContent>
+              <Typography variant="subtitle2" color="textSecondary">
+                Bounce Rate
+              </Typography>
+              <Typography variant="h4" fontWeight="bold">
+                40.57%
+              </Typography>
+              <Typography variant="caption" color={orange[500]}>
+                5% Increase vs Previous Month
+              </Typography>
+              <Box display="flex" justifyContent="flex-end" mt={2}>
+                <RequestQuoteIcon fontSize="large" sx={{ color: orange[500] }} />
+              </Box>
+            </CardContent>
+          </Card>
+        </Grid>
+
+        <Grid item xs={12} sm={6} lg={3}>
+          <Card sx={{ boxShadow: 3 }}>
+            <CardContent>
+              <Typography variant="subtitle2" color="textSecondary">
+                Avg. Visit Duration
+              </Typography>
+              <Typography variant="h4" fontWeight="bold">
+                3m 40s
+              </Typography>
+              <Typography variant="caption" color={green[500]}>
+                3% Increase vs Previous Month
+              </Typography>
+              <Box display="flex" justifyContent="flex-end" mt={2}>
+                <TimelineIcon fontSize="large" sx={{ color: green[500] }} />
+              </Box>
+            </CardContent>
+          </Card>
+        </Grid>
+      </Grid>
+
+      {/* Users by Device Section */}
+      <Card sx={{ boxShadow: 3 }}>
+        <Box p={3}>
+          <Box display="flex" justifyContent="space-between">
+            <Typography variant="h6" fontWeight="bold">
+              Users By Device
+            </Typography>
+            <IconButton>
+              <MoreVertIcon />
+            </IconButton>
+          </Box>
+
+          <Grid container spacing={3} mt={3}>
+            <Grid item xs={12} sm={4}>
+              <CircularProgressBar percentage={45} color={green[500]} />
+              <Typography mt={2} align="center">
+                Desktop Users
+              </Typography>
+              <Typography variant="caption" color={green[500]} align="center">
+                78.56K Users
+              </Typography>
+            </Grid>
+
+            <Grid item xs={12} sm={4}>
+              <CircularProgressBar percentage={35} color={red[500]} />
+              <Typography mt={2} align="center">
+                Mobile Users
+              </Typography>
+              <Typography variant="caption" color={red[500]} align="center">
+                105.34K Users
+              </Typography>
+            </Grid>
+
+            <Grid item xs={12} sm={4}>
+              <CircularProgressBar percentage={20} color={orange[500]} />
+              <Typography mt={2} align="center">
+                Tablet Users
+              </Typography>
+              <Typography variant="caption" color={orange[500]} align="center">
+                43.43K Users
+              </Typography>
+            </Grid>
           </Grid>
-        ))}
-      </Grid>
 
-      {/* Project Progress and Top Projects Section */}
-      <Grid container spacing={4}>
-        <Grid item xs={12} lg={6}>
-          <Card sx={{ boxShadow: 3 }}>
-            <CardContent>
-              <Box className="flex items-center mb-4">
-                <TimelineIcon sx={{ fontSize: 40, color: "#D97706" }} />
-                <Typography variant="h5" sx={{ fontWeight: "bold", ml: 2 }} className="text-yellow-600">
-                  Project Progress
-                </Typography>
-              </Box>
-              <Typography variant="body1" className="text-gray-500 mb-2">
-                Chart showing the progress of your projects.
-              </Typography>
-              <ProjectProgress />
-            </CardContent>
-          </Card>
-        </Grid>
+          <Divider sx={{ my: 3 }} />
 
-        <Grid item xs={12} lg={6}>
-          <Card sx={{ boxShadow: 3 }}>
-            <CardContent>
-              <Box className="flex items-center mb-4">
-                <TrendingUpIcon sx={{ fontSize: 40, color: "#D97706" }} />
-                <Typography variant="h5" sx={{ fontWeight: "bold", ml: 2 }} className="text-yellow-600">
-                  Top Projects
-                </Typography>
+          {/* Additional Information */}
+          <Grid container spacing={3}>
+            <Grid item xs={12} sm={4}>
+              <Box display="flex" alignItems="center">
+                <DesktopMacIcon sx={{ color: green[500], mr: 2 }} />
+                <Typography>78.56K Desktop Users</Typography>
               </Box>
-              <Typography variant="body1" className="text-gray-500 mb-2">
-                Progress of your top projects.
+              <Typography variant="caption" color={green[500]}>
+                12% Increase
               </Typography>
-              {[
-                { name: "Home Construction", progress: 50 },
-                { name: "Office Construction", progress: 70 },
-                { name: "Retail Construction", progress: 30 },
-                { name: "Hotel Construction", progress: 90 },
-              ].map((project, index) => (
-                <LinearProgressBar key={index} projectName={project.name} value={project.progress} />
-              ))}
-            </CardContent>
-          </Card>
-        </Grid>
-      </Grid>
+            </Grid>
 
-      {/* Projects Shown on World Map Section */}
-      {/* Uncomment this section if needed */}
-      {/* <Grid container spacing={4} className="mt-8">
-        <Grid item xs={12}>
-          <Card sx={{ boxShadow: 3 }}>
-            <CardContent>
-              <Box className="flex items-center mb-4">
-                <LocationOnIcon sx={{ fontSize: 40, color: '#D97706' }} />
-                <Typography
-                  variant="h5"
-                  sx={{ fontWeight: 'bold', ml: 2 }}
-                  className="text-yellow-600"
-                >
-                  Project Location
-                </Typography>
+            <Grid item xs={12} sm={4}>
+              <Box display="flex" alignItems="center">
+                <PhoneAndroidIcon sx={{ color: red[500], mr: 2 }} />
+                <Typography>105.34K Mobile Users</Typography>
               </Box>
-              <Typography variant="body1" className="text-gray-500">
-                Projects shown on a world map.
+              <Typography variant="caption" color={red[500]}>
+                8% Decrease
               </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-      </Grid> */}
+            </Grid>
+
+            <Grid item xs={12} sm={4}>
+              <Box display="flex" alignItems="center">
+                <TabletMacIcon sx={{ color: orange[500], mr: 2 }} />
+                <Typography>43.43K Tablet Users</Typography>
+              </Box>
+              <Typography variant="caption" color={orange[500]}>
+                3% Increase
+              </Typography>
+            </Grid>
+          </Grid>
+        </Box>
+      </Card>
     </Box>
   );
 }
