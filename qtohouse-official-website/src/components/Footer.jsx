@@ -1,70 +1,100 @@
 import React from 'react';
+import { Link } from 'react-router-dom';  // Import Link from react-router-dom
 import logo from '../assets/images/logo.svg';
 import { Instagram, Facebook, LinkedIn, Email, Phone } from '@mui/icons-material';
 
 function Footer() {
   return (
-    <footer className="w-full bg-gray-900 text-gray-300 py-16 px-8">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start space-y-10 md:space-y-0">
+    <footer className="w-full bg-gray-900 text-gray-300 py-12 px-8">
+      <div className="max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 items-center">
         
         {/* Logo and Company Info */}
-        <div className="flex flex-col items-start space-y-6 w-full md:w-1/4">
-          <img src={logo} alt="logo" className="w-[120px] mb-4" />
-          <p className="text-sm leading-relaxed">
-            QTO House is a professional estimation and quantity take-off service provider. We assist our clients in simplifying the bidding process with accurate and timely estimates.
-          </p>
-          <p className="text-sm mt-4">&copy; 2024 QTO House. All rights reserved.</p>
-        </div>
-
-        {/* Quick Links Section */}
-        <div className="w-full md:w-1/4">
-          <h1 className="text-lg font-semibold text-yellow-500 mb-4">Quick Links</h1>
-          <div className="flex flex-col space-y-2">
-            {['Home', 'About Us', 'Contact Us', 'FAQ', 'Career'].map((link, index) => (
-              <a key={index} href={`#${link.toLowerCase().replace(' ', '-')}`} className="hover:text-yellow-400 transition-all">
-                {link}
-              </a>
-            ))}
+        <div className="flex space-x-4">
+          <img src={logo} alt="logo" className="w-[100px]" />
+          <div>
+            <p className="text-sm text-justify leading-relaxed">
+              QTO House is a professional estimation and quantity take-off service provider. We assist our clients in simplifying the bidding process with accurate and timely estimates.
+            </p>
+            <p className="text-xs mt-2 text-gray-400">&copy; 2024 QTO House. All rights reserved.</p>
           </div>
         </div>
 
         {/* Contact Us Section */}
-        <div className="w-full md:w-1/4">
-          <h1 className="text-lg font-semibold text-yellow-500 mb-4">Contact Us</h1>
-          <div className="flex items-center mb-2">
-            <Email className="text-yellow-500 mr-2" />
-            <p>info@qtohouse.com</p>
-          </div>
-          <div className="flex items-center">
-            <Phone className="text-yellow-500 mr-2" />
-            <p>(571)-748-4366</p>
+        <div className='flex flex-col items-center justify-center'>
+          <h1 className="text-2xl font-semibold text-yellow-500 mb-4">Contact Us</h1>
+          <div className="flex flex-col space-y-2">
+            <div className="flex items-center">
+              <Email className="text-yellow-500 mr-2" />
+              <p>info@qtohouse.com</p>
+            </div>
+            <div className="flex items-center">
+              <Phone className="text-yellow-500 mr-2" />
+              <p>(571)-748-4366</p>
+            </div>
           </div>
         </div>
 
         {/* Social Media Links */}
-        <div className="w-full md:w-1/4">
-          <h1 className="text-lg font-semibold text-yellow-500 mb-4">Follow Us</h1>
-          <div className="flex space-x-6">
-            <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
+        <div className='flex flex-col items-center justify-center'>
+          <h1 className="text-2xl font-semibold text-yellow-500 mb-4">Follow Us</h1>
+          <div className="flex space-x-4">
+            <a href="https://www.instagram.com/qtohouse/?hl=en" target="_blank" rel="noreferrer">
               <Instagram className="text-gray-300 hover:text-yellow-400 text-3xl transition-all" />
             </a>
-            <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
+            <a href="https://www.facebook.com/qtohouse/" target="_blank" rel="noreferrer">
               <Facebook className="text-gray-300 hover:text-yellow-400 text-3xl transition-all" />
             </a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+            <a href="https://pk.linkedin.com/company/qtohouse" target="_blank" rel="noreferrer">
               <LinkedIn className="text-gray-300 hover:text-yellow-400 text-3xl transition-all" />
             </a>
           </div>
         </div>
+
+        {/* Quick Links Section */}
+        <div className='flex flex-col items-center justify-center'>
+          <h1 className="text-2xl font-semibold text-yellow-500 mb-4">Quick Links</h1>
+          <ul className="space-y-2 ">
+            {/* Using Link for internal navigation */}
+            <li>
+              <Link to="/" className="hover:text-yellow-400 transition-all">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/projects" className="hover:text-yellow-400 transition-all">
+                Projects
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" className="hover:text-yellow-400 transition-all">
+                Contact Us
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" className="hover:text-yellow-400 transition-all">
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link to="/careers" className="hover:text-yellow-400 transition-all">
+                Career
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
 
       {/* Bottom Section */}
-      <div className="border-t border-gray-700 mt-10 pt-6">
+      <div className="border-t border-gray-700 mt-8 pt-4">
         <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
           <p>Estimation Made Simple with QTO House</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#privacy" className="hover:text-yellow-400 transition-all">Privacy Policy</a>
-            <a href="#terms" className="hover:text-yellow-400 transition-all">Terms of Service</a>
+            <Link to="/privacy-policy" className="hover:text-yellow-400 transition-all">
+              Privacy Policy
+            </Link>
+            <Link to="/terms-of-service" className="hover:text-yellow-400 transition-all">
+              Terms of Service
+            </Link>
           </div>
         </div>
       </div>

@@ -1,8 +1,10 @@
 import React from 'react';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { useNavigate } from 'react-router-dom';
 
 function EsteemedClientele() {
+  const navigate = useNavigate();
   return (
     <div className="bg-yellow-500 py-10 md:py-16">
       {/* Header */}
@@ -37,7 +39,8 @@ function EsteemedClientele() {
 
       {/* Get Free Quote Button */}
       <div className="flex justify-center mt-10 md:mt-12">
-        <button className="flex items-center space-x-2 bg-gray-900 text-white text-sm md:text-lg font-semibold py-2 px-6 md:py-3 md:px-8 rounded-lg hover:bg-gray-800 transition-all duration-300">
+        <button className="flex items-center space-x-2 bg-gray-900 text-white text-sm md:text-lg font-semibold py-2 px-6 md:py-3 md:px-8 rounded-lg hover:bg-gray-800 transition-all duration-300"
+        onClick={() => navigate('/quote')}>
           <span>Get Free Quote</span>
           <ArrowForwardIcon />
         </button>

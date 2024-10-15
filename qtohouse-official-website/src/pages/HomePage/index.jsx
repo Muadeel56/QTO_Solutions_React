@@ -9,8 +9,11 @@ import CommitmentToValue from '../../components/CommitmentToValue';
 import TakeOffServices from '../../components/TakeOffServices';
 import Process from '../../components/Process';
 import EsteemedClientele from '../../components/EsteemedClientele';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 function HomePage() {
+  const navigate = useNavigate(); // Initialize useNavigate
+
   return (
     <div className="relative w-full min-h-screen flex flex-col">
       {/* Background Image Section */}
@@ -38,7 +41,10 @@ function HomePage() {
               <p className="text-lg sm:text-xl md:text-2xl font-bold">81</p>
             </div>
             <div className="w-full sm:w-1/5 mb-4 sm:mb-0 flex justify-center">
-              <button className="bg-yellow-500 text-black text-sm sm:text-base md:text-lg font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-yellow-600 transition-all">
+              <button
+                className="bg-yellow-500 text-black text-sm sm:text-base md:text-lg font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-yellow-600 transition-all"
+                onClick={() => navigate('/sample')} // Use navigate to redirect
+              >
                 Get Free Sample
               </button>
             </div>
