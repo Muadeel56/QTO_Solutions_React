@@ -6,26 +6,28 @@ import { Instagram, Facebook, LinkedIn, Email, Phone } from '@mui/icons-material
 function Footer() {
   return (
     <footer className="w-full bg-gray-900 text-gray-300 py-12 px-8">
-      <div className="max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 items-center">
+      <div className="max-w-8xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 items-center">
         
         {/* Logo and Company Info */}
         <div className="flex space-x-4">
-          <img src={logo} alt="logo" className="w-[100px]" />
+          <img src={logo} alt="logo" className="w-[40px] sm:w-[50px] md:w-[60px] lg:w-[100px]" />
           <div>
-            <p className="text-sm text-justify leading-relaxed">
+            <p className="text-xs  md:text-sm lg:text-sm text-justify leading-relaxed">
               QTO House is a professional estimation and quantity take-off service provider. We assist our clients in simplifying the bidding process with accurate and timely estimates.
             </p>
-            <p className="text-xs mt-2 text-gray-400">&copy; 2024 QTO House. All rights reserved.</p>
+            <p className="text-xs md:text-sm lg:text-sm mt-2 text-gray-400">&copy; 2024 QTO House. All rights reserved.</p>
           </div>
         </div>
 
-        {/* Contact Us Section */}
+        
+         
+           {/* Contact Us Section */}
         <div className='flex flex-col items-center justify-center'>
-          <h1 className="text-2xl font-semibold text-yellow-500 mb-4">Contact Us</h1>
+          <h1 className="text-sm md:text-xl lg:text-2xl font-semibold text-yellow-500 mb-4">Contact Us</h1>
           <div className="flex flex-col space-y-2">
-            <div className="flex items-center">
-              <Email className="text-yellow-500 mr-2" />
-              <p>info@qtohouse.com</p>
+            <div className="flex items-center ">
+              <Email fontSize='small' className="text-yellow-500 mr-2" />
+              <p className='text-xs md:text-sm lg:text-lg'>info@qtohouse.com</p>
             </div>
             <div className="flex items-center">
               <Phone className="text-yellow-500 mr-2" />
@@ -36,7 +38,7 @@ function Footer() {
 
         {/* Social Media Links */}
         <div className='flex flex-col items-center justify-center'>
-          <h1 className="text-2xl font-semibold text-yellow-500 mb-4">Follow Us</h1>
+          <h1 className="text-sm md:text-xl lg:text-2xl font-semibold text-yellow-500 mb-4">Follow Us</h1>
           <div className="flex space-x-4">
             <a href="https://www.instagram.com/qtohouse/?hl=en" target="_blank" rel="noreferrer">
               <Instagram className="text-gray-300 hover:text-yellow-400 text-3xl transition-all" />
@@ -52,9 +54,10 @@ function Footer() {
 
         {/* Quick Links Section */}
         <div className='flex flex-col items-center justify-center'>
-          <h1 className="text-2xl font-semibold text-yellow-500 mb-4">Quick Links</h1>
-          <ul className="space-y-2 ">
+          <h1 className="text-sm md:text-xl lg:text-2xl font-semibold text-yellow-500 mb-4">Quick Links</h1>
+          <ul className="space-y-2 text-xs md:text-sm lg:text-lg">
             {/* Using Link for internal navigation */}
+            <div className='flex space-x-2'>
             <li>
               <Link to="/" className="hover:text-yellow-400 transition-all">
                 Home
@@ -66,6 +69,13 @@ function Footer() {
               </Link>
             </li>
             <li>
+              <Link to="/careers" className="hover:text-yellow-400 transition-all">
+                Career
+              </Link>
+            </li>
+            </div>
+            <div className='flex space-x-2'>
+            <li>
               <Link to="/contact" className="hover:text-yellow-400 transition-all">
                 Contact Us
               </Link>
@@ -75,14 +85,11 @@ function Footer() {
                 About Us
               </Link>
             </li>
-            <li>
-              <Link to="/careers" className="hover:text-yellow-400 transition-all">
-                Career
-              </Link>
-            </li>
+            </div>
+            
           </ul>
         </div>
-      </div>
+         </div>
 
       {/* Bottom Section */}
       <div className="border-t border-gray-700 mt-8 pt-4">

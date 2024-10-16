@@ -3,12 +3,13 @@ import Group389 from '../../assets/images/Group 389.png';
 import MaskGroup from '../../assets/images/Mask group.png';
 import bridge from '../../assets/images/Bridge.png';  
 import manufacturing from '../../assets/images/Manufacturing.png';
-import Group313 from '../../assets/images/Group 313.png';
+// import Group313 from '../../assets/images/Group 313.png';
 import commercial from '../../assets/images/commercial-construction.png';
 import prefab from '../../assets/images/Prefab House.png';
 import skyscrapers from '../../assets/images/Skyscrapers.png';
 import uscapitol from '../../assets/images/US Capitol.png';
 import Group312 from '../../assets/images/Group 312.png';
+import Group313 from '../../assets/images/Group 313.png';
 import heavycivilheader from '../../assets/images/heavy-civil-header.png';
 import Group316 from '../../assets/images/Group 316.png';
 import Rectangle78 from '../../assets/images/Rectangle 78.png';
@@ -24,8 +25,8 @@ function CommitmentToValue() {
       <div className="flex flex-col space-y-8 px-6 md:px-10 lg:px-20 justify-center items-center">
         {/* Header Section */}
         <div className="max-w-2xl space-y-4 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-700">Our Commitment to Value</h1>
-          <p className="text-base md:text-lg text-gray-600">
+          <h1 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-700">Our Commitment to Value</h1>
+          <p className="text-xs md:text-sm lg:text-lg text-gray-600 text-justify">
             At QTO House, we deliver precision-driven quantity takeoff services and comprehensive construction estimating support to businesses across all construction domains and CSI categories. Our expertise is tailored to elevate your project planning and execution.
           </p>
         </div>
@@ -69,8 +70,8 @@ function CommitmentToValue() {
               <div key={index} className="flex space-x-4 items-start">
                 <div>{feature.icon}</div>
                 <div className="space-y-1">
-                  <h1 className="text-lg md:text-xl font-semibold text-gray-800">{feature.title}</h1>
-                  <p className="text-sm md:text-base text-gray-600">{feature.description}</p>
+                  <h1 className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-800">{feature.title}</h1>
+                  <p className="text-xs md:text-sm lg:text-lg text-gray-600 text-justify">{feature.description}</p>
                 </div>
               </div>
             ))}

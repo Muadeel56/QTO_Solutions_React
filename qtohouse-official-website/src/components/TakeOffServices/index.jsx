@@ -21,21 +21,21 @@ const services = [
 
 function TakeOffServices() {
   return (
-    <div className="flex flex-col items-center justify-center my-16 px-32">
+    <div className="flex flex-col items-center justify-center my-16 px-2">
       {/* Heading */}
-      <h1 className="text-3xl md:text-4xl font-semibold text-center mb-10">
+      <h1 className="text-xl md:text-3xl lg:text-4xl font-semibold text-center mb-10">
         We also provide takeoff services to all trade contracts
       </h1>
 
       {/* Image Slices */}
-      <div className="flex w-full h-[250px] md:h-[350px] lg:h-[450px] justify-center items-center border-8 border-gray-600 rounded-[100px] overflow-hidden">
+      <div className="flex w-full h-[250px] md:h-[350px] lg:h-[450px] justify-center items-center border-8 border-gray-600 rounded-[40px] md:rounded-[70px] lg:rounded-[100px] overflow-hidden">
         {services.map((service) => (
           <div
             key={service.id}
-            className="group flex-grow h-full relative overflow-hidden transition-all duration-[1000ms] ease-in-out md:hover:flex-grow-[50] flex-shrink-0"
-            style={{
-              flexBasis: '100px', // Base size for each image slice
-            }}
+            className="group flex-grow h-full relative overflow-hidden transition-all duration-[1000ms] ease-in-out hover:flex-grow-[30] md:hover:flex-grow-[70] flex-shrink-0 basis-[20px] md:basis-[50px] lg:basis-[100px]"
+            // style={{
+            //   flexBasis: '100px', // Base size for each image slice
+            // }}
           >
             {/* Image */}
             <img
@@ -45,7 +45,7 @@ function TakeOffServices() {
             />
             {/* Overlay with text */}
             <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out transform group-hover:scale-105">
-              <h2 className="text-white text-base md:text-3xl lg:text-4xl font-semibold text-center px-2 whitespace-nowrap transition-all duration-[800ms]">
+              <h2 className="text-white text-xs md:text-xl lg:text-3xl font-semibold text-center px-2 whitespace-nowrap transition-all duration-[800ms]">
                 {service.name.toUpperCase()}
               </h2>
             </div>

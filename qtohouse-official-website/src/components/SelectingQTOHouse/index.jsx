@@ -25,11 +25,11 @@ function SelectingQTOHouse() {
       <div className="flex flex-col lg:flex-row space-y-8 lg:space-y-0 lg:space-x-10 items-center">
         {/* Heading Section */}
         <div className="w-full text-center lg:text-left lg:w-1/2 space-y-4 animate-fadeInUp">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">
+          <h1 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white">
             Selecting QTO House: A Decision for Excellence
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
-            Join hands with QTO House, where we blend a decade of professional expertise with a personal touch for each project.
+          <p className="text-xs md:text-sm lg:text-lg text-justify text-gray-600 dark:text-gray-300">
+            Join hands with QTO House, where we blend a decade of professional expertise with a personal touch for each project. Our certified estimators are champions of accuracy, delivering results that resonate with the cost and quality your projects deserve.
           </p>
         </div>
 
@@ -65,12 +65,12 @@ function SelectingQTOHouse() {
           Icon: MonetizationOnIcon,
         }].map(({ title, description, Icon }, index) => (
           <div key={index} className="flex items-start space-x-4 animateOnScroll transition-transform duration-500 transform hover:scale-105">
-            <Icon className="text-yellow-500 text-4xl" />
+            <Icon className="text-yellow-500" />
             <div>
-              <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
+              <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-800 dark:text-white">
                 {title}:
               </h2>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-xs md:text-sm lg:text-lg text-gray-600 dark:text-gray-300">
                 {description}
               </p>
             </div>
