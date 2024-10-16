@@ -15,10 +15,10 @@ function SamplePage() {
       <div className="relative w-full h-[50vh]">
         <img src={login} alt="login background" className="w-full h-full object-cover" />
         <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50">
-          <h1 className="text-5xl font-bold text-white text-center">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white text-center">
             Download Our Samples
           </h1>
-          <p className="text-lg text-white mt-4 text-center max-w-xl">
+          <p className="text-xs sm:text-sm md:text-lg lg:text-xl text-white mt-4 px-2 text-center max-w-xl">
             Do you want to see how good our work is? Get our sample for free right now.
           </p>
         </div>
@@ -76,7 +76,7 @@ function SamplePage() {
 
         {/* Request Samples Button */}
         <div className="flex justify-center mt-10">
-          <button className="bg-yellow-500 text-black text-lg font-semibold px-10 py-4 rounded-lg hover:bg-yellow-600 transition-all">
+          <button className="bg-yellow-500 text-white text-xs md:text-sm lg:text-lg font-semibold px-10 py-4 rounded-lg hover:bg-yellow-600 transition-all">
             Request Samples
           </button>
         </div>
