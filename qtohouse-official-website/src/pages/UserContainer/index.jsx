@@ -12,6 +12,7 @@ import UserCreateCompany from "../UserCreateCompany";
 import Users from "../Users";
 import UserProjectList from "../UserProjectList";
 import UserCreateProject from "../UserCreateProject";
+import UserGroups from "../UserGroups";
 
 function UserContainer() {
   // State for storing profile data
@@ -42,6 +43,7 @@ function UserContainer() {
         <Route path="/list-companies" element={<UserListCompanies />} />
         <Route path="/create-company" element={<UserCreateCompany />} />
         <Route path="/users" element={<Users />} />
+        <Route path="/user-groups" element={<UserGroups />} />
         <Route path="/create-project" element={<UserCreateProject />} />
         <Route path="/project-list" element={<UserProjectList />} />
           {/* User Profile View */}

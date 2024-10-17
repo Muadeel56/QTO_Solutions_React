@@ -42,7 +42,7 @@ function Header({ isLoggedIn, setIsLoggedIn }) {
   return (
     <header className="w-full shadow-md font-inter">
       {/* Top Contact Bar - Visible on all devices */}
-      <div className="bg-gray-900 text-white px-4 md:px-8 lg:px-16 flex flex-col sm:flex-row justify-between items-center py-2 sm:py-0">
+      <div className="bg-gray-900 text-white px-4  md:px-8 lg:px-16 flex flex-col sm:flex-row justify-between items-center py-2 sm:py-4">
         {/* Email and Phone */}
         <div className="flex items-center space-x-4 text-xs md:text-sm lg:text-base">
           <div className="flex space-x-2 items-center">
