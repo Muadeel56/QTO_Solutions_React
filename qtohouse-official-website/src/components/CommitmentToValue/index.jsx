@@ -1,18 +1,9 @@
 import React from 'react';
 import Group389 from '../../assets/images/Group 389.png';
 import MaskGroup from '../../assets/images/Mask group.png';
-import bridge from '../../assets/images/Bridge.png';  
-import manufacturing from '../../assets/images/Manufacturing.png';
-// import Group313 from '../../assets/images/Group 313.png';
-import commercial from '../../assets/images/commercial-construction.png';
-import prefab from '../../assets/images/Prefab House.png';
-import skyscrapers from '../../assets/images/Skyscrapers.png';
-import uscapitol from '../../assets/images/US Capitol.png';
 import Group312 from '../../assets/images/Group 312.png';
 import Group313 from '../../assets/images/Group 313.png';
-import heavycivilheader from '../../assets/images/heavy-civil-header.png';
 import Group316 from '../../assets/images/Group 316.png';
-import Rectangle78 from '../../assets/images/Rectangle 78.png';
 import GavelIcon from '@mui/icons-material/Gavel';
 import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturing';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
@@ -21,20 +12,22 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 
 function CommitmentToValue() {
   return (
-    <div className="w-full bg-gray-100 py-10  md:py-16">
-      <div className="flex flex-col space-y-8 px-6 md:px-10 lg:px-20 justify-center items-center">
+    <div className="w-full py-12 px-4 md:px-10 lg:px-20 bg-gray-100">
+      <div className="flex flex-col space-y-8 items-center">
         {/* Header Section */}
-        <div className="max-w-2xl space-y-4 text-center">
-          <h1 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-700">Our Commitment to Value</h1>
-          <p className="text-xs md:text-sm lg:text-lg text-gray-600 text-justify">
+        <div className="max-w-full text-center space-y-4">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-700">
+            Our Commitment to Value
+          </h1>
+          <p className="text-sm md:text-lg lg:text-xl text-gray-600">
             At QTO House, we deliver precision-driven quantity takeoff services and comprehensive construction estimating support to businesses across all construction domains and CSI categories. Our expertise is tailored to elevate your project planning and execution.
           </p>
         </div>
 
         {/* Content Section */}
-        <div className="flex flex-col lg:flex-row space-y-8 lg:space-y-0 lg:space-x-10 items-center w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8  h-full  w-full bg--800">
           {/* Left Section (Text + Icons) */}
-          <div className="flex flex-col space-y-6 text-left w-full lg:w-1/2">
+          <div className="flex flex-col space-y-">
             {[
               {
                 title: 'Forge Your Bid with Confidence:',
@@ -67,18 +60,18 @@ function CommitmentToValue() {
                 icon: <EmojiEventsIcon fontSize="large" className="text-yellow-500" />,
               },
             ].map((feature, index) => (
-              <div key={index} className="flex space-x-4 items-start">
+              <div key={index} className="flex items-start space-x-4">
                 <div>{feature.icon}</div>
                 <div className="space-y-1">
                   <h1 className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-800">{feature.title}</h1>
-                  <p className="text-xs md:text-sm lg:text-lg text-gray-600 text-justify">{feature.description}</p>
+                  <p className="text-sm md:text-base lg:text-lg text-gray-600">{feature.description}</p>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Right Section (Images arranged in grid) */}
-          <div className="w-full lg:w-1/2 grid grid-cols-3 grid-rows-2 gap-4">
+          <div className="grid grid-cols-3 grid-rows-2 gap-4">
             <div className="col-span-1 row-span-1">
               <img src={MaskGroup} alt="Commercial Construction" className="rounded-md shadow-lg h-full w-full object-cover" />
             </div>

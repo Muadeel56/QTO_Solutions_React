@@ -27,10 +27,14 @@ function UserSidebar() {
               <Link to="/user/create-company" className="text-yellow-500">Create Company</Link>
             </MenuItem>
           </SubMenu>
-
+          <SubMenu title="Users" label="Users" className="text-yellow-500" icon={<PersonIcon sx={{ color: '#D97706' }} />}> 
           <MenuItem className="text-yellow-500" icon={<FavoriteIcon sx={{ color: '#D97706' }} />}>
             <Link to="/user/users" className="text-yellow-500">Users</Link>
           </MenuItem>
+          <MenuItem className="text-yellow-500" icon={<FavoriteIcon sx={{ color: '#D97706' }} />}>
+            <Link to="/user/user-groups" className="text-yellow-500">Groups</Link>
+          </MenuItem>
+          </SubMenu>
 
           <SubMenu title="Companies" label="Projects" className="text-yellow-500" icon={<PersonIcon sx={{ color: '#D97706' }} />}> 
             <MenuItem className="text-yellow-500">
