@@ -4,8 +4,9 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import GridViewIcon from '@mui/icons-material/GridView';
-import { Button, TextField, Chip, IconButton } from '@mui/material';
+import { Button, TextField, Chip, IconButton, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import dayjs from 'dayjs';
 
 // Dummy data from the backend (as an example)
 const dummyProjects = {
@@ -18,7 +19,9 @@ const dummyProjects = {
       bid_amount: 1500000,
       status: "Active",
       division: "Retail",
-      qto_status: "In Progress"
+      qto_status: "In Progress",
+      is_favourite: true,
+      is_mine: true,
     },
     {
       id: 2,
@@ -28,10 +31,60 @@ const dummyProjects = {
       bid_amount: 3000000,
       status: "Active",
       division: "Residential",
-      qto_status: "Available"
+      qto_status: "Available",
+      is_favourite: false,
+      is_mine: true,
     },
-    // Additional projects...
-  ]
+    {
+      id: 3,
+      bid_date: "2024-06-15",
+      name: "Karachi Office Tower",
+      location: "Karachi, Pakistan",
+      bid_amount: 2500000,
+      status: "Past",
+      division: "Commercial",
+      qto_status: "Available",
+      is_favourite: true,
+      is_mine: false,
+    },
+    {
+      id: 4,
+      bid_date: "2024-07-20",
+      name: "Peshawar Hospital Construction",
+      location: "Peshawar, Pakistan",
+      bid_amount: 3500000,
+      status: "Past",
+      division: "Healthcare",
+      qto_status: "In Progress",
+      is_favourite: false,
+      is_mine: false,
+    },
+    {
+      id: 5,
+      bid_date: "2024-08-01",
+      name: "Quetta School Renovation",
+      location: "Quetta, Pakistan",
+      bid_amount: 500000,
+      status: "Active",
+      division: "Education",
+      qto_status: "Available",
+      is_favourite: true,
+      is_mine: false,
+    },
+    {
+      id: 6,
+      bid_date: "2024-08-15",
+      name: "Islamabad Sports Complex",
+      location: "Islamabad, Pakistan",
+      bid_amount: 4000000,
+      status: "Active",
+      division: "Recreational",
+      qto_status: "In Progress",
+      is_favourite: false,
+      is_mine: false,
+    },
+    // More projects can be added here...
+  ],
 };
 
 function ProjectPage() {
@@ -42,14 +95,17 @@ function ProjectPage() {
     location: '',
     bidAmount: '',
     status: '',
-    division: ''
+    division: '',
+    startDate: '',
+    endDate: '',
   });
   const [openFilters, setOpenFilters] = useState({
     keyword: false,
     location: false,
     bidAmount: false,
     status: false,
-    division: false
+    division: false,
+    dateRange: false,
   });
   const [selectedTab, setSelectedTab] = useState('Active');
   const [viewMode, setViewMode] = useState('grid'); // Track grid or list view
@@ -103,7 +159,25 @@ function ProjectPage() {
       );
     }
 
-    if (selectedTab) {
+    if (filters.startDate || filters.endDate) {
+      updatedProjects = updatedProjects.filter((project) => {
+        const bidDate = dayjs(project.bid_date);
+        const startDate = filters.startDate ? dayjs(filters.startDate) : null;
+        const endDate = filters.endDate ? dayjs(filters.endDate) : null;
+
+        return (
+          (!startDate || bidDate.isAfter(startDate) || bidDate.isSame(startDate)) &&
+          (!endDate || bidDate.isBefore(endDate) || bidDate.isSame(endDate))
+        );
+      });
+    }
+
+    // Filter based on the selected tab
+    if (selectedTab === 'My Projects') {
+      updatedProjects = updatedProjects.filter((project) => project.is_mine);
+    } else if (selectedTab === 'Favourite Projects') {
+      updatedProjects = updatedProjects.filter((project) => project.is_favourite);
+    } else if (selectedTab) {
       updatedProjects = updatedProjects.filter(
         (project) => project.status.toLowerCase() === selectedTab.toLowerCase()
       );
@@ -207,6 +281,66 @@ function ProjectPage() {
             )}
           </div>
 
+          {/* Filter By Status */}
+          <div className="mb-4">
+            <div
+              className="flex items-center justify-between cursor-pointer"
+              onClick={() => toggleFilter('status')}
+            >
+              <h1 className="text-lg font-medium text-gray-700">Status</h1>
+              <ArrowDropDownIcon className="text-gray-600" />
+            </div>
+            {openFilters.status && (
+              <FormControl fullWidth variant="outlined" size="small" className="mt-4">
+                <InputLabel>Status</InputLabel>
+                <Select
+                  value={filters.status}
+                  onChange={(e) => handleFilterChange('status', e.target.value)}
+                  label="Status"
+                >
+                  <MenuItem value=""><em>None</em></MenuItem>
+                  <MenuItem value="Active">Active</MenuItem>
+                  <MenuItem value="Past">Past</MenuItem>
+                </Select>
+              </FormControl>
+            )}
+          </div>
+
+          {/* Filter By Date Range */}
+          <div className="mb-4">
+            <div
+              className="flex items-center justify-between cursor-pointer"
+              onClick={() => toggleFilter('dateRange')}
+            >
+              <h1 className="text-lg font-medium text-gray-700">Date Range</h1>
+              <ArrowDropDownIcon className="text-gray-600" />
+            </div>
+            {openFilters.dateRange && (
+              <div className="mt-4 flex flex-col space-y-4">
+                <TextField
+                  fullWidth
+                  variant="outlined"
+                  size="small"
+                  label="Start Date"
+                  type="date"
+                  InputLabelProps={{ shrink: true }}
+                  value={filters.startDate}
+                  onChange={(e) => handleFilterChange('startDate', e.target.value)}
+                />
+                <TextField
+                  fullWidth
+                  variant="outlined"
+                  size="small"
+                  label="End Date"
+                  type="date"
+                  InputLabelProps={{ shrink: true }}
+                  value={filters.endDate}
+                  onChange={(e) => handleFilterChange('endDate', e.target.value)}
+                />
+              </div>
+            )}
+          </div>
+
           {/* Filter By Division */}
           <div className="mb-4">
             <div
@@ -217,18 +351,22 @@ function ProjectPage() {
               <ArrowDropDownIcon className="text-gray-600" />
             </div>
             {openFilters.division && (
-              <TextField
-                fullWidth
-                variant="outlined"
-                size="small"
-                placeholder="Enter division..."
-                value={filters.division}
-                onChange={(e) => handleFilterChange('division', e.target.value)}
-                InputProps={{
-                  endAdornment: <SearchIcon className="text-yellow-500" />
-                }}
-                className="mt-4"
-              />
+              <FormControl fullWidth variant="outlined" size="small" className="mt-4">
+                <InputLabel>Division</InputLabel>
+                <Select
+                  value={filters.division}
+                  onChange={(e) => handleFilterChange('division', e.target.value)}
+                  label="Division"
+                >
+                  <MenuItem value=""><em>None</em></MenuItem>
+                  <MenuItem value="Retail">Retail</MenuItem>
+                  <MenuItem value="Residential">Residential</MenuItem>
+                  <MenuItem value="Commercial">Commercial</MenuItem>
+                  <MenuItem value="Healthcare">Healthcare</MenuItem>
+                  <MenuItem value="Education">Education</MenuItem>
+                  <MenuItem value="Recreational">Recreational</MenuItem>
+                </Select>
+              </FormControl>
             )}
           </div>
         </div>
@@ -238,7 +376,7 @@ function ProjectPage() {
           {/* Project Tabs */}
           <div className="flex flex-wrap gap-4 mb-8 items-center justify-between">
             <div className="flex space-x-4">
-              {['Active', 'Past', 'My Projects'].map((tab) => (
+              {['Active', 'Past', 'My Projects', 'Favourite Projects'].map((tab) => (
                 <Button
                   key={tab}
                   variant={selectedTab === tab ? 'contained' : 'outlined'}
@@ -256,7 +394,7 @@ function ProjectPage() {
                     textTransform: 'none'
                   }}
                 >
-                  {tab} Projects
+                  {tab}
                 </Button>
               ))}
             </div>
@@ -290,16 +428,6 @@ function ProjectPage() {
                       <p>{project.location}</p>
                     </div>
                     <div className="flex flex-wrap gap-2 mb-4">
-                      <Chip
-                        label="Better Park City Authority"
-                        variant="outlined"
-                        size="small"
-                        sx={{
-                          color: '#666',
-                          borderColor: '#FFD700',
-                          fontWeight: 'bold'
-                        }}
-                      />
                       <Chip
                         label={`Qto- ${project.qto_status}`}
                         size="small"
