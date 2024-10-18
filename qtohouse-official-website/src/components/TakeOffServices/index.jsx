@@ -33,9 +33,6 @@ function TakeOffServices() {
           <div
             key={service.id}
             className="group flex-grow h-full relative overflow-hidden transition-all duration-[1000ms] ease-in-out hover:flex-grow-[30] md:hover:flex-grow-[70] flex-shrink-0 basis-[20px] md:basis-[50px] lg:basis-[100px]"
-            // style={{
-            //   flexBasis: '100px', // Base size for each image slice
-            // }}
           >
             {/* Image */}
             <img
@@ -52,7 +49,6 @@ function TakeOffServices() {
           </div>
         ))}
       </div>
-      
     </div>
   );
 }

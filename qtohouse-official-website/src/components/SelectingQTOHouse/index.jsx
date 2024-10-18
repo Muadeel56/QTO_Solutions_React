@@ -26,7 +26,7 @@ function SelectingQTOHouse() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
         {/* Text Section */}
         <div className="space-y-4">
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800">
+          <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800">
             Selecting QTO House: A Decision for Excellence
           </h1>
           <p className="text-sm md:text-lg lg:text-xl text-gray-600">
@@ -39,7 +39,7 @@ function SelectingQTOHouse() {
           <img
             src={enhancedImage}
             alt="enhanced"
-            className="w-full h-auto max-h-[400px] lg:max-h-[500px] object-contain rounded-lg shadow-md"
+            className="w-full h-auto max-h-[400px] lg:max-h-[500px] object-contain rounded-lg"
           />
         </div>
       </div>
@@ -49,26 +49,22 @@ function SelectingQTOHouse() {
         {[
           {
             title: 'Seasoned Industry Experts',
-            description:
-              'Our estimators bring decades of field experience, providing insights that transcend conventional estimation.',
+            description: 'Our estimators bring decades of field experience, providing insights that transcend conventional estimation.',
             Icon: PersonIcon,
           },
           {
             title: 'Comprehensive Project Analysis',
-            description:
-              'We delve deep, translating project intricacies into actionable, crystal-clear estimates.',
+            description: 'We delve deep, translating project intricacies into actionable, crystal-clear estimates.',
             Icon: AssessmentIcon,
           },
           {
             title: 'Technological Precision',
-            description:
-              'Leveraging modern tech to refine estimation precision beyond traditional methods.',
+            description: 'Leveraging modern tech to refine estimation precision beyond traditional methods.',
             Icon: PrecisionManufacturingIcon,
           },
           {
             title: 'Pricing with Perspective',
-            description:
-              'At QTO House, value meets virtue - offering cost-efficient solutions without skimping on precision.',
+            description: 'At QTO House, value meets virtue - offering cost-efficient solutions without skimping on precision.',
             Icon: MonetizationOnIcon,
           },
         ].map(({ title, description, Icon }, index) => (
