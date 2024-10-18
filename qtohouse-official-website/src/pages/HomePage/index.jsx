@@ -13,13 +13,13 @@ import { useNavigate } from 'react-router-dom';
 import CountUp from 'react-countup';
 
 function HomePage() {
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const countUpProps = {
-    start: 0,       // Start counting from 0
-    duration: 3,    // Smooth animation duration
-    delay: 0.5,     // Adds a slight delay before animation starts
-    easingFn: (t, b, c, d) => {  // Custom easing function for smoother feel
+    start: 0,
+    duration: 3,
+    delay: 0.5,
+    easingFn: (t, b, c, d) => {
       t /= d;
       t--;
       return -c * (t * t * t * t - 1) + b;
@@ -34,7 +34,9 @@ function HomePage() {
         <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-70 space-y-10 px-4">
           {/* Main Text on Top of Image */}
           <div className="flex flex-col items-center w-full sm:w-[90%] md:w-[70%] lg:w-[90%] text-center text-white space-y-8">
-            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">Welcome to QTO House</p>
+            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">
+              Welcome to QTO House
+            </p>
             <p className="text-xs sm:text-sm md:text-lg lg:text-xl font-light">
               "Mastering the Art of Accurate Construction Estimates & Detailed Quantity Take-Offs, On Schedule & Within Your Financial Blueprint"
             </p>
@@ -83,11 +85,13 @@ function HomePage() {
       </div>
 
       {/* Remaining Content Sections */}
-      <div className="w-full  pt-10 space-y-12">
-        <SelectingQTOHouse />
-        <CommitmentToValue />
-        <TakeOffServices />
-        <Process />
+      <div className="w-full pt-10 space-y-12">
+        <div className='md:w-[90%] lg:w-[100%] xl:w-[80%] mx-auto'>
+          <SelectingQTOHouse />
+          <CommitmentToValue />
+          <TakeOffServices />
+          <Process />
+        </div>
         <EsteemedClientele />
       </div>
     </div>
