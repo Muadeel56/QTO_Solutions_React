@@ -24,16 +24,27 @@ import SearchIcon from "@mui/icons-material/Search";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 function UserGroups() {
   const [anchorEl, setAnchorEl] = useState(null);
+  const [selectedGroupId, setSelectedGroupId] = useState(null);
+  const navigate = useNavigate(); // Hook to navigate between pages
 
-  const handleMenuClick = (event) => {
+  const handleMenuClick = (event, groupId) => {
     setAnchorEl(event.currentTarget);
+    setSelectedGroupId(groupId); // Store selected group ID
   };
 
   const handleMenuClose = () => {
     setAnchorEl(null);
+    setSelectedGroupId(null);
+  };
+
+  // Navigate to the permissions page when "Assign Permissions" is clicked
+  const handleAssignPermissions = () => {
+    navigate(`/user/permissions/`);
+    handleMenuClose();
   };
 
   return (
@@ -185,7 +196,7 @@ function UserGroups() {
                   <IconButton>
                     <PersonAddIcon />
                   </IconButton>
-                  <IconButton onClick={handleMenuClick}>
+                  <IconButton onClick={(event) => handleMenuClick(event, group.id)}>
                     <MoreVertIcon />
                   </IconButton>
                   <Menu
@@ -196,6 +207,7 @@ function UserGroups() {
                     <MenuItem onClick={handleMenuClose}>Edit</MenuItem>
                     <MenuItem onClick={handleMenuClose}>Delete</MenuItem>
                     <MenuItem onClick={handleMenuClose}>Assign User</MenuItem>
+                    <MenuItem onClick={handleAssignPermissions}>Assign Permissions</MenuItem>
                   </Menu>
                 </TableCell>
               </TableRow>
