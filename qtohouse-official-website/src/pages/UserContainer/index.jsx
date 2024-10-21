@@ -45,6 +45,7 @@ function UserContainer() {
       {/* Main content */}
       <div className={`flex-grow p-8 transition-all duration-300 ${sidebarOpen ? 'ml-64' : 'ml-0'} lg:ml-64`}>
         <Routes>
+<<<<<<< HEAD
           <Route path="/list-companies" element={<UserListCompanies />} />
           <Route path="/create-company" element={<UserCreateCompany />} />
           <Route path="/users" element={<Users />} />
@@ -52,6 +53,16 @@ function UserContainer() {
           <Route path="/create-project" element={<UserCreateProject />} />
           <Route path="/project-list" element={<UserProjectList />} />
           <Route path="/permissions" element={<UserPermissions />} />
+=======
+          
+        <Route path="/list-companies" element={<UserListCompanies />} />
+        <Route path="/create-company" element={<UserCreateCompany />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/user-groups" element={<UserGroups />} />
+        <Route path="/permissions" element={<UserPermissions />} />
+        <Route path="/create-project" element={<UserCreateProject />} />
+        <Route path="/project-list" element={<UserProjectList />} />
+>>>>>>> adeel
           {/* User Profile View */}
           <Route path="/profile" element={<UserProfile profile={profile} />} />
           {/* Edit Profile View */}
