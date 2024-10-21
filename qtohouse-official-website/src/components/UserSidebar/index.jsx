@@ -25,7 +25,7 @@ function UserSidebar() {
       <Sidebar
         collapsed={isCollapsed}
         backgroundColor="#1F2937"
-        className=" mx-6 my-8 w-64 h-full shadow-lg rounded-lg"
+        className="mx-0 md:mx-6 lg:mx-8 md:my-8 w-64 h-full shadow-lg rounded-lg"
       >
         <Menu iconShape="square">
           {/* Toggle Sidebar Button */}

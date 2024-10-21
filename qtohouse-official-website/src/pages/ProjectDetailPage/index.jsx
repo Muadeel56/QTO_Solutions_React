@@ -16,12 +16,11 @@ function ProjectDetailPage() {
 
   const sections = [
     { label: "Project Details", component: <ProjectDetails /> },
-    { label: "Specs 35", component: <Specs /> },
+    { label: "Specs", component: <Specs /> },
     { label: "Plans", component: <Plans /> },
     { label: "Takeoffs", component: <QTOs /> },
     { label: "Addendum", component: <Addendums /> },
-    { label: "Plan Holders 4", component: <PlanHolders /> },
-    { label: "Plan Holders 4", component: <PlanHolders /> },
+    { label: "Plan Holders", component: <PlanHolders /> },
   ];
 
   return (
@@ -34,7 +33,7 @@ function ProjectDetailPage() {
 
       {/* Project Header Section */}
       <div className="bg-white p-4 md:p-6 rounded-lg shadow-md mb-6 md:mb-10">
-        <div className="flex flex-col space-y-4 md:space-x-10  md:flex-row justify-between items-center md:items-start ">
+        <div className="flex flex-col space-y-4 lg:space-x-10  lg:flex-row justify-between items-center md:items-start ">
           <div className="">
             <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-800 mb-2">
               HS 498 Health Arts Robotics and Technology High School
@@ -60,7 +59,7 @@ function ProjectDetailPage() {
       </div>
 
       {/* Navigation Buttons */}
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-col-5 md:justify-start mb-6 md:mb-10 gap-2 md:gap-4 lg-gap-6">
+      <div className="flex flex-col md:flex-col lg:flex-row md:justify-start mb-6 md:mb-10 gap-2 md:gap-1 lg-gap-6">
         {sections.map((section, index) => (
           <Button
             key={index}

@@ -74,7 +74,7 @@ const dummyProjects = {
       name: "Quetta School Renovation",
       location: "Quetta, Pakistan",
       bid_amount: 500000,
-      status: "Active",
+      status: "Active Projects",
       division: "Education",
       qto_status: "Available",
       is_favourite: true,
@@ -86,7 +86,31 @@ const dummyProjects = {
       name: "Islamabad Sports Complex",
       location: "Islamabad, Pakistan",
       bid_amount: 4000000,
-      status: "Active",
+      status: "Active Projects",
+      division: "Recreational",
+      qto_status: "In Progress",
+      is_favourite: false,
+      is_mine: false,
+    },
+    {
+      id: 7,
+      bid_date: "2024-08-15",
+      name: "Rawalpindi Sports Complex",
+      location: "Rawalpindi, Pakistan",
+      bid_amount: 6000000,
+      status: "Past Projects",
+      division: "Recreational",
+      qto_status: "In Progress",
+      is_favourite: false,
+      is_mine: false,
+    },
+    {
+      id: 6,
+      bid_date: "2024-08-15",
+      name: "Islamabad Sports Complex",
+      location: "Islamabad, Pakistan",
+      bid_amount: 4000000,
+      status: "Past Projects",
       division: "Recreational",
       qto_status: "In Progress",
       is_favourite: false,
@@ -425,8 +449,8 @@ function ProjectPage() {
         <div className="flex-grow w-full bg-white p-4 lg:p-6 shadow-md rounded-lg">
           {/* Project Tabs */}
           <div className="flex flex-wrap gap-2 lg:gap-4 mb-6 lg:mb-8 items-center justify-between">
-            <div className="flex flex-col justify-center md:flex-row lg:flex-row space-y-2 md:space-x-2 lg:space-x-4">
-              {["Active", "Past", "My Projects", "Favourite Projects"].map(
+            <div className="flex flex-col justify-center md:flex-row lg:flex-row md:space-x-2 lg:space-x-4">
+              {["Active Projects", "Past Projects", "My Projects", "Favourite Projects"].map(
                 (tab) => (
                   <Button
                     key={tab}
