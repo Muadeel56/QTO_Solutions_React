@@ -14,8 +14,8 @@ function SamplePage() {
       {/* Background Image Section */}
       <div className="relative w-full h-[50vh]">
         <img src={login} alt="login background" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50">
-          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white text-center">
+        <div className="absolute inset-0 flex flex-col py-20 items-center bg-black bg-opacity-50">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white ">
             Download Our Samples
           </h1>
           <p className="text-xs sm:text-sm md:text-lg lg:text-xl text-white mt-4 px-2 text-center max-w-xl">
@@ -25,7 +25,7 @@ function SamplePage() {
       </div>
 
       {/* Download Samples Form Section */}
-      <div className="w-full max-w-screen-md mx-auto mt-16 bg-white p-12 rounded-lg shadow-lg">
+      <div className="relative w-full max-w-screen-md mx-auto -mt-32 bg-white p-12 rounded-lg shadow-lg">
         <div className="space-y-8">
           <div className="flex items-center justify-between space-x-4">
             <div className="flex items-center border-b-2 border-gray-300 pb-2 w-full">
@@ -39,7 +39,6 @@ function SamplePage() {
                 <option value="sample3">Drywall Estimation</option>
                 <option value="sample4">Electrical Estimation</option>
               </select>
-              <KeyboardArrowDown className="text-yellow-500" />
             </div>
           </div>
 

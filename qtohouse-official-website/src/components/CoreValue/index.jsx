@@ -10,75 +10,75 @@ import HandshakeIcon from "@mui/icons-material/Handshake";
 
 function CoreValue() {
   return (
-    <div className="w-full py-16 px-6 bg-gray-100">
+    <div className="w-full py-16 px-6 bg-gray-50">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">Core Values</h1>
-        <p className="text-lg text-gray-600">
-          We pride ourselves on our core values that are essential in delivering
-          high-quality preconstruction estimates and services.
+        <h1 className="text-2xl md:text-4xl font-bold text-gray-800 mb-4">Our Core Values</h1>
+        <p className="text-sm md:text-lg text-gray-600 max-w-2xl mx-auto">
+          At QTO House, our core values are the foundation of our commitment to deliver high-quality preconstruction estimates and services.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Core Value Items */}
         {[
           {
-            title: "We're Precise",
+            title: "Precision",
             description:
-              "We reflect our unwavering dedication to delivering accurate and detailed preconstruction estimates.",
-            icon: <PrecisionManufacturingIcon className="text-5xl text-yellow-500" />,
+              "Our dedication to delivering accurate and detailed preconstruction estimates ensures project success.",
+            icon: <PrecisionManufacturingIcon sx={{ fontSize: 60 }} className="text-yellow-500" />,
           },
           {
-            title: "We're Estimating Allies",
+            title: "Collaboration",
             description:
-              "We ensure meticulous and competitive estimations, consistently delivering excellence in every project.",
-            icon: <GroupWorkIcon className="text-5xl text-yellow-500" />,
+              "We work as your partners, ensuring meticulous and competitive estimates with every project.",
+            icon: <GroupWorkIcon sx={{ fontSize: 60 }} className=" md:text-6xl text-yellow-500" />,
           },
           {
-            title: "We're Outsource Estimating",
+            title: "Efficiency",
             description:
-              "We streamline the process, minimizing hassles and maximizing efficiency for our clients.",
-            icon: <AssignmentTurnedInIcon className="text-5xl text-yellow-500" />,
+              "We streamline estimation processes, maximizing efficiency and minimizing hassles for our clients.",
+            icon: <AssignmentTurnedInIcon sx={{ fontSize: 60 }} className="text-yellow-500" />,
           },
           {
-            title: "We're Disciplined",
+            title: "Discipline",
             description:
-              "We highlight our commitment to systematic preconstruction estimating for accuracy and reliability.",
-            icon: <BuildIcon className="text-5xl text-yellow-500" />,
+              "We are committed to systematic and accurate estimating practices that ensure reliability in every project.",
+            icon: <BuildIcon sx={{ fontSize: 60 }} className="text-yellow-500" />,
           },
           {
-            title: "We're Accountable",
+            title: "Accountability",
             description:
-              "We uphold the highest standards of integrity and transparency in preconstruction estimating.",
-            icon: <VerifiedIcon className="text-5xl text-yellow-500" />,
+              "We uphold the highest standards of integrity and transparency in all our preconstruction estimates.",
+            icon: <VerifiedIcon sx={{ fontSize: 60 }} className="text-yellow-500" />,
           },
           {
-            title: "We're Transparent",
+            title: "Transparency",
             description:
-              "We reflect our commitment to open and honest communication in preconstruction estimating.",
-            icon: <VisibilityIcon className="text-5xl text-yellow-500" />,
+              "Our commitment to open and honest communication fosters trust and builds lasting relationships.",
+            icon: <VisibilityIcon sx={{ fontSize: 60 }} className="text-yellow-500" />,
           },
           {
-            title: "We're Aligned",
+            title: "Alignment",
             description:
-              "We synchronize our efforts with our clients' goals, ensuring every estimate is tailored for success.",
-            icon: <SyncIcon className="text-5xl text-yellow-500" />,
+              "We align our efforts with your goals, ensuring each estimate is tailored to meet your project needs.",
+            icon: <SyncIcon sx={{ fontSize: 60 }} className="text-yellow-500" />,
           },
           {
-            title: "We're Responsible",
+            title: "Responsibility",
             description:
-              "We are committed to ethical practices and sustainable decision-making for the benefit of our community.",
-            icon: <HandshakeIcon className="text-5xl text-yellow-500" />,
+              "We prioritize ethical practices and sustainability to benefit our clients, community, and environment.",
+            icon: <HandshakeIcon sx={{ fontSize: 60 }} className="text-yellow-500" />,
           },
         ].map((value, index) => (
           <div
             key={index}
-            className="flex flex-col items-center p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
+            className="flex flex-col items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:scale-105"
           >
             <div className="mb-4">{value.icon}</div>
-            <h1 className="text-xl font-semibold text-gray-800 mb-2 text-center">
+            <h1 className="text-sm md:text-lg lg:text-xl xl:text-2xl font-semibold text-gray-800 mb-2 text-center">
               {value.title}
             </h1>
-            <p className="text-gray-600 text-center">{value.description}</p>
+            <p className="text-gray-600 text-xs md:text-sm xl:text-lg text-center md:text-justify">{value.description}</p>
           </div>
         ))}
       </div>
