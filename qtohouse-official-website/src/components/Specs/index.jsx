@@ -16,21 +16,21 @@ function Specs() {
 
   return (
     <div className="w-full bg-white p-6 rounded-lg shadow-md">
-      <h1 className="text-2xl font-bold text-gray-800 mb-6">Specifications</h1>
+      <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-800 mb-6">Specifications</h1>
       <div className="space-y-6">
         {specsData.map((spec, index) => (
-          <div key={index} className="flex items-center justify-between p-4 border rounded-lg hover:shadow-lg transition-shadow duration-300">
+          <div key={index} className="flex flex-col md:flex-row items-start justify-between space-y-2 p-4 border rounded-lg hover:shadow-lg transition-shadow duration-300">
             <div className="flex items-center space-x-4">
               {/* PDF Icon and Name */}
               <PictureAsPdfIcon className="text-red-600 text-4xl" />
-              <div>
-                <p className="text-lg font-semibold text-gray-800">{spec.name}</p>
-                <p className="text-sm text-gray-500">Size: {spec.size}</p>
+              <div className='space-y-2'>
+                <p className="text-sm md:text-lg lg:text-xl font-semibold text-gray-800">{spec.name}</p>
+                <p className="text-xs md:text-sm lg:text-lg text-gray-500">Size: {spec.size}</p>
               </div>
             </div>
 
             {/* File Date */}
-            <p className="text-gray-600">{spec.date}</p>
+            <p className="text-xs md:text-sm lg:text-lg text-gray-600">{spec.date}</p>
 
             {/* Action Icons */}
             <div className="flex space-x-4">

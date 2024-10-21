@@ -14,37 +14,47 @@ function QTOs() {
   ];
 
   return (
-    <div className="w-full p-4 md:p-6 bg-gray-100 rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold text-gray-800 mb-6">QTO Documents</h2>
-      <div className="space-y-4">
+    <div className="w-full bg-white p-6 rounded-lg shadow-md">
+      <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-800 mb-6">
+        QTO Documents
+      </h1>
+      <div className="space-y-6">
         {qtoData.map((qto, index) => (
           <div
             key={index}
-            className="flex flex-col md:flex-row md:items-center md:justify-between bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 space-y-4 md:space-y-0"
+            className="flex flex-col md:flex-row items-start justify-between space-y-2 md:space-y-0 p-4 border rounded-lg hover:shadow-lg transition-shadow duration-300"
           >
             {/* Document Details */}
-            <div className="flex items-start md:items-center space-x-4">
-              <InsertDriveFileIcon className="text-green-600 text-3xl" />
-              <div>
-                <p className="text-lg font-medium text-gray-800">{qto.name}</p>
-                <div className="flex items-center space-x-2 text-gray-500">
+            <div className="flex items-center space-x-4">
+              <InsertDriveFileIcon className="text-green-600 text-4xl" />
+              <div className="space-y-2">
+                <p className="text-sm md:text-lg lg:text-xl font-semibold text-gray-800">
+                  {qto.name}
+                </p>
+                <div className="flex items-center space-x-2 text-xs md:text-sm lg:text-lg text-gray-500">
                   <CalendarTodayIcon fontSize="small" />
-                  <p className="text-sm">{qto.date}</p>
+                  <p>{qto.date}</p>
                 </div>
               </div>
             </div>
 
-            {/* Document Size, Price, and Action Button */}
-            <div className="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
-              <p className="text-sm font-medium text-gray-600">{qto.size}</p>
-              <p className="text-sm font-medium text-gray-800">{qto.price}</p>
+            {/* Document Size and Price */}
+            <div className="flex flex-col md:flex-row items-start md:items-center space-y-2 md:space-y-0 md:space-x-6">
+              <p className="text-xs md:text-sm lg:text-lg font-medium text-gray-600">{qto.size}</p>
+              <p className="text-xs md:text-sm lg:text-lg font-medium text-gray-800">{qto.price}</p>
+
+              {/* Buy Document Button */}
               <Button
                 variant="contained"
                 startIcon={<ShoppingCartIcon />}
+                className="text-xs md:text-sm lg:text-lg"
                 sx={{
                   backgroundColor: '#FFD700',
                   color: '#000',
                   '&:hover': { backgroundColor: '#FFC000' },
+                  fontWeight: 'bold',
+                  padding: '6px 12px',
+                  textTransform: 'none',
                 }}
                 size="small"
               >

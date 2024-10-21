@@ -23,7 +23,7 @@ function AboutPage() {
       </div>
 
       {/* About Us Section */}
-      <div className="relative w-full max-w-screen-lg mx-auto -mt-32 bg-white p-12 rounded-lg shadow-lg">
+      <div className="relative w-full max-w-screen-xl mx-auto -mt-32 bg-white p-12 rounded-lg shadow-lg">
         <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center border-b-4 border-yellow-500 pb-4">
           About Us
         </h1>
@@ -57,7 +57,7 @@ function AboutPage() {
       </div>
 
       {/* Core Values, Vision, and Mission Section */}
-      <div className="w-full bg-gray-200 py-10 md:py-16">
+      <div className="w-full  bg-gray-200 py-10 md:py-16">
         <div className=" mx-auto space-y-10 md:space-y-16 px-4">
           <CoreValue />
           <div className="flex flex-col md:flex-row justify-evenly gap-8 mt-8">

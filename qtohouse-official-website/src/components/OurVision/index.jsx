@@ -4,7 +4,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 function OurVision() {
   return (
     <div className="flex flex-col items-center p-4 md:p-6 bg-white rounded-lg shadow-md max-w-full md:max-w-sm">
-      <VisibilityIcon fontSize='extra-large' className="text-yellow-500 text-4xl md:text-5xl mb-3 md:mb-4" />
+      <VisibilityIcon sx={{ fontSize: 60 }} className="text-yellow-500 mb-3 md:mb-4" />
       <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-800 mb-3 md:mb-4">Our Vision</h1>
       <p className="text-xs md:text-sm lg:text-lg text-gray-700 leading-relaxed text-justify">
         Our vision at QTO House is to redefine the landscape of construction
