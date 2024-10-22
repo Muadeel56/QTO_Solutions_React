@@ -74,10 +74,10 @@ function UserContainer() {
       {/* Main content */}
       <div
         className={`flex-grow transition-all duration-300 ${
-          sidebarOpen && !isSmallScreen && !isTabletScreen ? "ml-" : "ml-0"
+          sidebarOpen && !isSmallScreen && !isTabletScreen ? "ml-" : ""
         }`}
         style={{
-          paddingLeft: isLaptopScreen ? "0px" : "", // Adjust padding for larger screens
+          paddingLeft: isLaptopScreen ? "" : "", // Adjust padding for larger screens
         }}
       >
         <Routes>

@@ -74,11 +74,11 @@ function UserSidebar({ menuOpen, toggleSidebar, isSmallScreen }) {
               Favourite Projects
             </MenuItem>
           </Link>
-          <Link to="/user/calendar" onClick={toggleSidebar} className="text-yellow-500">
+          {/* <Link to="/user/calendar" onClick={toggleSidebar} className="text-yellow-500">
             <MenuItem icon={<CalendarTodayIcon sx={{ color: "#D97706" }} />}>
               Bid Calendar
             </MenuItem>
-          </Link>
+          </Link> */}
         </Menu>
       </Sidebar>
     </div>
