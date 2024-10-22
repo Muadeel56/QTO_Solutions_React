@@ -1,346 +1,199 @@
 import React from "react";
-import {
-  Box,
-  Grid,
-  Paper,
-  Typography,
-  TextField,
-  MenuItem,
-  Button,
-  InputAdornment,
-} from "@mui/material";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import SaveIcon from "@mui/icons-material/Save";
-import BusinessIcon from "@mui/icons-material/Business";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import PublicIcon from "@mui/icons-material/Public";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
-import PhoneIcon from "@mui/icons-material/Phone";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
-import ConstructionIcon from "@mui/icons-material/Construction";
 
 function UserCreateCompany() {
   return (
-    <Box sx={{ flexGrow: 1, padding: "2rem" }}>
-      <Typography
-        variant="h4"
-        sx={{ fontWeight: "bold", marginBottom: "16px", textAlign: "center" }}
-        className="text-yellow-600"
-      >
-        Create New Company
-      </Typography>
-      <Typography
-        variant="body1"
-        sx={{ marginBottom: "24px", textAlign: "center" }}
-        className="text-gray-600"
-      >
+    <div className="ml p-1">
+      <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-yellow-600 text-center mb-4">
+        Create Company
+      </h1>
+      <p className="text-xs md:text-sm lg:text-lg text-gray-600 text-center mb-6">
         Complete the form below to add a new company profile.
-      </Typography>
+      </p>
 
-      <Grid container spacing={4}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         {/* Company Information */}
-        <Grid item xs={12} md={6}>
-          <Paper
-            elevation={3}
-            sx={{ padding: "16px", borderRadius: "16px", height: "100%" }}
-          >
-            <Typography
-              variant="h6"
-              sx={{ fontWeight: "bold", marginBottom: "12px"}}
-              className="text-yellow-600"
-            >
-              Company Information
-            </Typography>
-            <TextField
-              fullWidth
-              label="Company Name"
-              placeholder="Enter company name"
-              margin="normal"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <BusinessIcon sx={{ color: "#ca8a04" }} />
-                  </InputAdornment>
-                ),
-              }}
-            />
-            <TextField
-              fullWidth
-              label="Location"
-              placeholder="Enter location"
-              margin="normal"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <LocationOnIcon sx={{ color: "#ca8a04" }} />
-                  </InputAdornment>
-                ),
-              }}
-            />
-            <Grid container spacing={2}>
-              <Grid item xs={6}>
-                <TextField
-                  fullWidth
-                  select
-                  label="Country"
-                  margin="normal"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <PublicIcon sx={{ color: "#ca8a04" }} />
-                      </InputAdornment>
-                    ),
-                  }}
-                >
-                  <MenuItem value="US">United States</MenuItem>
-                  <MenuItem value="UK">United Kingdom</MenuItem>
-                </TextField>
-              </Grid>
-              <Grid item xs={6}>
-                <TextField
-                  fullWidth
-                  select
-                  label="State"
-                  margin="normal"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <LocationOnIcon sx={{ color: "#ca8a04" }} />
-                      </InputAdornment>
-                    ),
-                  }}
-                >
-                  <MenuItem value="CA">California</MenuItem>
-                  <MenuItem value="NY">New York</MenuItem>
-                </TextField>
-              </Grid>
-            </Grid>
-            <TextField fullWidth label="Zip Code" margin="normal" />
-            <TextField
-              fullWidth
-              label="Website"
-              placeholder="Enter website URL"
-              margin="normal"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <PublicIcon sx={{ color: "#ca8a04" }} />
-                  </InputAdornment>
-                ),
-              }}
-            />
-          </Paper>
-        </Grid>
+        <div className="p-6 bg-white shadow-md rounded-lg">
+          <h2 className="text-lg font-bold text-yellow-600 mb-4">
+            Company Information
+          </h2>
+
+          <label className="block text-sm font-medium text-gray-700 mb-2">Company Name</label>
+          <input
+            type="text"
+            placeholder="Enter company name"
+            className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-yellow-500"
+          />
+
+          <label className="block text-sm font-medium text-gray-700 mb-2">Location</label>
+          <input
+            type="text"
+            placeholder="Enter location"
+            className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-yellow-500"
+          />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Country</label>
+              <select className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500">
+                <option value="US">United States</option>
+                <option value="UK">United Kingdom</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">State</label>
+              <select className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500">
+                <option value="CA">California</option>
+                <option value="NY">New York</option>
+              </select>
+            </div>
+          </div>
+
+          <label className="block text-sm font-medium text-gray-700 mb-2">Zip Code</label>
+          <input
+            type="text"
+            className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-yellow-500"
+          />
+
+          <label className="block text-sm font-medium text-gray-700 mb-2">Website</label>
+          <input
+            type="text"
+            placeholder="Enter website URL"
+            className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-yellow-500"
+          />
+        </div>
 
         {/* Contact Information */}
-        <Grid item xs={12} md={6}>
-          <Paper
-            elevation={3}
-            sx={{ padding: "16px", borderRadius: "16px", height: "100%" }}
-          >
-            <Typography
-              variant="h6"
-              sx={{ fontWeight: "bold", marginBottom: "12px", color: "#ca8a04" }}
-            >
-              Contact Information
-            </Typography>
-            <TextField
-              fullWidth
-              label="Person Name"
-              placeholder="Enter contact person's name"
-              margin="normal"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <BusinessIcon sx={{ color: "#ca8a04" }} />
-                  </InputAdornment>
-                ),
-              }}
-            />
-            <TextField
-              fullWidth
-              label="Location"
-              placeholder="Enter location"
-              margin="normal"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <LocationOnIcon sx={{ color: "#ca8a04" }} />
-                  </InputAdornment>
-                ),
-              }}
-            />
-            <Grid container spacing={2}>
-              <Grid item xs={6}>
-                <TextField
-                  fullWidth
-                  select
-                  label="Country"
-                  margin="normal"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <PublicIcon sx={{ color: "#ca8a04" }} />
-                      </InputAdornment>
-                    ),
-                  }}
-                >
-                  <MenuItem value="US">United States</MenuItem>
-                  <MenuItem value="UK">United Kingdom</MenuItem>
-                </TextField>
-              </Grid>
-              <Grid item xs={6}>
-                <TextField
-                  fullWidth
-                  select
-                  label="State"
-                  margin="normal"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <LocationOnIcon sx={{ color: "#ca8a04" }} />
-                      </InputAdornment>
-                    ),
-                  }}
-                >
-                  <MenuItem value="CA">California</MenuItem>
-                  <MenuItem value="NY">New York</MenuItem>
-                </TextField>
-              </Grid>
-            </Grid>
-            <TextField fullWidth label="Zip Code" margin="normal" />
-            <TextField
-              fullWidth
-              label="Email"
-              placeholder="Enter email"
-              margin="normal"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <MailOutlineIcon sx={{ color: "#ca8a04" }} />
-                  </InputAdornment>
-                ),
-              }}
-            />
-            <TextField
-              fullWidth
-              label="Phone"
-              placeholder="Enter phone number"
-              margin="normal"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <PhoneIcon sx={{ color: "#ca8a04" }} />
-                  </InputAdornment>
-                ),
-              }}
-            />
-          </Paper>
-        </Grid>
+        <div className="p-6 bg-white shadow-md rounded-lg">
+          <h2 className="text-lg font-bold text-yellow-600 mb-4">
+            Contact Information
+          </h2>
 
-        {/* Company Details */}
-        <Grid item xs={12}>
-          <Paper elevation={3} sx={{ padding: "16px", borderRadius: "16px" }}>
-            <Typography
-              variant="h6"
-              sx={{ fontWeight: "bold", marginBottom: "12px", color: "#ca8a04" }}
-            >
-              Company Details
-            </Typography>
-            <Grid container spacing={2}>
-              <Grid item xs={12} md={6}>
-                <TextField
-                  fullWidth
-                  label="Year Founded"
-                  placeholder="dd/mm/yyyy"
-                  margin="normal"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <CalendarTodayIcon sx={{ color: "#ca8a04" }} />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <TextField
-                  fullWidth
-                  select
-                  label="Type of Construction"
-                  margin="normal"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <ConstructionIcon sx={{ color: "#ca8a04" }} />
-                      </InputAdornment>
-                    ),
-                  }}
-                >
-                  <MenuItem value="Residential">Residential</MenuItem>
-                  <MenuItem value="Commercial">Commercial</MenuItem>
-                </TextField>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <TextField
-                  fullWidth
-                  label="Company Size"
-                  placeholder="Enter company size"
-                  margin="normal"
-                />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <TextField
-                  fullWidth
-                  label="Contractor Type"
-                  placeholder="Enter contractor type"
-                  margin="normal"
-                />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <TextField
-                  fullWidth
-                  label="CSI Divisions"
-                  placeholder="Enter CSI divisions"
-                  margin="normal"
-                />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <TextField
-                  fullWidth
-                  label="Financial Information"
-                  placeholder="Enter financial information"
-                  margin="normal"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  fullWidth
-                  label="Notes/Comments"
-                  placeholder="Enter notes or comments"
-                  margin="normal"
-                />
-              </Grid>
-            </Grid>
-          </Paper>
-        </Grid>
+          <label className="block text-sm font-medium text-gray-700 mb-2">Person Name</label>
+          <input
+            type="text"
+            placeholder="Enter contact person's name"
+            className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-yellow-500"
+          />
 
-        {/* Action Buttons */}
-        <Grid item xs={12} textAlign="right" sx={{ marginTop: "16px" }}>
-          <Button
-            variant="outlined"
-            color="error"
-            startIcon={<DeleteOutlineIcon />}
-            sx={{ marginRight: "8px" }}
-          >
-            Delete
-          </Button>
-          <Button variant="contained" color="primary" startIcon={<SaveIcon />}>
-            Create
-          </Button>
-        </Grid>
-      </Grid>
-    </Box>
+          <label className="block text-sm font-medium text-gray-700 mb-2">Location</label>
+          <input
+            type="text"
+            placeholder="Enter location"
+            className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-yellow-500"
+          />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Country</label>
+              <select className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500">
+                <option value="US">United States</option>
+                <option value="UK">United Kingdom</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">State</label>
+              <select className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500">
+                <option value="CA">California</option>
+                <option value="NY">New York</option>
+              </select>
+            </div>
+          </div>
+
+          <label className="block text-sm font-medium text-gray-700 mb-2">Zip Code</label>
+          <input
+            type="text"
+            className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-yellow-500"
+          />
+
+          <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+          <input
+            type="email"
+            placeholder="Enter email"
+            className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-yellow-500"
+          />
+
+          <label className="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+          <input
+            type="tel"
+            placeholder="Enter phone number"
+            className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-yellow-500"
+          />
+        </div>
+      </div>
+
+      {/* Company Details */}
+      <div className="p-6 bg-white shadow-md rounded-lg mb-6">
+        <h2 className="text-lg font-bold text-yellow-600 mb-4">
+          Company Details
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Year Founded</label>
+            <input
+              type="date"
+              className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-yellow-500"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Type of Construction</label>
+            <select className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500">
+              <option value="Residential">Residential</option>
+              <option value="Commercial">Commercial</option>
+            </select>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Company Size</label>
+            <input
+              type="text"
+              placeholder="Enter company size"
+              className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-yellow-500"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Contractor Type</label>
+            <input
+              type="text"
+              placeholder="Enter contractor type"
+              className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-yellow-500"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">CSI Divisions</label>
+            <input
+              type="text"
+              placeholder="Enter CSI divisions"
+              className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-yellow-500"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Financial Information</label>
+            <input
+              type="text"
+              placeholder="Enter financial information"
+              className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-yellow-500"
+            />
+          </div>
+        </div>
+
+        <label className="block text-sm font-medium text-gray-700 mb-2">Notes/Comments</label>
+        <textarea
+          placeholder="Enter notes or comments"
+          className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-yellow-500"
+        />
+      </div>
+
+      {/* Action Buttons */}
+      <div className="text-right">
+        <button
+          className="inline-block px-6 py-3 border border-red-600 text-red-600 rounded-lg font-semibold mr-4 hover:bg-red-600 hover:text-white transition"
+        >
+          Delete
+        </button>
+        <button className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+          Create
+        </button>
+      </div>
+    </div>
   );
 }
 

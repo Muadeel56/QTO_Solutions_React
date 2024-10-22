@@ -1,307 +1,170 @@
 import React from "react";
-import {
-  Box,
-  Typography,
-  Grid,
-  TextField,
-  InputAdornment,
-  Button,
-  Paper,
-  MenuItem,
-  Divider,
-} from "@mui/material";
 import BusinessIcon from "@mui/icons-material/Business";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PublicIcon from "@mui/icons-material/Public";
-import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import DateRangeIcon from "@mui/icons-material/DateRange";
-import MWSEBsSection from "../../components/MWSEBsSection";
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 
 function UserCreateProject() {
   return (
-    <Box sx={{ padding: "2rem", backgroundColor: "#f5f5f5", minHeight: "100vh" }}>
-      {/* Header Section */}
-      <Typography variant="h4" fontWeight="bold" mb={2} color="#ca8a04">
+    <div className="ml p-1">
+      <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-yellow-600 text-center mb-4">
         Create Project
-      </Typography>
-      <Typography variant="body1" color="textSecondary" mb={4}>
-        Projects / Create Project
-      </Typography>
+      </h1>
+      <p className="text-xs md:text-sm lg:text-lg text-gray-600 text-center mb-6">
+        Complete the form below to create a new project.
+      </p>
 
-      <Grid container spacing={3}>
-        {/* Project Information Section */}
-        <Grid item xs={12}>
-          <Paper elevation={4} sx={{ padding: "24px", borderRadius: "16px" }}>
-            <Typography variant="h6" fontWeight="bold" gutterBottom color="#ca8a04">
-              Project Information
-            </Typography>
-            <Divider sx={{ mb: 2 }} />
-            <Grid container spacing={3}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Project Title"
-                  placeholder="Enter project title"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <BusinessIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                  sx={{ backgroundColor: "#fff", borderRadius: "8px" }}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Location"
-                  placeholder="Enter project location"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <LocationOnIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                  sx={{ backgroundColor: "#fff", borderRadius: "8px" }}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Country"
-                  placeholder="Enter country"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <PublicIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                  sx={{ backgroundColor: "#fff", borderRadius: "8px" }}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="State"
-                  placeholder="Enter state"
-                  sx={{ backgroundColor: "#fff", borderRadius: "8px" }}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField fullWidth label="City" placeholder="Enter city" sx={{ backgroundColor: "#fff", borderRadius: "8px" }} />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Project Description"
-                  placeholder="Enter description"
-                  multiline
-                  rows={4}
-                  sx={{ backgroundColor: "#fff", borderRadius: "8px" }}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="CSI Divisions"
-                  placeholder="Enter CSI Divisions"
-                  sx={{ backgroundColor: "#fff", borderRadius: "8px" }}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Authority"
-                  select
-                  placeholder="Select Authority"
-                  sx={{ backgroundColor: "#fff", borderRadius: "8px" }}
-                >
-                  <MenuItem value="authority1">Authority 1</MenuItem>
-                  <MenuItem value="authority2">Authority 2</MenuItem>
-                </TextField>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Sub Authority"
-                  select
-                  placeholder="Select Sub Authority"
-                  sx={{ backgroundColor: "#fff", borderRadius: "8px" }}
-                >
-                  <MenuItem value="sub1">Sub Authority 1</MenuItem>
-                  <MenuItem value="sub2">Sub Authority 2</MenuItem>
-                </TextField>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Status"
-                  select
-                  placeholder="Select Status"
-                  sx={{ backgroundColor: "#fff", borderRadius: "8px" }}
-                >
-                  <MenuItem value="status1">Active</MenuItem>
-                  <MenuItem value="status2">Pending</MenuItem>
-                </TextField>
-              </Grid>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        {/* Project Information */}
+        <div className="p-6 bg-white shadow-md rounded-lg">
+          <h2 className="text-lg font-bold text-yellow-600 mb-4">
+            Project Information
+          </h2>
 
-              {/* Document Upload Section */}
-              <Grid item xs={12}>
-                <Typography variant="h6" mt={4}>
-                  Upload Documents
-                </Typography>
-                <Divider sx={{ mb: 2 }} />
-              </Grid>
-              <Grid item xs={12} sm={4}>
-                <Button variant="outlined" fullWidth startIcon={<UploadFileIcon />} sx={{ padding: "10px", borderRadius: "8px" }}>
-                  Upload Project Plans
-                </Button>
-              </Grid>
-              <Grid item xs={12} sm={4}>
-                <Button variant="outlined" fullWidth startIcon={<UploadFileIcon />} sx={{ padding: "10px", borderRadius: "8px" }}>
-                  Upload Project Specs
-                </Button>
-              </Grid>
-              <Grid item xs={12} sm={4}>
-                <Button variant="outlined" fullWidth startIcon={<UploadFileIcon />} sx={{ padding: "10px", borderRadius: "8px" }}>
-                  Upload Take-Offs
-                </Button>
-              </Grid>
-            </Grid>
-          </Paper>
-        </Grid>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Project Title
+          </label>
+          <input
+            type="text"
+            placeholder="Enter project title"
+            className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-yellow-500"
+          />
 
-        {/* Bid Information Section */}
-        <Grid item xs={12}>
-          <Paper elevation={4} sx={{ padding: "24px", borderRadius: "16px" }}>
-            <Typography variant="h6" fontWeight="bold" gutterBottom color="#d97706">
-              Bid Information
-            </Typography>
-            <Divider sx={{ mb: 2 }} />
-            <Grid container spacing={3}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Bidding Method"
-                  select
-                  placeholder="Select Bidding Method"
-                  sx={{ backgroundColor: "#fff", borderRadius: "8px" }}
-                >
-                  <MenuItem value="open">Open</MenuItem>
-                  <MenuItem value="closed">Closed</MenuItem>
-                  <MenuItem value="selective">Selective</MenuItem>
-                </TextField>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Bidding Phase"
-                  select
-                  placeholder="Select Bidding Phase"
-                  sx={{ backgroundColor: "#fff", borderRadius: "8px" }}
-                >
-                  <MenuItem value="pre-bid">Pre-Bid</MenuItem>
-                  <MenuItem value="open">Open Solicitation</MenuItem>
-                  <MenuItem value="post-bid">Post-Bid</MenuItem>
-                </TextField>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Project Completion Time"
-                  placeholder="Enter completion time"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <AccountBalanceIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                  sx={{ backgroundColor: "#fff", borderRadius: "8px" }}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Pre Bid Meeting Date"
-                  placeholder="Select date"
-                  type="date"
-                  InputLabelProps={{ shrink: true }}
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <DateRangeIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                  sx={{ backgroundColor: "#fff", borderRadius: "8px" }}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Bid Amount"
-                  placeholder="Enter bid amount"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <AttachMoneyIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                  sx={{ backgroundColor: "#fff", borderRadius: "8px" }}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  label="Bid Date"
-                  placeholder="Select bid date"
-                  type="date"
-                  InputLabelProps={{ shrink: true }}
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <DateRangeIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                  sx={{ backgroundColor: "#fff", borderRadius: "8px" }}
-                />
-              </Grid>
-            </Grid>
-          </Paper>
-        </Grid>
-      </Grid>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Location
+          </label>
+          <input
+            type="text"
+            placeholder="Enter project location"
+            className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-yellow-500"
+          />
 
-      {/* MWSEBs Section */}
-      <MWSEBsSection />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Country
+              </label>
+              <select className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500">
+                <option value="US">United States</option>
+                <option value="UK">United Kingdom</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                State
+              </label>
+              <select className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500">
+                <option value="CA">California</option>
+                <option value="NY">New York</option>
+              </select>
+            </div>
+          </div>
 
-      {/* Submit Button */}
-      <Box mt={4} textAlign="center">
-        <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          sx={{
-            fontWeight: "bold",
-            padding: "10px 40px",
-            borderRadius: "8px",
-            backgroundColor: "#d97706",
-            "&:hover": {
-              backgroundColor: "#b45309",
-            },
-          }}
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Project Description
+          </label>
+          <textarea
+            placeholder="Enter project description"
+            className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-yellow-500"
+            rows="4"
+          />
+        </div>
+
+        {/* Bid Information */}
+        <div className="p-6 bg-white shadow-md rounded-lg">
+          <h2 className="text-lg font-bold text-yellow-600 mb-4">
+            Bid Information
+          </h2>
+
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Bidding Method
+          </label>
+          <select className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500 mb-4">
+            <option value="open">Open</option>
+            <option value="closed">Closed</option>
+          </select>
+
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Bidding Phase
+          </label>
+          <select className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500 mb-4">
+            <option value="pre-bid">Pre-Bid</option>
+            <option value="open">Open Solicitation</option>
+            <option value="post-bid">Post-Bid</option>
+          </select>
+
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Project Completion Time
+          </label>
+          <input
+            type="text"
+            placeholder="Enter completion time"
+            className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-yellow-500"
+          />
+
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Bid Amount
+          </label>
+          <input
+            type="text"
+            placeholder="Enter bid amount"
+            className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-yellow-500"
+          />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Pre Bid Meeting Date
+              </label>
+              <input
+                type="date"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500 mb-4"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Bid Date
+              </label>
+              <input
+                type="date"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500 mb-4"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Upload Documents Section */}
+      <div className="p-6 bg-white shadow-md rounded-lg mb-6">
+        <h2 className="text-lg font-bold text-yellow-600 mb-4">Upload Documents</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <button className="bg-gray-100 border border-gray-300 text-gray-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition">
+            Upload Project Plans
+          </button>
+          <button className="bg-gray-100 border border-gray-300 text-gray-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition">
+            Upload Project Specs
+          </button>
+          <button className="bg-gray-100 border border-gray-300 text-gray-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition">
+            Upload Take-Offs
+          </button>
+        </div>
+      </div>
+
+      {/* Action Buttons */}
+      <div className="text-right">
+        <button
+          className="inline-block px-6 py-3 border border-red-600 text-red-600 rounded-lg font-semibold mr-4 hover:bg-red-600 hover:text-white transition"
         >
+          Delete
+        </button>
+        <button className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
           Create Project
-        </Button>
-      </Box>
-    </Box>
+        </button>
+      </div>
+    </div>
   );
 }
 

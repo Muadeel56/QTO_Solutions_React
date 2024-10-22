@@ -1,201 +1,121 @@
 import React from "react";
-import {
-  Button,
-  Box,
-  Typography,
-  Grid,
-  Card,
-  CardContent,
-  Divider,
-  IconButton,
-} from "@mui/material";
-import DownloadIcon from "@mui/icons-material/Download";
-import BusinessIcon from "@mui/icons-material/Business";
-import StarIcon from "@mui/icons-material/Star";
-import RequestQuoteIcon from "@mui/icons-material/RequestQuote";
-import FolderIcon from "@mui/icons-material/Folder";
-import TrendingUpIcon from "@mui/icons-material/TrendingUp";
-import TimelineIcon from "@mui/icons-material/Timeline";
-import DesktopMacIcon from "@mui/icons-material/DesktopMac";
-import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
-import TabletMacIcon from "@mui/icons-material/TabletMac";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import CircularProgressBar from "../../components/CircularProgressBar"; // Assume you have a circular progress bar component
-import { green, red, orange } from "@mui/material/colors";
 
 function UserDashboard() {
   return (
-    <Box sx={{ padding: 3 }}>
+    <div className=" pl-4 mt-2">
       {/* Header Section */}
-      <Box mb={3}>
-        <Typography variant="h4" fontWeight="bold" sx={{ color: "#ca8a04" }}>
-          Analytics
-        </Typography>
-        <Typography variant="subtitle2" color="gray" >
-          Dashboards / Analytics
-        </Typography>
-      </Box>
+      <div className="mb-6">
+        <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-yellow-600">Analytics</h1>
+        <p className="text-sm md:text-lg lg:text-xl text-gray-500">Dashboards / Analytics</p>
+      </div>
 
       {/* Statistics Cards */}
-      <Grid container spacing={3} mb={5}>
-        <Grid item xs={12} sm={6} lg={3}>
-          <Card sx={{ boxShadow: 3 }}>
-            <CardContent>
-              <Typography variant="subtitle2" color="textSecondary">
-                Users
-              </Typography>
-              <Typography variant="h4" fontWeight="bold" color="#ca8a04">
-                28.07K
-              </Typography>
-              <Typography variant="caption" color={green[500]}>
-                12% Increase vs Previous Month
-              </Typography>
-              <Box display="flex" justifyContent="flex-end" mt={2}>
-                <BusinessIcon fontSize="large" sx={{ color: green[500] }} />
-              </Box>
-            </CardContent>
-          </Card>
-        </Grid>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+        {/* Card 1 */}
+        <div className="bg-white shadow-lg md:shadow-md p-6 rounded-lg">
+          <p className="text-sm md:text-lg lg:text-xl font-semibold text-gray-500">Users</p>
+          <h2 className="text-lg md:text-xl lg:text-2xl font-bold text-yellow-600">28.07K</h2>
+          <p className="text-green-500 text-xs md:text-sm lg:text-lg">12% Increase vs Previous Month</p>
+          <div className="flex justify-end mt-4">
+            <span className="text-green-500 text-3xl">&#x1F3E2;</span>
+          </div>
+        </div>
 
-        <Grid item xs={12} sm={6} lg={3}>
-          <Card sx={{ boxShadow: 3 }}>
-            <CardContent>
-              <Typography variant="subtitle2" color="textSecondary">
-                Sessions
-              </Typography>
-              <Typography variant="h4" fontWeight="bold" color="#ca8a04">
-                97.67K
-              </Typography>
-              <Typography variant="caption" color={red[500]}>
-                8% Decrease vs Previous Month
-              </Typography>
-              <Box display="flex" justifyContent="flex-end" mt={2}>
-                <StarIcon fontSize="large" sx={{ color: red[500] }} />
-              </Box>
-            </CardContent>
-          </Card>
-        </Grid>
+        {/* Card 2 */}
+        <div className="bg-white shadow-md p-6 rounded-lg">
+          <p className="text-sm md:text-lg lg:text-xl font-semibold text-gray-500">Sessions</p>
+          <h2 className="text-lg md:text-xl lg:text-2xl font-bold text-yellow-600">97.67K</h2>
+          <p className="text-red-500 text-xs md:text-sm lg:text-lg">8% Decrease vs Previous Month</p>
+          <div className="flex justify-end mt-4">
+            <span className="text-red-500 text-3xl">&#x2B50;</span>
+          </div>
+        </div>
 
-        <Grid item xs={12} sm={6} lg={3}>
-          <Card sx={{ boxShadow: 3 }}>
-            <CardContent>
-              <Typography variant="subtitle2" color="textSecondary">
-                Bounce Rate
-              </Typography>
-              <Typography variant="h4" fontWeight="bold" color="#ca8a04">
-                40.57%
-              </Typography>
-              <Typography variant="caption" color={orange[500]}>
-                5% Increase vs Previous Month
-              </Typography>
-              <Box display="flex" justifyContent="flex-end" mt={2}>
-                <RequestQuoteIcon fontSize="large" sx={{ color: orange[500] }} />
-              </Box>
-            </CardContent>
-          </Card>
-        </Grid>
+        {/* Card 3 */}
+        <div className="bg-white shadow-md p-6 rounded-lg">
+          <p className="text-sm md:text-lg lg:text-xl font-semibold text-gray-500">Bounce Rate</p>
+          <h2 className="text-lg md:text-xl lg:text-2xl font-bold text-yellow-600">40.57%</h2>
+          <p className="text-orange-500 text-xs md:text-sm lg:text-lg">5% Increase vs Previous Month</p>
+          <div className="flex justify-end mt-4">
+            <span className="text-orange-500 text-3xl">&#x1F4B8;</span>
+          </div>
+        </div>
 
-        <Grid item xs={12} sm={6} lg={3}>
-          <Card sx={{ boxShadow: 3 }}>
-            <CardContent>
-              <Typography variant="subtitle2" color="textSecondary">
-                Avg. Visit Duration
-              </Typography>
-              <Typography variant="h4" fontWeight="bold" color="#ca8a04">
-                3m 40s
-              </Typography>
-              <Typography variant="caption" color={green[500]}>
-                3% Increase vs Previous Month
-              </Typography>
-              <Box display="flex" justifyContent="flex-end" mt={2}>
-                <TimelineIcon fontSize="large" sx={{ color: green[500] }} />
-              </Box>
-            </CardContent>
-          </Card>
-        </Grid>
-      </Grid>
+        {/* Card 4 */}
+        <div className="bg-white shadow-md p-6 rounded-lg">
+          <p className="text-sm md:text-lg lg:text-xl font-semibold text-gray-500">Avg. Visit Duration</p>
+          <h2 className="text-lg md:text-xl lg:text-2xl font-bold text-yellow-600">3m 40s</h2>
+          <p className="text-green-500 text-xs md:text-sm lg:text-lg">3% Increase vs Previous Month</p>
+          <div className="flex justify-end mt-4">
+            <span className="text-green-500 text-xl md:text-2xl lg:text-3xl">&#x23F3;</span>
+          </div>
+        </div>
+      </div>
 
       {/* Users by Device Section */}
-      <Card sx={{ boxShadow: 3 }}>
-        <Box p={3}>
-          <Box display="flex" justifyContent="space-between">
-            <Typography variant="h6" fontWeight="bold" sx={{ color: "#ca8a04" }}>
-              Users By Device
-            </Typography>
-            <IconButton>
-              <MoreVertIcon />
-            </IconButton>
-          </Box>
+      <div className="bg-white shadow-md rounded-lg p-6">
+        <div className="flex justify-between">
+          <h2 className="text-sm md:text-lg lg:text-xl font-bold text-yellow-600">Users By Device</h2>
+          <button className="text-gray-500 text-sm md:text-lg lg:text-xl">&#x22EE;</button>
+        </div>
 
-          <Grid container spacing={3} mt={3}>
-            <Grid item xs={12} sm={4}>
-              <CircularProgressBar percentage={45} color={green[500]} />
-              <Typography mt={2} align="center">
-                Desktop Users
-              </Typography>
-              <Typography variant="caption" color={green[500]} align="center">
-                78.56K Users
-              </Typography>
-            </Grid>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6">
+          {/* Desktop Users */}
+          <div className="text-center">
+            <CircularProgressBar percentage={45} color="#10B981" />
+            <p className="mt-4 text-sm md:text-lg lg:text-xl">Desktop Users</p>
+            <p className="text-xs md:text-sm lg:text-lg text-green-500">78.56K Users</p>
+          </div>
 
-            <Grid item xs={12} sm={4}>
-              <CircularProgressBar percentage={35} color={red[500]} />
-              <Typography mt={2} align="center">
-                Mobile Users
-              </Typography>
-              <Typography variant="caption" color={red[500]} align="center">
-                105.34K Users
-              </Typography>
-            </Grid>
+          {/* Mobile Users */}
+          <div className="text-center">
+            <CircularProgressBar percentage={35} color="#EF4444" />
+            <p className="text-sm md:text-lg lg:text-xl mt-4 ">Mobile Users</p>
+            <p className="text-xs md:text-sm lg:text-lg text-red-500">105.34K Users</p>
+          </div>
 
-            <Grid item xs={12} sm={4}>
-              <CircularProgressBar percentage={20} color={orange[500]} />
-              <Typography mt={2} align="center">
-                Tablet Users
-              </Typography>
-              <Typography variant="caption" color={orange[500]} align="center">
-                43.43K Users
-              </Typography>
-            </Grid>
-          </Grid>
+          {/* Tablet Users */}
+          <div className="text-center">
+            <CircularProgressBar percentage={20} color="#F59E0B" />
+            <p className="text-sm md:text-lg lg:text-xl mt-4">Tablet Users</p>
+            <p className="text-xs md:text-sm lg:text-lg text-orange-500">43.43K Users</p>
+          </div>
+        </div>
 
-          <Divider sx={{ my: 3 }} />
+        <hr className="my-6" />
 
-          {/* Additional Information */}
-          <Grid container spacing={3}>
-            <Grid item xs={12} sm={4}>
-              <Box display="flex" alignItems="center">
-                <DesktopMacIcon sx={{ color: green[500], mr: 2 }} />
-                <Typography>78.56K Desktop Users</Typography>
-              </Box>
-              <Typography variant="caption" color={green[500]}>
-                12% Increase
-              </Typography>
-            </Grid>
+        {/* Additional Information */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          {/* Desktop Info */}
+          <div className="flex items-center">
+            <span className="text-green-500 text-3xl mr-2">&#x1F5A5;</span>
+            <div>
+              <p className="text-sm md:text-md lg:text-lg">78.56K Desktop Users</p>
+              <p className="text-green-500 text-xs md:text-sm lg:text-lg">12% Increase</p>
+            </div>
+          </div>
 
-            <Grid item xs={12} sm={4}>
-              <Box display="flex" alignItems="center">
-                <PhoneAndroidIcon sx={{ color: red[500], mr: 2 }} />
-                <Typography>105.34K Mobile Users</Typography>
-              </Box>
-              <Typography variant="caption" color={red[500]}>
-                8% Decrease
-              </Typography>
-            </Grid>
+          {/* Mobile Info */}
+          <div className="flex items-center">
+            <span className="text-red-500 text-3xl mr-2">&#x1F4F1;</span>
+            <div>
+              <p className="text-sm md:text-md lg:text-lg">105.34K Mobile Users</p>
+              <p className="text-red-500 text-xs md:text-sm lg:text-lg">8% Decrease</p>
+            </div>
+          </div>
 
-            <Grid item xs={12} sm={4}>
-              <Box display="flex" alignItems="center">
-                <TabletMacIcon sx={{ color: orange[500], mr: 2 }} />
-                <Typography>43.43K Tablet Users</Typography>
-              </Box>
-              <Typography variant="caption" color={orange[500]}>
-                3% Increase
-              </Typography>
-            </Grid>
-          </Grid>
-        </Box>
-      </Card>
-    </Box>
+          {/* Tablet Info */}
+          <div className="flex items-center">
+            <span className="text-orange-500 text-3xl mr-2">&#x1F4F6;</span>
+            <div>
+              <p className="text-sm md:text-md lg:text-lg">43.43K Tablet Users</p>
+              <p className="text-orange-500 text-xs md:text-sm lg:text-lg">3% Increase</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

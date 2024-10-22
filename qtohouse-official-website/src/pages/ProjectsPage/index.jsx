@@ -16,6 +16,7 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
+import useMediaQuery from "@mui/material/useMediaQuery"; // To detect screen size
 
 // Dummy data from the backend (as an example)
 const dummyProjects = {
@@ -139,8 +140,10 @@ function ProjectPage() {
     division: false,
     dateRange: false,
   });
-  const [selectedTab, setSelectedTab] = useState("Active");
+  const [selectedTab, setSelectedTab] = useState("Active Projects");
   const [viewMode, setViewMode] = useState("grid"); // Track grid or list view
+
+  const isSmallScreen = useMediaQuery("(max-width: 768px)"); // Detect small screens
 
   const navigate = useNavigate();
 
@@ -148,6 +151,13 @@ function ProjectPage() {
     setProjects(dummyProjects.projects);
     setFilteredProjects(dummyProjects.projects);
   }, []);
+
+  useEffect(() => {
+    // On small screens, force grid view mode
+    if (isSmallScreen) {
+      setViewMode("grid");
+    }
+  }, [isSmallScreen]);
 
   // Function to handle filter changes
   const handleFilterChange = (filterName, value) => {
@@ -448,8 +458,8 @@ function ProjectPage() {
         {/* Project Tabs and Listings */}
         <div className="flex-grow w-full bg-white p-4 lg:p-6 shadow-md rounded-lg">
           {/* Project Tabs */}
-          <div className="flex flex-wrap gap-2 lg:gap-4 mb-6 lg:mb-8 items-center justify-between">
-            <div className="flex flex-col justify-center md:flex-row lg:flex-row md:space-x-2 lg:space-x-4">
+          <div className="flex flex-wrap gap-2 lg:gap-4 mb-6 lg:mb-8 items-center justify-evenly md:justify-between lg:justify-between">
+            <div className="flex flex-col  justify-center md:flex-row lg:flex-row space-y-2 md:space-y-0 lg:space-y-0 md:space-x-2 lg:space-x-4">
               {["Active Projects", "Past Projects", "My Projects", "Favourite Projects"].map(
                 (tab) => (
                   <Button
@@ -478,19 +488,21 @@ function ProjectPage() {
             </div>
 
             {/* View Toggle Buttons */}
-            <div>
-              <IconButton
-                onClick={() =>
-                  setViewMode(viewMode === "list" ? "grid" : "list")
-                }
-              >
-                {viewMode === "list" ? (
-                  <GridViewIcon fontSize="large" />
-                ) : (
-                  <ViewListIcon fontSize="large" />
-                )}
-              </IconButton>
-            </div>
+            {!isSmallScreen && (
+              <div>
+                <IconButton
+                  onClick={() =>
+                    setViewMode(viewMode === "list" ? "grid" : "list")
+                  }
+                >
+                  {viewMode === "list" ? (
+                    <GridViewIcon fontSize="large" />
+                  ) : (
+                    <ViewListIcon fontSize="large" />
+                  )}
+                </IconButton>
+              </div>
+            )}
           </div>
 
           {/* Project Cards */}

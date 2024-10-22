@@ -1,192 +1,96 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Typography,
-  Button,
-  Grid,
-  TextField,
-  InputAdornment,
-  IconButton,
-  Paper,
-  Table,
-  TableHead,
-  TableBody,
-  TableRow,
-  TableCell,
-  MenuItem,
-  Menu,
-} from "@mui/material";
+import { Box, Menu, MenuItem, IconButton } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import SearchIcon from "@mui/icons-material/Search";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 function UserGroups() {
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [menuAnchor, setMenuAnchor] = useState(null);
   const [selectedGroupId, setSelectedGroupId] = useState(null);
-  const navigate = useNavigate(); // Hook to navigate between pages
 
   const handleMenuClick = (event, groupId) => {
-    setAnchorEl(event.currentTarget);
+    setMenuAnchor(event.currentTarget);
     setSelectedGroupId(groupId); // Store selected group ID
   };
 
   const handleMenuClose = () => {
-    setAnchorEl(null);
+    setMenuAnchor(null);
     setSelectedGroupId(null);
   };
 
-  // Navigate to the permissions page when "Assign Permissions" is clicked
-  const handleAssignPermissions = () => {
-    navigate(`/user/permissions/`);
-    handleMenuClose();
-  };
-
   return (
-    <Box sx={{ padding: "2rem", backgroundColor: "#f5f5f5", minHeight: "100vh" }}>
+    <div className="p-1 md:p-6 bg-gray-100 min-h-screen">
       {/* Header */}
-      <Typography variant="h4" fontWeight="bold" mb={2} sx={{ color: "#ca8a04" }}>
+      <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-yellow-600 text-center md:text-left mb-4">
         Groups
-      </Typography>
-      <Typography variant="body1" color="textSecondary" mb={4}>
+      </h1>
+      <p className="text-xs md:text-sm lg:text-lg text-gray-600 text-center md:text-left mb-6">
         Users / Groups
-      </Typography>
+      </p>
 
-      {/* Add Group, Filters, Import */}
-      <Grid container spacing={2} alignItems="center">
-        <Grid item xs={12} sm={6}>
-          <Button
-            variant="contained"
-            color="primary"
-            startIcon={<AddIcon />}
-            sx={{
-              fontWeight: "bold",
-              padding: "10px 20px",
-              borderRadius: "8px",
-              backgroundColor: "#ca8a04",
-              "&:hover": { backgroundColor: "#1565C0" },
-            }}
-          >
-            Add Group
-          </Button>
-        </Grid>
-        <Grid item xs={12} sm={6} sx={{ textAlign: "right" }}>
-          <Button
-            variant="outlined"
-            startIcon={<FilterListIcon />}
-            sx={{
-              mr: 2,
-              padding: "8px 16px",
-              borderRadius: "8px",
-              borderColor: "#ca8a04",
-              color: "#ca8a04",
-              "&:hover": { borderColor: "#ca8a04", color: "#ca8a04" },
-            }}
-          >
-            Filters
-          </Button>
-          <Button
-            variant="outlined"
-            startIcon={<ImportExportIcon />}
-            sx={{
-              mr: 2,
-              padding: "8px 16px",
-              borderRadius: "8px",
-              borderColor: "#ca8a04",
-              color: "#ca8a04",
-              "&:hover": { borderColor: "#ca8a04", color: "#ca8a04" },
-            }}
-          >
-            Import
-          </Button>
+      {/* Actions (Add Group, Filters, Import) */}
+      <div className="flex flex-col md:flex-row gap-4 mb-6 items-center justify-center md:justify-between">
+        <button className="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg font-semibold flex items-center">
+          <AddIcon className="mr-2" /> Add Group
+        </button>
+        <div className="flex flex-col md:flex-row gap-2">
+          <button className="border border-yellow-600 text-yellow-600 px-4 py-2 rounded-lg font-semibold flex items-center">
+            <FilterListIcon className="mr-2" /> Filters
+          </button>
+          <button className="border border-yellow-600 text-yellow-600 px-4 py-2 rounded-lg font-semibold flex items-center">
+            <ImportExportIcon className="mr-2" /> Import
+          </button>
           <IconButton>
             <MoreVertIcon />
           </IconButton>
-        </Grid>
-      </Grid>
+        </div>
+      </div>
 
       {/* Search and Sort */}
-      <Box mt={4} mb={3}>
-        <Grid container spacing={2} alignItems="center">
-          <Grid item xs={12} sm={8}>
-            <TextField
-              fullWidth
-              placeholder="Search groups..."
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
-              }}
-              sx={{
-                backgroundColor: "white",
-                borderRadius: "8px",
-                boxShadow: "0px 2px 10px rgba(0,0,0,0.05)",
-              }}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search for groups..."
+              className="w-full pl-10 p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-yellow-500"
             />
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <Box display="flex" alignItems="center">
-              <Typography variant="body2" color="textSecondary" sx={{ mr: 2 }}>
-                Sort by:
-              </Typography>
-              <TextField
-                select
-                fullWidth
-                defaultValue="Name"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <AddIcon />
-                    </InputAdornment>
-                  ),
-                }}
-                sx={{
-                  backgroundColor: "white",
-                  borderRadius: "8px",
-                  boxShadow: "0px 2px 10px rgba(0,0,0,0.05)",
-                }}
-              >
-                <MenuItem value="Name">Name</MenuItem>
-                <MenuItem value="Date">Date</MenuItem>
-              </TextField>
-            </Box>
-          </Grid>
-        </Grid>
-      </Box>
+          </div>
+        </div>
+        <div className="flex items-center justify-end">
+          <p className="mr-4 text-gray-600">Sort by:</p>
+          <div className="relative">
+            <select className="w-full pl-10 p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-yellow-500">
+              <option value="Name">Name</option>
+              <option value="Date">Date</option>
+            </select>
+          </div>
+        </div>
+      </div>
 
-      {/* Table Section */}
-      <Paper
-        elevation={3}
-        sx={{
-          padding: "16px",
-          borderRadius: "16px",
-          boxShadow: "0px 4px 20px rgba(0,0,0,0.05)",
-        }}
-      >
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell sx={{ fontWeight: "bold", color: "#ca8a04" }}>Group Name</TableCell>
-              <TableCell sx={{ fontWeight: "bold", color: "#ca8a04" }}>Actions</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {/* Sample group row */}
+      {/* Table on Larger Screens / Cards on Smaller Screens */}
+      <div className="hidden md:block bg-white shadow-md rounded-lg p-6">
+        <table className="w-full table-auto">
+          <thead>
+            <tr className="text-left">
+              <th className="font-bold text-yellow-600 p-2">Group Name</th>
+              <th className="font-bold text-yellow-600 p-2">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* Sample Group Row */}
             {[
               { id: 1, groupName: "Admin Group" },
               { id: 2, groupName: "Managers Group" },
               { id: 3, groupName: "Developers Group" },
             ].map((group) => (
-              <TableRow hover key={group.id}>
-                <TableCell>{group.groupName}</TableCell>
-                <TableCell>
+              <tr className="border-b hover:bg-gray-50" key={group.id}>
+                <td className="p-2">{group.groupName}</td>
+                <td className="p-2 flex items-center space-x-2">
                   <IconButton>
                     <EditIcon />
                   </IconButton>
@@ -200,22 +104,62 @@ function UserGroups() {
                     <MoreVertIcon />
                   </IconButton>
                   <Menu
-                    anchorEl={anchorEl}
-                    open={Boolean(anchorEl)}
+                    anchorEl={menuAnchor}
+                    open={Boolean(menuAnchor)}
                     onClose={handleMenuClose}
                   >
                     <MenuItem onClick={handleMenuClose}>Edit</MenuItem>
                     <MenuItem onClick={handleMenuClose}>Delete</MenuItem>
                     <MenuItem onClick={handleMenuClose}>Assign User</MenuItem>
-                    <MenuItem onClick={handleAssignPermissions}>Assign Permissions</MenuItem>
+                    <MenuItem onClick={handleMenuClose}>Assign Permissions</MenuItem>
                   </Menu>
-                </TableCell>
-              </TableRow>
+                </td>
+              </tr>
             ))}
-          </TableBody>
-        </Table>
-      </Paper>
-    </Box>
+          </tbody>
+        </table>
+      </div>
+
+      {/* Cards on Smaller Screens */}
+      <div className="md:hidden">
+        {/* Sample Group Card */}
+        {[
+          { id: 1, groupName: "Admin Group" },
+          { id: 2, groupName: "Managers Group" },
+          { id: 3, groupName: "Developers Group" },
+        ].map((group) => (
+          <div className="bg-white shadow-md rounded-lg p-4 mb-4" key={group.id}>
+            <div className="flex justify-between items-center">
+              <p className="font-bold text-lg">{group.groupName}</p>
+              <IconButton onClick={(event) => handleMenuClick(event, group.id)}>
+                <MoreVertIcon />
+              </IconButton>
+            </div>
+            <div className="flex space-x-4 mt-4">
+              <IconButton>
+                <EditIcon />
+              </IconButton>
+              <IconButton>
+                <DeleteIcon />
+              </IconButton>
+              <IconButton>
+                <PersonAddIcon />
+              </IconButton>
+            </div>
+            <Menu
+              anchorEl={menuAnchor}
+              open={Boolean(menuAnchor)}
+              onClose={handleMenuClose}
+            >
+              <MenuItem onClick={handleMenuClose}>Edit</MenuItem>
+              <MenuItem onClick={handleMenuClose}>Delete</MenuItem>
+              <MenuItem onClick={handleMenuClose}>Assign User</MenuItem>
+              <MenuItem onClick={handleMenuClose}>Assign Permissions</MenuItem>
+            </Menu>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
