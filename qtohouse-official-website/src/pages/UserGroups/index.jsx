@@ -34,14 +34,14 @@ function UserGroups() {
 
       {/* Actions (Add Group, Filters, Import) */}
       <div className="flex flex-col md:flex-row gap-4 mb-6 items-center justify-center md:justify-between">
-        <button className="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg font-semibold flex items-center">
+        <button className="bg-yellow-600 hover:bg-yellow-700 text-white px-2 md:px-4 py-1 md:py-2 rounded-lg font-light md:font-semibold flex items-center">
           <AddIcon className="mr-2" /> Add Group
         </button>
         <div className="flex flex-col md:flex-row gap-2">
-          <button className="border border-yellow-600 text-yellow-600 px-4 py-2 rounded-lg font-semibold flex items-center">
+          <button className="border border-yellow-600 text-yellow-600 px-2 md:px-4 py-1 md:py-2 rounded-lg font-light md:font-semibold flex items-center">
             <FilterListIcon className="mr-2" /> Filters
           </button>
-          <button className="border border-yellow-600 text-yellow-600 px-4 py-2 rounded-lg font-semibold flex items-center">
+          <button className="border border-yellow-600 text-yellow-600 px-2 md:px-4 py-1 md:py-2 rounded-lg font-light md:font-semibold flex items-center">
             <ImportExportIcon className="mr-2" /> Import
           </button>
           <IconButton>
@@ -51,7 +51,7 @@ function UserGroups() {
       </div>
 
       {/* Search and Sort */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 px-2">
         <div>
           <div className="relative">
             <input
@@ -121,7 +121,7 @@ function UserGroups() {
       </div>
 
       {/* Cards on Smaller Screens */}
-      <div className="md:hidden">
+      <div className="md:hidden px-2">
         {/* Sample Group Card */}
         {[
           { id: 1, groupName: "Admin Group" },

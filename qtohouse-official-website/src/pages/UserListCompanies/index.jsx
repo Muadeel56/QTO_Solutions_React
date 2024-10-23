@@ -39,7 +39,7 @@ function UserListCompanies() {
   };
 
   return (
-    <div className=" p-2">
+    <div className=" p-2 md:p-8">
       {/* Title and Add Company Button */}
       <div className="flex flex-col md:flex-row justify-evenly md:justify-between items-start md:items-center space-y-2 md:space-y-0 mb-6">
         <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-yellow-600">Companies</h1>

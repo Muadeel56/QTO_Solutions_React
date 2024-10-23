@@ -54,7 +54,7 @@ function FavouriteProjects() {
   };
 
   return (
-    <div className="p-2">
+    <div className="p-4 md:p-8 ">
       {/* Title Section */}
       <div className="flex flex-col md:flex-row justify-evenly md:justify-between items-start md:items-center space-y-2 md:space-y-0 mb-6">
         <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-yellow-600">Favourite Projects</h1>
@@ -102,7 +102,7 @@ function FavouriteProjects() {
       {/* Responsive Table/Card Layout */}
       {isMobile ? (
         // Render card-like layout on mobile
-        <div className="space-y-4">
+        <div className="space-y-4 p-1">
           {projects.map((project, index) => (
             <Box key={index} component={Paper} className="p-4 shadow-md rounded-lg">
               <Typography variant="h6" fontWeight={'bold'} className="font-bold text-yellow-600">

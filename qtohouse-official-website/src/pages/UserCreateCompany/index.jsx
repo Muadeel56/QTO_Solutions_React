@@ -2,7 +2,7 @@ import React from "react";
 
 function UserCreateCompany() {
   return (
-    <div className="ml p-1">
+    <div className="ml p-1 md:p-8">
       <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-yellow-600 text-center mb-4">
         Create Company
       </h1>

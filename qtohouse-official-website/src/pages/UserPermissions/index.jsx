@@ -176,7 +176,7 @@ function UserPermissions() {
       </div>
 
       {/* Cards on Smaller Screens */}
-      <div className="md:hidden">
+      <div className="md:hidden p-2">
         {filteredPermissions.map((permission) => (
           <div className="bg-white shadow-md rounded-lg p-4 mb-4" key={permission.id}>
             <div className="flex justify-between items-center">

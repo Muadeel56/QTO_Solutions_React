@@ -3,7 +3,7 @@ import CircularProgressBar from "../../components/CircularProgressBar"; // Assum
 
 function UserDashboard() {
   return (
-    <div className=" pl-4 mt-2">
+    <div className=" pl-4 md:p-8 mt-2">
       {/* Header Section */}
       <div className="mb-6">
         <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-yellow-600">Analytics</h1>
@@ -11,12 +11,12 @@ function UserDashboard() {
       </div>
 
       {/* Statistics Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
         {/* Card 1 */}
         <div className="bg-white shadow-lg md:shadow-md p-6 rounded-lg">
           <p className="text-sm md:text-lg lg:text-xl font-semibold text-gray-500">Users</p>
           <h2 className="text-lg md:text-xl lg:text-2xl font-bold text-yellow-600">28.07K</h2>
-          <p className="text-green-500 text-xs md:text-sm lg:text-lg">12% Increase vs Previous Month</p>
+          <p className="text-green-500 text-xs md:text-sm lg:text-sm">12% Increase vs Previous Month</p>
           <div className="flex justify-end mt-4">
             <span className="text-green-500 text-3xl">&#x1F3E2;</span>
           </div>
@@ -26,7 +26,7 @@ function UserDashboard() {
         <div className="bg-white shadow-md p-6 rounded-lg">
           <p className="text-sm md:text-lg lg:text-xl font-semibold text-gray-500">Sessions</p>
           <h2 className="text-lg md:text-xl lg:text-2xl font-bold text-yellow-600">97.67K</h2>
-          <p className="text-red-500 text-xs md:text-sm lg:text-lg">8% Decrease vs Previous Month</p>
+          <p className="text-red-500 text-xs md:text-sm lg:text-sm">8% Decrease vs Previous Month</p>
           <div className="flex justify-end mt-4">
             <span className="text-red-500 text-3xl">&#x2B50;</span>
           </div>
@@ -36,7 +36,7 @@ function UserDashboard() {
         <div className="bg-white shadow-md p-6 rounded-lg">
           <p className="text-sm md:text-lg lg:text-xl font-semibold text-gray-500">Bounce Rate</p>
           <h2 className="text-lg md:text-xl lg:text-2xl font-bold text-yellow-600">40.57%</h2>
-          <p className="text-orange-500 text-xs md:text-sm lg:text-lg">5% Increase vs Previous Month</p>
+          <p className="text-orange-500 text-xs md:text-sm lg:text-sm">5% Increase vs Previous Month</p>
           <div className="flex justify-end mt-4">
             <span className="text-orange-500 text-3xl">&#x1F4B8;</span>
           </div>
@@ -46,7 +46,7 @@ function UserDashboard() {
         <div className="bg-white shadow-md p-6 rounded-lg">
           <p className="text-sm md:text-lg lg:text-xl font-semibold text-gray-500">Avg. Visit Duration</p>
           <h2 className="text-lg md:text-xl lg:text-2xl font-bold text-yellow-600">3m 40s</h2>
-          <p className="text-green-500 text-xs md:text-sm lg:text-lg">3% Increase vs Previous Month</p>
+          <p className="text-green-500 text-xs md:text-sm lg:text-sm">3% Increase vs Previous Month</p>
           <div className="flex justify-end mt-4">
             <span className="text-green-500 text-xl md:text-2xl lg:text-3xl">&#x23F3;</span>
           </div>
@@ -57,7 +57,7 @@ function UserDashboard() {
       <div className="bg-white shadow-md rounded-lg p-6">
         <div className="flex justify-between">
           <h2 className="text-sm md:text-lg lg:text-xl font-bold text-yellow-600">Users By Device</h2>
-          <button className="text-gray-500 text-sm md:text-lg lg:text-xl">&#x22EE;</button>
+          <button className="text-gray-500 text-sm md:text-lg lg:text-sm">&#x22EE;</button>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6">

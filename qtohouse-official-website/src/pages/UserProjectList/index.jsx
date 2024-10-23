@@ -66,7 +66,7 @@ function UserProjectList() {
   );
 
   return (
-    <div className="ml p-1">
+    <div className="ml p-2">
       <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-yellow-600 text-center mb-4">
         Projects
       </h1>
@@ -96,7 +96,7 @@ function UserProjectList() {
             onChange={handleSortChange}
             displayEmpty
             inputProps={{ "aria-label": "Sort By" }}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500"
+            className="w-full  border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500"
             startAdornment={
               <InputAdornment position="start">
                 <SortIcon />
@@ -142,7 +142,7 @@ function UserProjectList() {
       </div>
 
       {/* Cards for Smaller Screens */}
-      <div className="md:hidden">
+      <div className="md:hidden p-2">
         {filteredProjects.map((project, index) => (
           <Card key={index} className="mb-4 shadow-md rounded-lg">
             <CardContent>
