@@ -1,22 +1,9 @@
 import React, { useState } from "react";
 import {
   Box,
-  Typography,
-  Button,
-  Grid,
-  TextField,
-  InputAdornment,
-  IconButton,
-  Paper,
-  Table,
-  TableHead,
-  TableBody,
-  TableRow,
-  TableCell,
-  Avatar,
-  MenuItem,
-  Divider,
   Menu,
+  MenuItem,
+  IconButton,
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import FilterListIcon from "@mui/icons-material/FilterList";
@@ -29,7 +16,6 @@ import BusinessIcon from "@mui/icons-material/Business";
 import PersonIcon from "@mui/icons-material/Person";
 
 function Users() {
-  const [anchorEl, setAnchorEl] = useState(null);
   const [menuAnchor, setMenuAnchor] = useState(null);
 
   const handleMenuClick = (event) => {
@@ -41,166 +27,85 @@ function Users() {
   };
 
   return (
-    <Box sx={{ padding: "2rem", backgroundColor: "#f5f5f5", minHeight: "100vh" }}>
+    <div className="p-2 md:p- mt-2">
       {/* Header */}
-      <Typography variant="h4" fontWeight="bold" mb={2} sx={{ color: "#ca8a04" }}>
+      <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-yellow-600 text-center md:text-left mb-4">
         Users
-      </Typography>
-      <Typography variant="body1" color="textSecondary" mb={4}>
+      </h1>
+      <p className="text-xs md:text-sm lg:text-lg text-gray-600 text-center md:text-left mb-6">
         CRM / Users / Contractors
-      </Typography>
+      </p>
 
-      {/* Add User, Filters, Import */}
-      <Grid container spacing={2} alignItems="center">
-        <Grid item xs={12} sm={6}>
-          <Button
-            variant="contained"
-            color="primary"
-            startIcon={<AddIcon />}
-            sx={{
-              fontWeight: "bold",
-              padding: "10px 20px",
-              borderRadius: "8px",
-              backgroundColor: "#ca8a04",
-              "&:hover": { backgroundColor: "#1565C0" },
-            }}
-          >
-            Add User
-          </Button>
-        </Grid>
-        <Grid item xs={12} sm={6} sx={{ textAlign: "right" }}>
-          <Button
-            variant="outlined"
-            startIcon={<FilterListIcon />}
-            sx={{
-              mr: 2,
-              padding: "8px 16px",
-              borderRadius: "8px",
-              borderColor: "#ca8a04",
-              color: "#ca8a04",
-              "&:hover": { borderColor: "#ca8a04", color: "#ca8a04" },
-            }}
-          >
-            Filters
-          </Button>
-          <Button
-            variant="outlined"
-            startIcon={<ImportExportIcon />}
-            sx={{
-              mr: 2,
-              padding: "8px 16px",
-              borderRadius: "8px",
-              borderColor: "#ca8a04",
-              color: "#ca8a04",
-              "&:hover": { borderColor: "#ca8a04", color: "#ca8a04" },
-            }}
-          >
-            Import
-          </Button>
+      {/* Actions (Add User, Filters, Import) */}
+      <div className="flex flex-col md:flex-row gap-4 mb-6 items-center justify-center md:justify-between px-8">
+        <button className="bg-yellow-600 hover:bg-yellow-700 text-white px-2 md:px-4 py-1 md:py-2 rounded-lg font-light md:font-semibold flex items-center">
+          <AddIcon className="mr-2" /> Add User
+        </button>
+        <div className="flex flex-col md:flex-row gap-2">
+          <button className="border border-yellow-600 text-yellow-600 px-2 md:px-4 py-1 md:py-2 rounded-lg font-light md:font-semibold flex items-center">
+            <FilterListIcon className="mr-2" /> Filters
+          </button>
+          <button className="border border-yellow-600 text-yellow-600 px-2 md:px-4 py-1 md:py-2 rounded-lg font-light md:font-semibold flex items-center">
+            <ImportExportIcon className="mr-2" /> Import
+          </button>
           <IconButton>
             <MoreVertIcon />
           </IconButton>
-        </Grid>
-      </Grid>
+        </div>
+      </div>
 
       {/* Search and Sort */}
-      <Box mt={4} mb={3}>
-        <Grid container spacing={2} alignItems="center">
-          <Grid item xs={12} sm={8}>
-            <TextField
-              fullWidth
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 p-10">
+        <div>
+          <div className="relative ">
+            <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+            <input
+              type="text"
               placeholder="Search for contractor..."
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
-              }}
-              sx={{
-                backgroundColor: "white",
-                borderRadius: "8px",
-                boxShadow: "0px 2px 10px rgba(0,0,0,0.05)",
-              }}
+              className="w-full pl-10 p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-yellow-500"
             />
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <Box display="flex" alignItems="center">
-              <Typography variant="body2" color="textSecondary" sx={{ mr: 2 }}>
-                Sort by:
-              </Typography>
-              <TextField
-                select
-                fullWidth
-                defaultValue="Company"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <BusinessIcon />
-                    </InputAdornment>
-                  ),
-                }}
-                sx={{
-                  backgroundColor: "white",
-                  borderRadius: "8px",
-                  boxShadow: "0px 2px 10px rgba(0,0,0,0.05)",
-                }}
-              >
-                <MenuItem value="Company">Company</MenuItem>
-                <MenuItem value="Lead">Lead</MenuItem>
-                <MenuItem value="Name">Name</MenuItem>
-              </TextField>
-            </Box>
-          </Grid>
-        </Grid>
-      </Box>
+          </div>
+        </div>
+        <div className="flex items-center justify-end">
+          <p className="mr-4 text-gray-600">Sort by:</p>
+          <div className="relative">
+            <BusinessIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+            <select className="w-full pl-10 p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-yellow-500">
+              <option value="Company">Company</option>
+              <option value="Lead">Lead</option>
+              <option value="Name">Name</option>
+            </select>
+          </div>
+        </div>
+      </div>
 
-      {/* Table Section */}
-      <Paper
-        elevation={3}
-        sx={{
-          padding: "16px",
-          borderRadius: "16px",
-          boxShadow: "0px 4px 20px rgba(0,0,0,0.05)",
-        }}
-      >
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell sx={{ fontWeight: "bold", color: "#ca8a04" }}>Name</TableCell>
-              <TableCell sx={{ fontWeight: "bold", color: "#ca8a04" }}>Company</TableCell>
-              <TableCell sx={{ fontWeight: "bold", color: "#ca8a04" }}>Email</TableCell>
-              <TableCell sx={{ fontWeight: "bold", color: "#ca8a04" }}>Phone</TableCell>
-              <TableCell sx={{ fontWeight: "bold", color: "#ca8a04" }}>Status</TableCell>
-              <TableCell sx={{ fontWeight: "bold", color: "#ca8a04" }}>Actions</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {/* Sample user row */}
-            <TableRow hover>
-              <TableCell>
-                <Grid container spacing={2} alignItems="center">
-                  <Grid item>
-                    <Avatar sx={{ backgroundColor: "#ca8a04" }}>
-                      <PersonIcon />
-                    </Avatar>
-                  </Grid>
-                  <Grid item>
-                    <Typography variant="body1" fontWeight="bold">
-                      John Doe
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </TableCell>
-              <TableCell>Example Corp</TableCell>
-              <TableCell>john.doe@example.com</TableCell>
-              <TableCell>+1 123 456 7890</TableCell>
-              <TableCell>
-                <Typography variant="body2" color="green">
-                  Active
-                </Typography>
-              </TableCell>
-              <TableCell>
+      {/* Table on Larger Screens / Cards on Smaller Screens */}
+      <div className="hidden md:block bg-white shadow-md rounded-lg p-6">
+        <table className="w-full table-auto">
+          <thead>
+            <tr className="text-left">
+              <th className="font-bold text-yellow-600 p-2">Name</th>
+              <th className="font-bold text-yellow-600 p-2">Company</th>
+              <th className="font-bold text-yellow-600 p-2">Email</th>
+              <th className="font-bold text-yellow-600 p-2">Phone</th>
+              <th className="font-bold text-yellow-600 p-2">Status</th>
+              <th className="font-bold text-yellow-600 p-2">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* Sample User Row */}
+            <tr className="border-b hover:bg-gray-50">
+              <td className="p-2 flex items-center space-x-2">
+                <div className="bg-yellow-600 text-white w-10 h-10 flex items-center justify-center rounded-full">
+                  <PersonIcon />
+                </div>
+                <p className="font-bold">John Doe</p>
+              </td>
+              <td className="p-2">Example Corp</td>
+              <td className="p-2">john.doe@example.com</td>
+              <td className="p-2">+1 123 456 7890</td>
+              <td className="p-2 text-green-500">Active</td>
+              <td className="p-2 flex items-center space-x-2">
                 <IconButton>
                   <PhoneIcon />
                 </IconButton>
@@ -219,102 +124,104 @@ function Users() {
                   <MenuItem onClick={handleMenuClose}>Delete</MenuItem>
                   <MenuItem onClick={handleMenuClose}>Assign Project</MenuItem>
                 </Menu>
-              </TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-      </Paper>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      {/* Cards on Smaller Screens */}
+      <div className="md:hidden">
+        {/* Sample User Card */}
+        <div className="bg-white shadow-md rounded-lg p-4 mb-4">
+          <div className="flex items-center space-x-4">
+            <div className="bg-yellow-600 text-white w-16 h-16 flex items-center justify-center rounded-full">
+              <PersonIcon />
+            </div>
+            <div>
+              <p className="font-bold text-lg">John Doe</p>
+              <p className="text-gray-600">Example Corp</p>
+            </div>
+          </div>
+          <div className="mt-4 space-y-2">
+            <p className="text-gray-600"><strong>Email:</strong> john.doe@example.com</p>
+            <p className="text-gray-600"><strong>Phone:</strong> +1 123 456 7890</p>
+            <p className="text-green-500"><strong>Status:</strong> Active</p>
+          </div>
+          <div className="flex space-x-4 mt-4">
+            <IconButton>
+              <PhoneIcon />
+            </IconButton>
+            <IconButton>
+              <MessageIcon />
+            </IconButton>
+            <IconButton onClick={handleMenuClick}>
+              <MoreVertIcon />
+            </IconButton>
+            <Menu
+              anchorEl={menuAnchor}
+              open={Boolean(menuAnchor)}
+              onClose={handleMenuClose}
+            >
+              <MenuItem onClick={handleMenuClose}>Edit</MenuItem>
+              <MenuItem onClick={handleMenuClose}>Delete</MenuItem>
+              <MenuItem onClick={handleMenuClose}>Assign Project</MenuItem>
+            </Menu>
+          </div>
+        </div>
+      </div>
 
       {/* User Details Section */}
-      <Box mt={4}>
-        <Paper
-          elevation={3}
-          sx={{
-            padding: "24px",
-            borderRadius: "16px",
-            backgroundColor: "#ffffff",
-            boxShadow: "0px 4px 20px rgba(0,0,0,0.05)",
-          }}
-        >
-          <Grid container spacing={4}>
-            <Grid item xs={12} sm={4}>
-              <Avatar
-                sx={{
-                  width: 128,
-                  height: 128,
-                  marginBottom: "16px",
-                  fontSize: "48px",
-                  backgroundColor: "#ca8a04",
-                }}
-              >
-                JD
-              </Avatar>
-              <Typography variant="h6">John Doe</Typography>
-              <Typography variant="body2" color="textSecondary">
-                Example Corp
-              </Typography>
-              <Grid container spacing={1} sx={{ mt: 2 }}>
-                <Grid item>
-                  <IconButton>
-                    <PhoneIcon />
-                  </IconButton>
-                </Grid>
-                <Grid item>
-                  <IconButton>
-                    <MessageIcon />
-                  </IconButton>
-                </Grid>
-              </Grid>
-            </Grid>
+      <div className="bg-white shadow-md rounded-lg p-6 mt-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+          <div className="text-center md:text-left">
+            <div className="bg-yellow-600 text-white w-32 h-32 mx-auto md:mx-0 flex items-center justify-center rounded-full text-3xl mb-4">
+              JD
+            </div>
+            <h2 className="text-lg font-bold">John Doe</h2>
+            <p className="text-gray-600">Example Corp</p>
+            <div className="flex justify-center md:justify-start space-x-2 mt-2">
+              <IconButton>
+                <PhoneIcon />
+              </IconButton>
+              <IconButton>
+                <MessageIcon />
+              </IconButton>
+            </div>
+          </div>
 
-            <Grid item xs={12} sm={8}>
-              <Typography variant="h6" fontWeight="bold" gutterBottom>
-                Personal Information
-              </Typography>
-              <Divider sx={{ mb: 2 }} />
-              <Grid container spacing={2}>
-                <Grid item xs={6}>
-                  <Typography variant="body1" fontWeight="bold">
-                    Designation
-                  </Typography>
-                  <Typography variant="body2">Lead Designer / Developer</Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography variant="body1" fontWeight="bold">
-                    Email ID
-                  </Typography>
-                  <Typography variant="body2">john.doe@example.com</Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography variant="body1" fontWeight="bold">
-                    Phone
-                  </Typography>
-                  <Typography variant="body2">+1 123 456 7890</Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography variant="body1" fontWeight="bold">
-                    Lead Score
-                  </Typography>
-                  <Typography variant="body2">10</Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography variant="body1" fontWeight="bold">
-                    Tags
-                  </Typography>
-                  <Typography variant="body2">Tag 1, Tag 2</Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography variant="body1" fontWeight="bold">
-                    Last Contacted
-                  </Typography>
-                  <Typography variant="body2">01/01/2024</Typography>
-                </Grid>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Paper>
-      </Box>
-    </Box>
+          <div className="flex flex-col space-y-4 justify-center items-center md:col-span-2">
+            <h2 className="text-lg text-center font-bold mb-4">Personal Information</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="flex flex-col justify-center items-center md:items-start">
+                <p className="font-bold">Designation</p>
+                <p>Lead Designer / Developer</p>
+              </div>
+              <div className="flex flex-col justify-center items-center md:items-start">
+                <p className="font-bold">Email ID</p>
+                <p>john.doe@example.com</p>
+              </div>
+              <div className="flex flex-col justify-center items-center md:items-start">
+                <p className="font-bold">Phone</p>
+                <p>+1 123 456 7890</p>
+              </div>
+              <div className="flex flex-col justify-center items-center md:items-start">
+                <p className="font-bold">Lead Score</p>
+                <p>10</p>
+              </div>
+              <div className="flex flex-col justify-center items-center md:items-start">
+                <p className="font-bold">Tags</p>
+                <p>Tag 1, Tag 2</p>
+              </div>
+              <div className="flex flex-col justify-center items-center md:items-start">
+                <p className="font-bold">Last Contacted</p>
+                <p>01/01/2024</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

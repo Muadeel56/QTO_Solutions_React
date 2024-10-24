@@ -12,26 +12,37 @@ function Plans() {
     { name: "Elevations", size: "5.0MB", date: "2024-08-29" },
     { name: "Structural Plan", size: "6.3MB", date: "2024-08-20" },
     { name: "Electrical Layout", size: "2.4MB", date: "2024-08-15" },
-    { name: "HVAC Plan", size: "2.8MB", date: "2024-08-05" }
+    { name: "HVAC Plan", size: "2.8MB", date: "2024-08-05" },
   ];
 
   return (
     <div className="w-full bg-white p-6 rounded-lg shadow-md">
-      <h1 className="text-2xl font-bold text-gray-800 mb-6">Plans</h1>
+      <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-800 mb-6">
+        Plans
+      </h1>
       <div className="space-y-6">
         {plansData.map((plan, index) => (
-          <div key={index} className="flex items-center justify-between p-4 border rounded-lg hover:shadow-lg transition-shadow duration-300">
+          <div
+            key={index}
+            className="flex flex-col md:flex-row items-start justify-between space-y-2 md:space-y-0 p-4 border rounded-lg hover:shadow-lg transition-shadow duration-300"
+          >
             <div className="flex items-center space-x-4">
               {/* Plan Icon and Name */}
               <DescriptionIcon className="text-blue-600 text-4xl" />
-              <div>
-                <p className="text-lg font-semibold text-gray-800">{plan.name}</p>
-                <p className="text-sm text-gray-500">Size: {plan.size}</p>
+              <div className="space-y-2">
+                <p className="text-sm md:text-lg lg:text-xl font-semibold text-gray-800">
+                  {plan.name}
+                </p>
+                <p className="text-xs md:text-sm lg:text-lg text-gray-500">
+                  Size: {plan.size}
+                </p>
               </div>
             </div>
 
             {/* File Date */}
-            <p className="text-gray-600">{plan.date}</p>
+            <p className="text-xs md:text-sm lg:text-lg text-gray-600">
+              {plan.date}
+            </p>
 
             {/* Action Icons */}
             <div className="flex space-x-4">

@@ -43,7 +43,7 @@ function HomePage() {
           </div>
 
           {/* Information Section on Top of Image */}
-          <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[60%] bg-gray-900 bg-opacity-80 text-white p-4 sm:p-6 md:p-8 rounded-xl shadow-lg flex flex-wrap items-center justify-around text-center space-y-4 sm:space-y-0 border-t-8 border-b-8 border-yellow-500">
+          <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[60%] bg-gray-600 bg-opacity-80 text-white p-4 sm:p-6 md:p-8 rounded-xl shadow-lg flex flex-wrap items-center justify-around text-center space-y-4 sm:space-y-0 border-t-8 border-b-8 border-yellow-500">
             <div className="flex flex-col items-center w-1/2 sm:w-1/5 mb-4 sm:mb-0">
               <DescriptionIcon className="text-yellow-500 text-3xl sm:text-4xl md:text-5xl" />
               <p className="mt-2 text-xs sm:text-sm md:text-sm lg:text-lg font-semibold">QTO-Available</p>

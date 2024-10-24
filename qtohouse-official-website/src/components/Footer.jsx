@@ -93,7 +93,7 @@ function Footer() {
 
       {/* Bottom Section */}
       <div className="border-t border-gray-700 mt-8 pt-4">
-        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-200">
           <p>Estimation Made Simple with QTO House</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="/privacy-policy" className="hover:text-yellow-400 transition-all">
